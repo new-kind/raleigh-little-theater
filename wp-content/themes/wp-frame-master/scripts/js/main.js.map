@@ -1,0 +1,1 @@
+{"version":3,"sources":["scripts/ts/hello.ts"],"names":[],"mappings":"AAAA,IAAI,KAAK,GAAU,OAAO,CAAC","file":"../wordpressframe/main.js","sourcesContent":["var hello:string = \"hello\";"]}
