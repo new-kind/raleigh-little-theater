@@ -1,0 +1,17 @@
+<header class="header" >
+			{#{% block header %}#}
+				<div>
+					<h1>
+						<a class="" href="{{site.url}}" rel="home">{{site.name}}</a>
+					</h1>
+					<nav class="" role="navigation">
+                        <ul>
+                            {% for item in navbar %}
+                                <a href="#{{item}}"><li>{{item}}</li></a>
+                            {% endfor %}
+                        </ul>
+					
+					</nav><!-- #nav -->
+				</div>
+			{#{% endblock %}#}
+    </header>
