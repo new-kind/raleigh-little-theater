@@ -1,0 +1,47 @@
+$columnWidth: 8.333;
+
+.grid{ 
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    padding: 0;
+    margin: -1rem;
+
+    > .column{
+        position: relative;
+        display: inline-block;
+        width: 6.25%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        vertical-align: top;
+        box-sizing: border-box;
+
+        &[class *= "one column"]{    width: $columnWidth + %!important; }
+        &[class *= "two column"]{    width: ($columnWidth * 2) + %!important; }
+        &[class *= "three column"]{  width: ($columnWidth * 3) + %!important; }
+        &[class *= "four column"]{   width: ($columnWidth * 4) + %!important; }
+        &[class *= "five column"]{   width: ($columnWidth * 5) + %!important; }
+        &[class *= "six column"]{    width: ($columnWidth * 6) + %!important; }
+        &[class *= "seven column"]{  width: ($columnWidth * 7) + %!important; }
+        &[class *= "eight column"]{  width: ($columnWidth * 8) + %!important; }
+        &[class *= "nine column"]{   width: ($columnWidth * 9) + %!important; }
+        &[class *= "ten column"]{    width: ($columnWidth * 10) + %!important; }
+        &[class *= "eleven column"]{ width: ($columnWidth * 11) + %!important; }
+        &[class *= "twelve column"]{ width: ($columnWidth * 12) + %!important; }
+
+        &:not(.row){
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+    }
+
+}
