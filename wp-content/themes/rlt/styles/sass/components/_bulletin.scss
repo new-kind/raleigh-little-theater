@@ -1,0 +1,23 @@
+.bulletin{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .primary{
+        background: red;
+
+    }
+
+    .secondary{
+        background: purple;
+    }
+
+    .feed{
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 2em;
+        background: white;
+    }
+
+}

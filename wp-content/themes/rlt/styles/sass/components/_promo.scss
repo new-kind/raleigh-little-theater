@@ -1,0 +1,13 @@
+.promo{
+    background: url('http://placehold.it/800x600') no-repeat center;
+    background-size: cover;
+    min-height: 35vh;
+
+    > header{
+        padding: 2em;
+        margin-top: 1em;
+        background: #666;
+        color: #fff;
+        display: inline-block;
+    }
+}

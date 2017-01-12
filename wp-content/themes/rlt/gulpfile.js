@@ -107,7 +107,7 @@ var autoprefixer = require('gulp-autoprefixer');
 
                 // name of output file
                 outFile: 'main.js',
-
+                module: 'amd',
                 pretty: true
 
 
