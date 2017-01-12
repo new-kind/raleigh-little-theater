@@ -1,3 +1,0 @@
-#Wordpress Frame
-
-In progress
