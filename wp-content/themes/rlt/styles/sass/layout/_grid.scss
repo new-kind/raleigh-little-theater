@@ -16,6 +16,15 @@ $columnWidth: 8.333;
     padding: 0;
     margin: -1rem;
 
+    &.centered{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .grid{
+        font-size: 0;
+    }
+
     > .column{
         position: relative;
         display: inline-block;

@@ -1,7 +1,9 @@
 {% extends "base.twig" %}
 
 {% block content %}
-    <div class="grid">
+<main id="front-page">
+
+    <div class="grid promos">
     
         <div class="twelve column promo">
             <header>
@@ -24,7 +26,7 @@
             </header>
         </div>
 
-    </div>
+    </div><!--.promos-->
     
     <div class="grid frames">
 
@@ -46,10 +48,13 @@
             <header>
                 <h3 class="title">More than just a theater</h3>
             </header>
-            <a href="#" class="button">Visit Us</a>
+
+            <div class="buttons centered">
+                <a href="#" class="button">Visit Us</a>
+            </div>
         </div>
 
-    </div>
+    </div><!--.frames-->
 
     <div class="grid bulletin">
     
@@ -60,7 +65,9 @@
                 <h2 class="title">Using theater to enrich, educate, entertain, and engage for over 75 years</h2>
             </header>
 
-            <a href="#" class="button">About Us</a>
+            <div class="buttons centered">
+                <a href="#" class="button">About Us</a>
+            </div>
 
         </div>
 
@@ -71,7 +78,9 @@
                 <h2 class="title">Support the Raleigh Little Theatre Community</h2>
             </header>
 
-            <a href="#" class="button">Donate</a>
+            <div class="buttons centered">
+                <a href="#" class="button">Donate</a>
+            </div>
 
         </div>
 
@@ -103,8 +112,29 @@
             <a href="#" class="button">More News</a>
         </div>
 
+    </div><!--.bulletin-->
+
+    <div class="grid sponsors">
+
+        <h3 class="title twelve column text centered">Raleigh Little Theatre thanks its generous season sponsors</h3>
+
+        <div class="eight column grid centered">
+            <img class="three column" src="http://placehold.it/300x300" />
+            <img class="three column" src="http://placehold.it/300x300" />
+            <img class="three column" src="http://placehold.it/300x300" />
+            <img class="three column" src="http://placehold.it/300x300" />
+            <img class="three column" src="http://placehold.it/300x300" />
+            <img class="three column" src="http://placehold.it/300x300" />
+            <img class="three column" src="http://placehold.it/300x300" />
+            <img class="three column" src="http://placehold.it/300x300" />
+        </div>
+
+        <div class="buttons centered twelve column">
+            <a href="#" class="button">See all sponsors &rarr;</a>
+        </div>
+
     </div>
 
-
+</main><!--#front-page-->
 
 {% endblock %}

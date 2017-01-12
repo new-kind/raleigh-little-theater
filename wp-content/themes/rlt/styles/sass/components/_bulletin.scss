@@ -1,3 +1,12 @@
+/*
+** Name: _bulletin.scss
+** Description: Bulletin module is located toward the bottom of all landing pages.
+**              Includes 2 CTA's and a feed/list of links of some sort
+** Related files: bulletin.module.ts
+** Notes: Heights are dynamically set in bulletin.module.ts
+** 
+*/
+
 .bulletin{
     position: relative;
     display: flex;
@@ -5,11 +14,12 @@
 
     .primary{
         background: red;
-
+        padding: 2em!important;
     }
 
     .secondary{
         background: purple;
+        padding: 2em!important;
     }
 
     .feed{

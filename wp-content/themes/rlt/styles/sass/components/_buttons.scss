@@ -9,3 +9,11 @@
 .rounded{
     border-radius: .7em;
 }
+
+[class*="buttons"]{
+    display: block;
+
+    &.centered{
+        text-align: center;
+    }
+}

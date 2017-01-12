@@ -1,11 +1,11 @@
-import { Bulletin } from './bulletinSize.module';
+import { Bulletin } from './bulletin.module';
 import 'jquery';
 
 $(document).ready(function(){
 
-    let bulletin = new Bulletin;
-
-
-    console.log('test');
+    if( $('.bulletin') ){
+        //instantiate Bulletin class to handle sizing
+        let bulletin = new Bulletin;
+    }
 
 });

@@ -7,7 +7,6 @@
     background-size: cover;
     min-height: 300px;
     position: relative;
-    text-align: center;
     
     &:before{
         content: '';
@@ -25,11 +24,11 @@
         color: #fff;
         padding: 2em;
         text-align: left;
+        display: inline-block;
     }
 
     .button{
         position: absolute;
         bottom: 2em;
-        margin-left: -2em;
     }
 }

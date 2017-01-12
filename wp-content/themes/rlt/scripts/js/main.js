@@ -1,26 +1,40 @@
-define("bulletinSize.module", ["require", "exports"], function (require, exports) {
+define("bulletin.module", ["require", "exports"], function (require, exports) {
     "use strict";
     var Bulletin = (function () {
         function Bulletin() {
             this.feedHeight = this.getHeight($('.bulletin .feed'));
-            this.primaryHeight = this.getHeight($('.bulletin .primary'));
-            this.secondaryHeight = this.getHeight($('.bulletin .secondary'));
+            this.containerHeight = this.getHeight($('.bulletin'));
+            this.setHeight();
         }
+        // function to get heights of selectors
         Bulletin.prototype.getHeight = function (selector) {
-            return selector.height();
+            return selector.outerHeight();
         };
+        // function to test + set heights dynamically
         Bulletin.prototype.setHeight = function () {
-            var combinedHeight = this.primaryHeight + this.secondaryHeight;
+            if (this.feedHeight > this.containerHeight) {
+                // if feedheight is larger than the container, adjust container size to fit
+                $('.bulletin').css({
+                    'height': this.feedHeight + 64
+                });
+                $('.bulletin .primary, .bulletin .secondary').css('height', '50%');
+            }
+            else {
+                // else if container is larger, expand feed to fit
+                $('.bulletin .feed').css('height', (this.containerHeight - 64));
+            }
         };
         return Bulletin;
     }());
     exports.Bulletin = Bulletin;
 });
-define("main", ["require", "exports", "bulletinSize.module", 'jquery'], function (require, exports, bulletinSize_module_1) {
+define("main", ["require", "exports", "bulletin.module", 'jquery'], function (require, exports, bulletin_module_1) {
     "use strict";
     $(document).ready(function () {
-        var bulletin = new bulletinSize_module_1.Bulletin;
-        console.log('test');
+        if ($('.bulletin')) {
+            //instantiate Bulletin class to handle sizing
+            var bulletin = new bulletin_module_1.Bulletin;
+        }
     });
 });
 
