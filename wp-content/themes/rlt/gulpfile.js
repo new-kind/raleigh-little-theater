@@ -30,7 +30,7 @@ var autoprefixer = require('gulp-autoprefixer');
 
         // initialize browser-sync server on localhost:3000
         browserSync.init({
-             proxy: "localhost:8888/burney"
+             proxy: "localhost:8888/raleigh-little-theater"
         });
     });
 
