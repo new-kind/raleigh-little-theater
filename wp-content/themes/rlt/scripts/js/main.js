@@ -5,6 +5,10 @@ define("bulletin.module", ["require", "exports"], function (require, exports) {
             this.feedHeight = this.getHeight($('.bulletin .feed'));
             this.containerHeight = this.getHeight($('.bulletin'));
             this.setHeight();
+            $(window).on('resize', function () {
+                console.log('resized');
+                this.setHeight();
+            });
         }
         // function to get heights of selectors
         Bulletin.prototype.getHeight = function (selector) {

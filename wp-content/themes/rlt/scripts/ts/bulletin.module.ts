@@ -5,6 +5,10 @@ export class Bulletin {
 
     constructor(){
         this.setHeight();
+        $(window).on('resize', function(){
+            console.log('resized');
+            this.setHeight();
+        });
     }
 
     // function to get heights of selectors
@@ -29,6 +33,7 @@ export class Bulletin {
             $('.bulletin .feed').css('height', ( this.containerHeight - 64) );
 
         }
+        
     }
 
 }
