@@ -1,19 +1,48 @@
-.ghost-btn{
-    display: inline-block;
-    color: $white;
-    padding: .6em 1.2em;
-    border: 2px solid $white;
-    // border-radius: 1em;
-}
+// Button Styles that need to be changed
 
-.rounded{
-    border-radius: .7em;
-}
-
-.buttons{
-    display: block;
-
-    &.centered{
-        text-align: center;
+.button{
+    font-weight: bold;
+    font-family: helvetica;
+    background-color: #f4f4f4;
+    color: #DC5E5B;
+    display: inline;
+    padding: 10px 15px;
+    border: 5px solid #DC5E5B;
+    letter-spacing: 1px;
+    
+    &:hover{
+      transition: background-color 0.7s ease;
+      color: #f4f4f4;
+      background-color: #DC5E5B;
     }
+} 
+
+// ———————————————————————————————————————————————————————
+// Form styles that need to be changed
+// ———————————————————————————————————————————————————————
+
+form{
+  margin: 20px; /* test values */
+}
+
+input{
+  border: 1px solid black;
+  height: 25px; /* test values */
+  width: 400px; /* test values */
+  padding: 10px; /* test values */
+  padding-left: 20px; /* test values */
+  font-size: 18px; /* test values */
+}
+
+input[type=text]:focus{
+  outline: none;
+}
+
+#required{
+  border: 5px solid #DC5E5B;
+  height: 25px; /* test values */
+  width: 400px; /* test values */
+  padding: 10px; /* test values */
+  padding-left: 20px; /* test values */
+  font-size: 18px; /* test values */
 }
