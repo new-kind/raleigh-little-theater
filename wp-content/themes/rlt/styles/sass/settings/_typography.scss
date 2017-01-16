@@ -1,0 +1,70 @@
+h1{
+  font-size: em(60);
+  color: $cool_grey;
+  // font-family: 
+}
+
+h2{
+  font-size: em(36);
+  color: $cool_grey;
+  // font-family: 
+}
+
+h3{
+  font-size: em(26);
+  color: $cool_grey;
+  // font-family:
+  &.secodary{
+    color: $bloom_red
+  } 
+}
+
+h4{
+  font-size: em(20);
+  color: $bloom_red;
+  // font-family: 
+  text-transform: uppercase;
+}
+
+h5{
+  font-size: em(16);
+  color: $cool_gray;
+  // font-family: 
+  text-transform: uppercase;
+  &.secodary{
+    color: $bloom_red
+  } 
+}
+
+h6{
+  font-size: em(16);
+  color: $bloom_red;
+  // font-family: 
+  &.secodary{
+    color: $rose_purple
+  } 
+}
+
+h7{
+  font-size: em(16);
+  color: $cool_grey;
+  // font-family: 
+  &.secodary{
+    color: $bloom_red
+  } 
+}
+
+p{
+  font-size: em(16);
+  color: $cool_grey;
+  // font-family: 
+  &.secodary{
+    color: $off_black
+  } 
+}
+
+.quote{
+  font-size: em(36);
+  color: $cool_grey;
+  // font-family:
+}

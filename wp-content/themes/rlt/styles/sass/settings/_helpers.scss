@@ -1,3 +1,9 @@
 [class*="text centered"]{
     text-align: center;
 }
+
+$browser-context: 16; // Default
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
