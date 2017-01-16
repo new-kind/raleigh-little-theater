@@ -13,12 +13,12 @@
     flex-direction: column;
 
     .primary{
-        background: red;
+        background: $bloom_red;
         padding: 2em!important;
     }
 
     .secondary{
-        background: purple;
+        background: $rose_purple;
         padding: 2em!important;
     }
 
