@@ -1,0 +1,46 @@
+.header{
+    height: 150px;
+
+    .logo{
+        background: url('http://placehold.it/200x100') no-repeat center;
+        background-position: contain;
+        text-indent: -9999em;
+        display: block;
+        width: 200px;
+        height: 100px;
+        float: left;
+        padding: 1em;
+    }
+
+    .primary-nav{
+        float: right;
+        padding-top: 5em;
+        padding-right: 2em;
+
+        ul li{
+            display: inline-block;
+
+            a{
+                margin-left: 1em;
+            }
+        }
+
+    }
+
+    .utility-nav{
+        position: absolute;
+        top: 2em;
+        right: 2em;
+
+        ul li{
+            display: inline-block;
+
+            & + li {
+                margin-left: 1em;
+                border-left: 1px solid purple;
+                padding-left: 1em;
+            }
+        }
+    }
+
+}
