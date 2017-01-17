@@ -1,21 +1,41 @@
 // Button Styles that need to be changed
 
 .button{
-    font-weight: bold;
+    // font-weight: bold;
     font-family: helvetica;
-    background-color: #f4f4f4;
-    color: #DC5E5B;
+    background-color: $cool_grey;
+    color: $bloom_red;
     display: inline;
     padding: 10px 15px;
-    border: 5px solid #DC5E5B;
+    border: 5px solid $bloom_red;
     letter-spacing: 1px;
+    text-decoration: none;
     
     &:hover{
-      transition: background-color 0.7s ease;
-      color: #f4f4f4;
-      background-color: #DC5E5B;
+      transition: background-color 0.4s ease;
+      color: $cool_grey;
+      background-color: $bloom_red;
     }
 } 
+
+.secondary-button{
+    // font-weight: bold;
+    font-family: helvetica;
+    background-color: $cool_grey;
+    color: $bloom_red;
+    display: inline;
+    padding: 10px 15px;
+    border: 5px solid $cool_grey;
+    letter-spacing: 1px;
+    text-decoration: none;
+    
+    &:hover{
+      transition: background-color 0.4s ease;
+      color: $cool_grey;
+      background-color: $bloom_red;
+    }
+} 
+
 
 // ———————————————————————————————————————————————————————
 // Form styles that need to be changed
@@ -26,7 +46,7 @@ form{
 }
 
 input{
-  border: 1px solid black;
+  border: 1px solid $off_black;
   height: 25px; /* test values */
   width: 400px; /* test values */
   padding: 10px; /* test values */
@@ -39,7 +59,7 @@ input[type=text]:focus{
 }
 
 #required{
-  border: 5px solid #DC5E5B;
+  border: 5px solid $bloom_red;
   height: 25px; /* test values */
   width: 400px; /* test values */
   padding: 10px; /* test values */
