@@ -18,10 +18,18 @@
         padding-right: 2em;
 
         ul li{
+            font-family: helvetica;
             display: inline-block;
+            
 
             a{
+                color: $bloom_red;
                 margin-left: 1em;
+                text-decoration: none;
+                &:hover{
+                    transition: opacity 0.4s ease;
+                    opacity: 0.6
+                }
             }
         }
 
@@ -34,6 +42,16 @@
 
         ul li{
             display: inline-block;
+            font-family: helvetica;
+
+            a{
+               color: $deep_maroon;
+               text-decoration: none;
+               &:hover{
+                    transition: opacity 0.4s ease;
+                    opacity: 0.6
+                }
+            }
 
             & + li {
                 margin-left: 1em;
