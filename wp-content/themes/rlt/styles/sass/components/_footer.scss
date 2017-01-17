@@ -1,0 +1,36 @@
+.site-footer{
+    background: $bloom-red;
+    padding: 2em;
+    clear: both;
+
+    .copyright{
+        clear: both;
+        float: right;
+    }
+}
+
+@media screen and (min-width: 800px) {
+
+    .site-footer{
+        @include clearfix;
+
+        .footer-nav{
+            margin-left: 20%;
+        }
+
+        .column{
+            float: left;
+            width: 25%;
+        }
+
+        &:before{
+            content: '';
+            width: 14%;
+            height: 200px;
+            background: $cool_grey;
+            display: block;
+            left: 2em;
+            float: left;
+        }
+    }
+}

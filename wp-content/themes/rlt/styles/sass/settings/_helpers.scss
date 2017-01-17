@@ -2,6 +2,18 @@
     text-align: center;
 }
 
+@mixin clearfix{
+  zoom: 1;
+
+  &:after{
+    content: '';
+    height: 0;
+    clear: both;
+    display: block;
+    visibility: hidden;
+  }
+}
+
 $browser-context: 16; // Default
 
 @function em($pixels, $context: $browser-context) {
