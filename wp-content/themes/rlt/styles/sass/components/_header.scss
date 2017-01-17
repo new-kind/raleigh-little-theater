@@ -18,10 +18,14 @@
         padding-right: 2em;
 
         ul li{
+            font-family: helvetica;
             display: inline-block;
+            
 
             a{
+                color: $bloom_red;
                 margin-left: 1em;
+                text-decoration: none;
             }
         }
 
@@ -34,6 +38,12 @@
 
         ul li{
             display: inline-block;
+            font-family: helvetica;
+
+            a{
+               color: $deep_maroon;
+               text-decoration: none;
+            }
 
             & + li {
                 margin-left: 1em;
