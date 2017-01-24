@@ -23,7 +23,18 @@ class StarterSite extends TimberSite {
 	}
 
 	function register_post_types() {
-		//this is where you can register custom post types
+		
+		register_post_type( 'shows',
+			array(
+				'labels' => array(
+					'name' => __( 'Shows' ),
+					'singular_name' => __( 'Show' )
+				),
+				'public' => true,
+				'has_archive' => false
+			)
+		);
+
 	}
 
 	function register_taxonomies() {

@@ -1,0 +1,41 @@
+.show-header{
+    position: relative;
+
+    .bg-image{
+        background: url('http://placehold.it/1600x800') no-repeat center;
+        height: 40vh;
+        display: block;
+    }
+
+    .show-navigation{
+        position: absolute;
+        top: 2em;
+        width: 100%;
+
+        .prev{
+            position: absolute;
+            left: 0;
+        }
+
+        .next{
+            position: absolute;
+            right: 0;
+        }
+    }
+
+    .content{
+        padding: 2em;
+        position: relative;
+
+        .button{
+            position: absolute;
+            top: 2em;
+            right: 2em;
+        }
+    }
+
+}
+
+.show-content{
+    padding: 0 2em 2em;
+}
