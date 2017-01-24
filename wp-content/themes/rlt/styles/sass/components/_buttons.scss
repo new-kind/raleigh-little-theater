@@ -1,11 +1,12 @@
 // Button Styles that need to be changed
 
+
 .button{
     // font-weight: bold;
     font-family: helvetica;
     background-color: $cool_grey;
     color: $bloom_red;
-    display: inline;
+    display: inline-block;
     padding: 10px 15px;
     border: 5px solid $bloom_red;
     letter-spacing: 1px;
@@ -16,23 +17,23 @@
       color: $cool_grey;
       background-color: $bloom_red;
     }
-} 
 
-.secondary-button{
-    // font-weight: bold;
-    font-family: helvetica;
-    background-color: $cool_grey;
-    color: $bloom_red;
-    display: inline;
-    padding: 10px 15px;
-    border: 5px solid $cool_grey;
-    letter-spacing: 1px;
-    text-decoration: none;
-    
-    &:hover{
-      transition: background-color 0.4s ease;
-      color: $cool_grey;
-      background-color: $bloom_red;
+    &.secondary{
+
+      font-family: helvetica;
+      background-color: $cool_grey;
+      color: $bloom_red;
+      padding: 10px 15px;
+      border: 5px solid $cool_grey;
+      letter-spacing: 1px;
+      text-decoration: none;
+
+      &:hover{
+        transition: background-color 0.4s ease;
+        color: $cool_grey;
+        background-color: $bloom_red;
+      }
+
     }
 } 
 
