@@ -2,12 +2,10 @@ define("bulletin.module", ["require", "exports"], function (require, exports) {
     "use strict";
     var Bulletin = (function () {
         function Bulletin() {
-            this.feedHeight = this.getHeight($('.bulletin .feed'));
-            this.containerHeight = this.getHeight($('.bulletin'));
             this.setHeight();
+            var ctrl = this; // set context to a variable
             $(window).on('resize', function () {
-                console.log('resized');
-                this.setHeight();
+                ctrl.setHeight(); // using context variable in place of "this"
             });
         }
         // function to get heights of selectors
@@ -16,6 +14,9 @@ define("bulletin.module", ["require", "exports"], function (require, exports) {
         };
         // function to test + set heights dynamically
         Bulletin.prototype.setHeight = function () {
+            // check heights of objects and set variables
+            this.feedHeight = this.getHeight($('.bulletin .feed'));
+            this.containerHeight = this.getHeight($('.bulletin'));
             if (this.feedHeight > this.containerHeight) {
                 // if feedheight is larger than the container, adjust container size to fit
                 $('.bulletin').css({

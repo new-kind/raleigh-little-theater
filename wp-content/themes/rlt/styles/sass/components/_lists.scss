@@ -1,0 +1,50 @@
+/*
+** Lists & List Variations
+*/
+
+.list{
+
+    &.with-images{
+        
+        .list-item{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+
+            .image{
+                width: 100%;
+                height: 33vh;
+                background: url('http://placehold.it/800x600') center no-repeat;
+                background-size: cover;
+            }
+
+            .content{
+                padding: 2em;
+            }
+
+        }
+
+    }
+
+}
+
+@media screen and (min-width: 800px){
+
+    .list{
+        &.with-images{
+            .list-item{
+                flex-direction: row;
+
+                .image{
+                    height: auto;
+                    flex: 2;
+                }
+
+                .content{
+                    flex: 3;
+                }
+            }
+        }
+    }
+
+}

@@ -1,13 +1,13 @@
 export class Bulletin {
 
-    feedHeight: number = this.getHeight( $('.bulletin .feed') );
-    containerHeight: number = this.getHeight( $('.bulletin') );
+    feedHeight: number;
+    containerHeight: number;
 
     constructor(){
         this.setHeight();
+        let ctrl = this; // set context to a variable
         $(window).on('resize', function(){
-            console.log('resized');
-            this.setHeight();
+            ctrl.setHeight(); // using context variable in place of "this"
         });
     }
 
@@ -18,6 +18,10 @@ export class Bulletin {
 
     // function to test + set heights dynamically
     setHeight(){
+
+        // check heights of objects and set variables
+        this.feedHeight = this.getHeight( $('.bulletin .feed') );
+        this.containerHeight = this.getHeight( $('.bulletin') );
 
         if( this.feedHeight > this.containerHeight ){
 
