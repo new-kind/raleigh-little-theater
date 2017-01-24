@@ -1,6 +1,6 @@
 export class Bulletin {
 
-    feedHeight: number = this.getHeight( $('.bulletin .feed') );
+    feedHeight: number = this.getHeight( $('.bulletin > .feed') );
     containerHeight: number = this.getHeight( $('.bulletin') );
 
     constructor(){
@@ -25,12 +25,12 @@ export class Bulletin {
             $('.bulletin').css({
                 'height': this.feedHeight + 64,
             });
-            $('.bulletin .primary, .bulletin .secondary').css('height', '50%');
+            $('.bulletin > .primary, .bulletin > .secondary').css('height', '50%');
             
         }else{
 
             // else if container is larger, expand feed to fit
-            $('.bulletin .feed').css('height', ( this.containerHeight - 64) );
+            $('.bulletin > .feed').css('height', ( this.containerHeight - 64) );
 
         }
         
