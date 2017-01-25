@@ -4,13 +4,15 @@
     min-height: 35vh;
 
     > header{
-        font-family: Helvetica;
-        font-weight: 400;
-        padding: 2em;
+        padding: 1em 2em;
         margin-top: 1em;
         background: $bloom_red;
         color: $white;
         display: inline-block;
         max-width: 350px;
+
+        .meta{
+            margin-top: 1em;
+        }
     }
 }
