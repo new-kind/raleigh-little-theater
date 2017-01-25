@@ -1,40 +1,63 @@
+@font-face{
+  font-family: "Roboto Condensed";
+  src: url(../../fonts/RobotoCondensed-Bold.ttf);
+}
+
+@font-face{
+  font-family: "Lato Light";
+  src: url(../../fonts/Lato-Light.ttf);
+}
+
+@font-face{
+  font-family: "Lato Regular";
+  src: url(../../fonts/Lato-Regular.ttf);
+}
+
+@font-face{
+  font-family: "Lato Bold";
+  src: url(../../fonts/Lato-Bold.ttf);
+}
+
 h1{
   font-size: em(60);
-  // font-family: 
+  font-family: "Roboto Condensed";
 }
 
 h2{
   font-size: em(36);
-  // font-family: 
+  font-family: "Roboto Condensed";
 }
 
 h3{
   font-size: em(26);
-  // font-family:
+  font-family: "Roboto Condensed";
 }
 
 h4{
   font-size: em(20);
-  // font-family: 
+  font-family: "Roboto Condensed";
   text-transform: uppercase;
 }
 
 h5{
   font-size: em(16);
-  // font-family: 
+  font-family: "Roboto Condensed";
   text-transform: uppercase;
 }
 
 h6{
   font-size: em(16);
+  font-family: "Lato Regular";
 }
 
 h7{
   font-size: em(16);
+  font-family: "Lato Bold"
 }
 
 p{
   font-size: em(16);
+  font-family: "Lato Light";
 
   + p{
     margin-top: 1em;
@@ -43,6 +66,7 @@ p{
 
 a{
   text-decoration: none;
+  font-family: "Helvetica";
 }
 
 .quote{
