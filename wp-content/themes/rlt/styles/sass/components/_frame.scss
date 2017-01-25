@@ -12,7 +12,7 @@
         content: '';
         width: 1em;
         height: 100%;
-        background: #fff;
+        background: $breeze_blue;
         position: absolute;
         top: 0;
         left: 0;
@@ -20,15 +20,20 @@
     }
 
     header{
-        background: #666;
+        font-family: Helvetica;
+        font-weight: 400;
+        background:$breeze_blue;
         color: #fff;
         padding: 2em;
         text-align: left;
         display: inline-block;
     }
 
-    .button{
+    .buttons{
         position: absolute;
-        bottom: 2em;
+        bottom: 1em;
+        width: 100%;
+        display: block;
     }
+
 }

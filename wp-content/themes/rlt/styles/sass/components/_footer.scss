@@ -5,7 +5,18 @@
 
     .copyright{
         clear: both;
-        float: right;
+        float: right; 
+        color: $deep_maroon;
+        
+        a{
+            color: $deep_maroon;
+            text-decoration: none;
+        }
+    }
+
+    li a{
+        text-decoration: none;
+        color: white;
     }
 }
 

@@ -12,17 +12,17 @@
     display: flex;
     flex-direction: column;
 
-    .primary{
+    > .primary{
         background: $bloom_red;
         padding: 2em!important;
     }
 
-    .secondary{
+    > .secondary{
         background: $rose_purple;
         padding: 2em!important;
     }
 
-    .feed{
+    > .feed{
         position: absolute;
         right: 0;
         top: 0;

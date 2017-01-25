@@ -22,11 +22,11 @@ define("bulletin.module", ["require", "exports"], function (require, exports) {
                 $('.bulletin').css({
                     'height': this.feedHeight + 64
                 });
-                $('.bulletin .primary, .bulletin .secondary').css('height', '50%');
+                $('.bulletin > .primary, .bulletin > .secondary').css('height', '50%');
             }
             else {
                 // else if container is larger, expand feed to fit
-                $('.bulletin .feed').css('height', (this.containerHeight - 64));
+                $('.bulletin > .feed').css('height', (this.containerHeight - 64));
             }
         };
         return Bulletin;
