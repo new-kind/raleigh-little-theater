@@ -3,6 +3,19 @@
     padding: 2em;
     clear: both;
 
+    .col-container{
+        margin: 15px 0;
+    }
+
+    .col-head{
+        opacity: 1;      
+    }
+    
+    li a{
+        font-size: em(12);
+        opacity: .7;
+    }
+
     .copyright{
         clear: both;
         float: right; 
@@ -38,7 +51,7 @@
             content: '';
             width: 14%;
             height: 200px;
-            background: $cool_grey;
+            background: url('../../assets/RLT_logo_footer.svg') no-repeat center;
             display: block;
             left: 2em;
             float: left;
