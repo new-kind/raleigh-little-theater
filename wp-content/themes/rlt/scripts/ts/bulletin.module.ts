@@ -19,6 +19,8 @@ export class Bulletin {
     // function to test + set heights dynamically
     setHeight(){
 
+        $('.bulletin, .bulletin *').css('height', '');
+
         // check heights of objects and set variables
         this.feedHeight = this.getHeight( $('.bulletin .feed') );
         this.containerHeight = this.getHeight( $('.bulletin') );
@@ -29,12 +31,14 @@ export class Bulletin {
             $('.bulletin').css({
                 'height': this.feedHeight + 64,
             });
-            $('.bulletin > .primary, .bulletin > .secondary').css('height', '50%');
             
         }else{
 
             // else if container is larger, expand feed to fit
-            $('.bulletin > .feed').css('height', ( this.containerHeight - 64) );
+            $('.bulletin > .feed').css('height', ( this.containerHeight ) );
+            $('.bulletin').css({
+                'height': this.containerHeight + 64,
+            });
 
         }
         
