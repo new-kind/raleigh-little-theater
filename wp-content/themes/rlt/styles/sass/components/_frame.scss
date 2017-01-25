@@ -27,13 +27,14 @@
         z-index: -1;
         top: -1em;
         left: -1em;
+        padding-right: 1em;
         display: block;
     }
 
     header{
         background:$breeze_blue;
         color: #fff;
-        padding: 1em 2em;
+        padding: 1em 2em 1em 0;
         text-align: left;
         display: inline-block;
         position: absolute;

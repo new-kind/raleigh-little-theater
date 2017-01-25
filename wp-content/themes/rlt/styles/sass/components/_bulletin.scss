@@ -10,24 +10,59 @@
 .bulletin{
     position: relative;
     display: flex;
-    flex-direction: column;
 
     > .primary{
         background: $bloom_red;
-        padding: 2em!important;
+        padding: 2em 3em;
+        padding-right: 55%;
+        color: $white;
     }
 
     > .secondary{
         background: $rose_purple;
-        padding: 2em!important;
+        padding: 2em 3em;
+        padding-right: 55%;
+        color: $white;
     }
 
     > .feed{
         position: absolute;
         right: 0;
         top: 0;
-        margin: 2em;
+        margin: 2em 3em;
+        padding: 2em;
         background: white;
+        width: 50%;
+        box-sizing: border-box;
+
+        .eyebrow{
+            color: $bloom_red;
+            &:before{
+                background: $bloom_red;
+            }
+        }
+
+        article + article{
+            margin-top: 2em;
+        }
+    }
+
+    .eyebrow{
+        text-transform: uppercase;
+        margin-bottom: 2em;
+
+        &:before{
+            content: '';
+            display: inline-block;
+            width: .75em;
+            height: .75em;
+            background: $white;
+            margin-right: 1em;
+        }
+    }
+
+    .button{
+        margin-top: 2em;
     }
 
 }
