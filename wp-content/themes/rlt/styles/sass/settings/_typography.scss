@@ -73,3 +73,13 @@ a{
 .quote{
   font-size: em(36);
 }
+
+.dash{
+  width: .75em;
+  text-align: left;
+  display: block;
+  border: none;
+  background: $rose_purple;
+  height: 1px;
+  margin: 1.5em 0;
+}
