@@ -13,12 +13,13 @@
 
             .image{
                 width: 100%;
+                padding-top: 50%;
                 background: url('http://placehold.it/800x600') center no-repeat;
                 background-size: cover;
             }
 
             .content{
-                margin: 2em;
+                margin: 2em 2em 0;
                 padding-bottom: 4em;
                 border-bottom: 1px solid $rose_purple;
             }
@@ -74,16 +75,33 @@
 @media screen and (min-width: 600px){
 
     .list{
-        &.with-images.grid{
-            .list-item{
-                width: 30%;
+        &.with-images{
 
-                &:nth-child(even){
-                    margin-right: auto;
+            .list-item{
+                flex-direction: row;
+
+                .image{
+                    height: auto;
+                    flex: 2;
+                    padding-top: 30%;
                 }
 
-                &:nth-child(3n){
-                    margin-right: 0;
+                .content{
+                    flex: 3;
+                }
+            }
+
+            &.grid{
+                .list-item{
+                    width: 30%;
+
+                    &:nth-child(even){
+                        margin-right: auto;
+                    }
+
+                    &:nth-child(3n){
+                        margin-right: 0;
+                    }
                 }
             }
         }
@@ -94,18 +112,6 @@
 
     .list{
         &.with-images{
-            .list-item{
-                flex-direction: row;
-
-                .image{
-                    height: auto;
-                    flex: 2;
-                }
-
-                .content{
-                    flex: 3;
-                }
-            }
 
             &.grid{
 

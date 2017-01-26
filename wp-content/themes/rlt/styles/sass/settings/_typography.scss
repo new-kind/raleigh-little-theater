@@ -52,14 +52,14 @@ h6{
   font-family: "Lato Regular";
 }
 
-h7{
-  font-size: em(16);
-  font-family: "Lato Bold"
+strong{
+  font-family: "Lato Bold";
 }
 
 p{
   font-size: em(16);
   font-family: "Lato Light";
+  line-height: 1.4em;
 
   + p{
     margin-top: 1em;
@@ -83,4 +83,16 @@ a{
   background: $rose_purple;
   height: 1px;
   margin: 1.5em 0;
+}
+
+@media screen and (min-width: 1400px){
+  
+  h1{ font-size: em(72); }
+  h2{ font-size: em(48); }
+  h3{ font-size: em(36); }
+  h4{ font-size: em(28); }
+  h5{ font-size: em(26); }
+  h6{ font-size: em(20); }
+  p{ font-size: em(20); }
+
 }
