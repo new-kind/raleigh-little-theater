@@ -1,6 +1,6 @@
 @font-face{
   font-family: "Roboto Condensed";
-  src: url(../../fonts/RobotoCondensed-Bold.ttf);
+  src: url(../../fonts/RobotoCondensed-Regular.ttf);
 }
 
 @font-face{
@@ -32,7 +32,6 @@ h2{
 h3{
   font-size: em(26);
   font-family: "Roboto Condensed";
-  font-weight: 200;
 }
 
 h4{
@@ -42,23 +41,24 @@ h4{
 }
 
 h5{
-  font-size: em(16);
+  font-size: em(18);
   font-family: "Roboto Condensed";
   text-transform: uppercase;
 }
 
 h6{
-  font-size: em(16);
-  font-family: "Lato Regular";
+  font-size: em(18);
+  font-family: "Apercu", Helvetica, sans-serif;
 }
 
 strong{
-  font-family: "Lato Bold";
+  font-family: "Apercu Bold", Helvetica, sans-serif;
+  font-weight: 800;
 }
 
 p{
   font-size: em(16);
-  font-family: "Lato Light";
+  font-family: "Apercu", Helvetica, sans-serif;
   line-height: 1.4em;
 
   + p{
@@ -68,11 +68,12 @@ p{
 
 a{
   text-decoration: none;
-  font-family: "Helvetica";
+  color: $bloom_red;
 }
 
 .quote{
   font-size: em(36);
+  font-family: "Apercu", Helvetica, sans-serif;
 }
 
 .dash{
@@ -85,14 +86,41 @@ a{
   margin: 1.5em 0;
 }
 
-@media screen and (min-width: 1400px){
+.has-squiggle{
+
+  &:before{
+    position: relative;
+    z-index: 2;
+  }
+
+  span{
+    position: relative;
+    z-index: 1;
+    padding-left: 1.75em;
+    left: -1.75em;
+    padding-right: 1.75em;
+  }
+
+  &:after{
+    content: '';
+    display: block;
+    background: url('../../assets/squiggle_line.png') repeat-x left center;
+    height: 6px;
+    width: 100%;
+    position: relative;
+    top: -1em;
+    padding-right: 2em;
+  }
+}
+
+@media screen and (min-width: 1600px){
   
   h1{ font-size: em(72); }
   h2{ font-size: em(48); }
   h3{ font-size: em(36); }
   h4{ font-size: em(28); }
-  h5{ font-size: em(26); }
-  h6{ font-size: em(20); }
+  h5{ font-size: em(24); }
+  h6{ font-size: em(24); }
   p{ font-size: em(20); }
 
 }

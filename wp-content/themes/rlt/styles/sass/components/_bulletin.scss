@@ -42,8 +42,17 @@
             }
         }
 
+        article{
+            margin-left: 1.75em;
+            margin-right: 1.75em;
+        }
+
         article + article{
             margin-top: 2em;
+        }
+
+        .button{
+            margin-left: 1.75em;
         }
     }
 
