@@ -27,6 +27,7 @@ h1{
 h2{
   font-size: em(36);
   font-family: "Roboto Condensed";
+  margin-bottom: .25em;
 }
 
 h3{
@@ -38,10 +39,11 @@ h4{
   font-size: em(20);
   font-family: "Roboto Condensed";
   text-transform: uppercase;
+  margin-bottom: 1em;
 }
 
 h5{
-  font-size: em(18);
+  font-size: em(16);
   font-family: "Roboto Condensed";
   text-transform: uppercase;
 }
@@ -49,6 +51,12 @@ h5{
 h6{
   font-size: em(18);
   font-family: "Apercu", Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+  + h1, + h2, + h3, + h4, + h5, + h6, + .meta {
+    margin-top: .25em;
+  }
 }
 
 strong{
@@ -84,6 +92,16 @@ a{
   background: $rose_purple;
   height: 1px;
   margin: 1.5em 0;
+}
+
+.meta{
+  color: $rose_purple;
+  font-size: .95em;
+
+  +.meta{
+    margin-top: 0;
+  }
+
 }
 
 .has-squiggle{

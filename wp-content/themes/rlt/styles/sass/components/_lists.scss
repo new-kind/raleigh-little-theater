@@ -19,7 +19,7 @@
             }
 
             .content{
-                margin: 2em 2em 0;
+                margin: 4em 4em 0;
                 padding-bottom: 4em;
                 border-bottom: 1px solid $rose_purple;
             }
@@ -79,6 +79,9 @@
 
             .list-item{
                 flex-direction: row;
+
+                h5{ color: $rose_purple; }
+                h3{ color: $bloom_red; }
 
                 .image{
                     height: auto;
