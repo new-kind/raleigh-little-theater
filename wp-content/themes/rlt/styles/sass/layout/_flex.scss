@@ -12,29 +12,28 @@
 
     .flex{
         display: flex;
+
+        /* Flex Direction */
+
+        &.row{
+            flex-direction: row;
+        }
+
+        &.column{
+            flex-direction: column;
+        }
+
+        &.row-reverse{
+            flex-direction: row-reverse;
+        }
+
+        &.column-reverse{
+            flex-direction: column-reverse;
+        }
+
     }
     
-    /*
-    |----------------------------------------------
-    | Flex Direction
-    |----------------------------------------------
-    */
-
-    .row{
-        flex-direction: row;
-    }
-
-    .column{
-        flex-direction: column;
-    }
-
-    .row-reverse{
-        flex-direction: row-reverse;
-    }
-
-    .column-reverse{
-        flex-direction: column-reverse;
-    }
+    
 
     /*
     |----------------------------------------------
