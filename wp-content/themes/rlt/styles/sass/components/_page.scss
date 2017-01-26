@@ -5,6 +5,10 @@
 .page-header{
     padding: 2em;
     @extend .color-cool-grey;
+
+    p{
+        max-width: 800px;
+    }
 }
 
 .sponsors{
