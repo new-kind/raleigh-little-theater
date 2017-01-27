@@ -4,6 +4,12 @@
 }
 
 @font-face{
+  font-family: "Roboto Condensed";
+  src: url(../../fonts/RobotoCondensed-Bold.ttf);
+  font-weight: 100;
+}
+
+@font-face{
   font-family: "Lato Light";
   src: url(../../fonts/Lato-Light.ttf);
 }
@@ -22,51 +28,62 @@ h1{
   font-size: em(60);
   font-family: "Roboto Condensed";
   margin-bottom: .5em;
+  font-weight: bold;
 }
 
 h2{
   font-size: em(36);
   font-family: "Roboto Condensed";
   margin-bottom: .25em;
+  font-weight: bold;
 }
 
 h3{
   font-size: em(26);
   font-family: "Roboto Condensed";
+  font-weight: bold;
 }
 
 h4{
   font-size: em(20);
   font-family: "Roboto Condensed";
   text-transform: uppercase;
+  font-weight: bold;
   margin-bottom: 1em;
 }
 
 h5{
-  font-size: em(16);
+  font-size: em(15);
   font-family: "Roboto Condensed";
   text-transform: uppercase;
+  font-weight: 100;
+  letter-spacing: .5px;
 }
 
 h6{
   font-size: em(18);
-  font-family: "Apercu", Helvetica, sans-serif;
+  font-family: "Apercu", "Lato Regular", Helvetica, sans-serif;
+  margin-bottom: .5em;
 }
 
 h1, h2, h3, h4, h5, h6{
-  + h1, + h2, + h3, + h4, + h5, + h6, + .meta {
-    margin-top: .25em;
+  + h1, + h2, + h3, + h4, + h5, + h6{
+    margin-top: .5em;
+  }
+
+  + .meta{
+    margin-top: .35em;
   }
 }
 
 strong{
-  font-family: "Apercu Bold", Helvetica, sans-serif;
+  font-family: "Apercu Bold", "Lato Bold", Helvetica, sans-serif;
   font-weight: 800;
 }
 
 p{
   font-size: em(16);
-  font-family: "Apercu", Helvetica, sans-serif;
+  font-family: "Apercu", "Lato Regular", Helvetica, sans-serif;
   line-height: 1.4em;
 
   + p{
@@ -81,7 +98,8 @@ a{
 
 .quote{
   font-size: em(36);
-  font-family: "Apercu", Helvetica, sans-serif;
+  font-family: "Apercu", "Lato Light", Helvetica, sans-serif;
+  line-height: 1.3em;
 }
 
 .dash{
@@ -131,7 +149,7 @@ a{
   }
 }
 
-@media screen and (min-width: 1600px){
+/*@media screen and (min-width: 1600px){
   
   h1{ font-size: em(72); }
   h2{ font-size: em(48); }
@@ -141,4 +159,4 @@ a{
   h6{ font-size: em(24); }
   p{ font-size: em(20); }
 
-}
+}*/

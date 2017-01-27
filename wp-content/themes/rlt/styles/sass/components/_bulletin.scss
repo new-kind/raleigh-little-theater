@@ -10,12 +10,15 @@
 .bulletin{
     position: relative;
     display: flex;
+    flex-direction: column;
 
     > .primary{
         background: $bloom_red;
         padding: 2em 3em;
         padding-right: 55%;
         color: $white;
+        height: 50%;
+        box-sizing: border-box;
     }
 
     > .secondary{
@@ -23,6 +26,8 @@
         padding: 2em 3em;
         padding-right: 55%;
         color: $white;
+        height: 50%;
+        box-sizing: border-box;
     }
 
     > .feed{

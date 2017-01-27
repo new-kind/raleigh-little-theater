@@ -19,9 +19,14 @@
             }
 
             .content{
-                margin: 4em 4em 0;
+                margin: 4em -4em 0 4em;
                 padding-bottom: 4em;
                 border-bottom: 1px solid $rose_purple;
+                box-sizing: border-box;
+
+                *{
+                    max-width: 600px;
+                }
             }
 
         }
@@ -85,12 +90,13 @@
 
                 .image{
                     height: auto;
-                    flex: 2;
                     padding-top: 30%;
+                    flex: 0 0 50%;
                 }
 
                 .content{
-                    flex: 3;
+                    flex: 0 0 50%;
+                    box-sizing: border-box;
                 }
             }
 
