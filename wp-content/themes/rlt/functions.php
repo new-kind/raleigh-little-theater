@@ -19,6 +19,7 @@ class StarterSite extends TimberSite {
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'init', array( $this, 'register_nav_menus' ) );
 		parent::__construct();
 	}
 
@@ -37,6 +38,12 @@ class StarterSite extends TimberSite {
 
 	}
 
+	function register_nav_menus() {
+		// register navs
+		register_nav_menu( 'primary', __( 'Primary Nav', 'primary-nav' ) );
+		register_nav_menu( 'utility', __( 'Utility Nav', 'utility-nav' ) );
+	}
+
 	function register_taxonomies() {
 		//this is where you can register custom taxonomies
 	}
@@ -45,7 +52,8 @@ class StarterSite extends TimberSite {
 		$context['foo'] = 'bar';
 		$context['stuff'] = 'I am a value set in your functions.php file';
 		$context['notes'] = 'These values are available everytime you call Timber::get_context();';
-		$context['menu'] = new TimberMenu();
+		$context['primary_nav'] = new TimberMenu('primary');
+		$context['utility_nav'] = new TimberMenu('utility');
 		$context['site'] = $this;
 		return $context;
 	}

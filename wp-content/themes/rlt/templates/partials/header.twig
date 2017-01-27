@@ -2,26 +2,21 @@
 		{#{% block header %}#}
 			<div>
 				
-				<a class="logo" href="{{site.url}}" rel="home">{{site.name}}</a>
+				<a class="logo" href="{{ site.url }}" rel="home">{{ site.name }}</a>
 				
 				<nav class="primary-nav" role="navigation">
                     <ul>
-                        {#{% for item in navbar %}
-                            <a href="#{{item}}"><li>{{item}}</li></a>
-                        {% endfor %}#}
-						<li><a href="{{ site.url }}/shows-and-events">Shows and Events</a></li>
-						<li><a href="{{ site.url }}/classes">Classes</a></li>
-						<li><a href="#">Get Involved</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Visit Us</a></li>
+                        {% for item in primary_nav.get_items %}
+                            <li><a href="{{ item.get_path }}">{{ item.title }}</a></li>
+                        {% endfor %}
                     </ul>
 				</nav><!-- #nav -->
 				<nav class="utility-nav" role="navigation">
 					<ul>
 						<li><a href="#">Search</a></li>
-						<li><a href="#">News</a></li>
-						<li><a href="#">Donate</a></li>
-						<li><a href="#">Newsletters</a></li>
+                        {% for item in utility_nav.get_items %}
+                            <li><a href="{{ item.get_path }}"></a>{{ item.title }}</li>
+                        {% endfor %}
 					</ul>
 				</nav>
 			</div>
