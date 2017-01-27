@@ -4,6 +4,11 @@
 
 .list{
 
+    &.with-members{
+        display: flex;
+        flex-direction: row;
+    }
+
     &.with-images{
         
         .list-item{
