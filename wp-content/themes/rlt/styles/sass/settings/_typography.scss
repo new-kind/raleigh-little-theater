@@ -10,31 +10,29 @@
 }
 
 @font-face{
-  font-family: "Lato Light";
-  src: url(../../fonts/Lato-Light.ttf);
+  font-family: "Apercu Light";
+  src: url(../../fonts/Apercu-Light.otf);
 }
 
 @font-face{
-  font-family: "Lato Regular";
-  src: url(../../fonts/Lato-Regular.ttf);
+  font-family: "Apercu Regular";
+  src: url(../../fonts/Apercu.otf);
 }
 
 @font-face{
-  font-family: "Lato Bold";
-  src: url(../../fonts/Lato-Bold.ttf);
+  font-family: "Apercu Bold";
+  src: url(../../fonts/Apercu-Bold.otf);
 }
 
 h1{
   font-size: em(60);
   font-family: "Roboto Condensed";
-  margin-bottom: .5em;
   font-weight: bold;
 }
 
 h2{
   font-size: em(36);
   font-family: "Roboto Condensed";
-  margin-bottom: .25em;
   font-weight: bold;
 }
 
@@ -49,7 +47,6 @@ h4{
   font-family: "Roboto Condensed";
   text-transform: uppercase;
   font-weight: bold;
-  margin-bottom: 1em;
 }
 
 h5{
@@ -62,7 +59,7 @@ h5{
 
 h6{
   font-size: em(18);
-  font-family: "Apercu", "Lato Regular", Helvetica, sans-serif;
+  font-family: "Apercu Regular", "Lato Regular", Helvetica, sans-serif;
   margin-bottom: .5em;
 }
 
@@ -83,22 +80,37 @@ strong{
 
 p{
   font-size: em(16);
-  font-family: "Apercu", "Lato Regular", Helvetica, sans-serif;
+  font-family: "Apercu Regular", "Lato Regular", Helvetica, sans-serif;
   line-height: 1.4em;
 
   + p{
     margin-top: 1em;
   }
+
+  &.eyebrow{
+    font-family: "Roboto Condensed";
+  }
+}
+
+li{
+  font-size: em(16);
+  font-family: "Apercu Regular", "Lato Regular", Helvetica, sans-serif;
+  line-height: 1.4em;
 }
 
 a{
   text-decoration: none;
   color: $bloom_red;
+  transition: color .5s;
+
+  &:hover{
+    color: $deep_maroon;
+  }
 }
 
 .quote{
   font-size: em(36);
-  font-family: "Apercu", "Lato Light", Helvetica, sans-serif;
+  font-family: "Apercu Light", "Lato Light", Helvetica, sans-serif;
   line-height: 1.3em;
 }
 
@@ -149,6 +161,24 @@ a{
   }
 }
 
+@media screen and (min-width: 1200px){
+  .quote{
+    font-size: 2.45em;
+  }
+}
+
+@media screen and (min-width: 1400px){
+  .quote{
+    font-size: 2.8em;
+  }
+}
+
+@media screen and (min-width: 1600px){
+  .quote{
+    font-size: 3.45em;
+  }
+}
+
 /*@media screen and (min-width: 1600px){
   
   h1{ font-size: em(72); }
@@ -178,7 +208,7 @@ a{
 
   ol li, ul li{
     + li{
-      margin-top: 1em;
+      margin-top: .5em;
     }
   }
 

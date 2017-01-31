@@ -4,7 +4,7 @@
     clear: both;
 
     .col-container{
-        margin: 15px 0;
+        margin: 1em 0 2em;
     }
 
     .col-head{
@@ -12,24 +12,34 @@
     }
     
     li a{
-        font-size: em(12);
         opacity: .7;
+        margin: .25em 0;
+        display: block;
     }
 
     .copyright{
-        clear: both;
-        float: right; 
+        text-align: right;
+        font-size: .9em;
         color: $deep_maroon;
         
         a{
             color: $deep_maroon;
             text-decoration: none;
+
+            &:hover{
+                text-decoration: underline;
+            }
         }
     }
 
     li a{
         text-decoration: none;
-        color: white;
+        color: $white;
+        transition: color .5s;
+
+        &:hover{
+            color: $deep_maroon;
+        }
     }
 }
 
@@ -38,10 +48,6 @@
     .site-footer{
         @include clearfix;
 
-        .footer-nav{
-            margin-left: 20%;
-        }
-
         .column{
             float: left;
             width: 25%;
@@ -49,12 +55,15 @@
 
         &:before{
             content: '';
-            width: 14%;
-            height: 200px;
-            background: url('../../assets/RLT_logo_footer.svg') no-repeat center;
+            width: 16vw;
+            height: 16vw;
+            margin-top: 1em;
+            background: url('../../assets/RLT_logo_footer.svg') no-repeat top left;
             display: block;
             left: 2em;
+            margin-right: 4em;
             float: left;
+            background-size: contain;
         }
     }
 }

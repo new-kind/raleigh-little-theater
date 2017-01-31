@@ -1,0 +1,116 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<main id="shows-and-events">
+    <div class="page-header bg-deep-maroon">
+        <h1>{{ post.title }}</h1>
+        {{ post.content }}
+    </div>
+
+    <div class="list with-images">
+    {% for posts in post.get_field('list_with_images') %}
+        {% for post in posts %}
+            <div class="list-item">
+            <a href="{{ post.link }}" class="image" style="background-image: url(http://placehold.it/800x600);"></a>
+            <div class="content">
+                <h3>{{ post.title }}</h3>
+                <hr class="dash" />
+                <p>{{ post.get_preview(40, false, '', true) }}</p>
+            </div>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    </div>
+
+    <div class="grid bulletin">
+    
+        <div class="primary bg-rose-purple">
+
+            <header>
+                <p class="eyebrow">Eyebrow Text</p>
+                <h2 class="title quote">Primary Call to Action</h2>
+            </header>
+
+            {#<div class="buttons centered">#}
+                <a href="#" class="inverse button ">Button Text</a>
+            {#</div>#}
+
+        </div>
+
+        <div class="secondary bg-deep-maroon">
+
+            <header>
+                <p class="eyebrow">A Little Can Go a Long Way</p>
+                <h2 class="title quote">Secondary Call to Action</h2>
+            </header>
+
+            {#<div class="buttons centered">#}
+                <a href="#" class="inverse button">Button Text</a>
+            {#</div>#}
+
+        </div>
+
+        <div class="feed">
+            <header>
+                <p class="eyebrow has-squiggle"><span class="bg-cool-grey">Link List</span></p>
+            </header>
+            <article>
+                <h6 class="title"><a href="#">Link text here</a></h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
+                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
+            </article>
+            <article>
+                <h6 class="title"><a href="#">Link text here</a></h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
+                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
+            </article>
+            <article>
+                <h6 class="title"><a href="#">Link text here</a></h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
+                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
+            </article>
+            <article>
+                <h6 class="title"><a href="#">Link text here</a></h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
+                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
+            </article>
+            <article>
+                <h6 class="title"><a href="#">Link text here</a></h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
+                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
+            </article>
+        </div>
+
+    </div><!--.bulletin-->
+
+    <!--<div class="list with-images">
+        <div class="list-item">
+            <div class="image" style="background-image: url({{ theme.link }}/images/classes/for_kids.jpg);"></div>
+            <div class="content">
+                <h3>For Kids</h3>
+                <p class="meta">Ages 4-12</p>
+                <hr class="dash" />
+                <p>Our kids classes focus on the process of creating theatre through fun, imaginative, nurturing, creative play and ensemble building.</p>
+            </div>
+        </div>
+        <div class="list-item">
+            <div class="image" style="background-image: url({{ theme.link }}/images/classes/for_teens.jpg)"></div>
+            <div class="content">
+                <h3>For Teens</h3>
+                <p class="meta">Ages 13-18</p>
+                <hr class="dash" />
+                <p>Our kids classes focus on the process of creating theatre through fun, imaginative, nurturing, creative play and ensemble building.</p>
+            </div>
+        </div>
+        <div class="list-item">
+            <div class="image" style="background-image: url({{ theme.link }}/images/classes/for_adults.jpg)"></div>
+            <div class="content">
+                <h3>For Adults</h3>
+                <p class="meta">Ages 18+</p>
+                <hr class="dash" />
+                <p>Our kids classes focus on the process of creating theatre through fun, imaginative, nurturing, creative play and ensemble building.</p>
+            </div>
+        </div>
+    </div>-->
+</main>
+{% endblock %}

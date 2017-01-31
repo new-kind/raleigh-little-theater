@@ -479,6 +479,10 @@ chokidar@1.6.0:
   optionalDependencies:
     fsevents "^1.0.0"
 
+chosen-npm:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/chosen-npm/-/chosen-npm-1.4.2.tgz#ec686ae796513473dbc171b1a63702e6d7e1515f"
+
 clap@^1.0.9:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/clap/-/clap-1.1.1.tgz#a8a93e0bfb7581ac199c4f001a5525a724ce696d"

@@ -1,0 +1,121 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<main id="shows-and-events">
+    <div class="page-header bg-breeze-blue">
+        <h1>Classes</h1>
+    </div>
+
+    <div class="filter pad-l-md">
+        <form>
+            <label for="location">Location</label>
+            <select name="location">
+                <option value="all">All</option>
+                <option value="rlt">Raleigh Little Theater</option>
+                <option value="apex">Apex</option>
+                <option value="wake-forest">Wake Forest</option>
+            </select>
+
+            <label for="age_range">Age Range</label>
+            <select name="age_range" data-ctrl="ages">
+                <option value="all">All</option>
+                <option value="kids">Kids</option>
+                <option value="teens">Teens</option>
+                <option value="adult">Adults</option>
+            </select>
+
+            <label for="kids" data-listen="ages" data-show="kids" class="conditional">Ages</label>
+            <select name="kids" data-listen="ages" data-show="kids" multiple class="conditional">
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+
+            <label for="teens" data-listen="ages" data-show="teens" class="conditional">Ages</label>
+            <select name="teens" data-listen="ages" data-show="teens" multiple class="conditional">
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+            </select>
+
+            <label for="class_type">Class Type</label>
+            <select name="class_type">
+                <option value="all">All</option>
+                <option value="core">Core Class</option>
+                <option value="performance">Performance Class</option>
+            </select>
+
+        </form>
+    </div>
+    
+    <div class="list grid page-content">
+        
+    {% for post in posts %}
+        
+        <div class="six column">
+            <div class="content">
+                <h3><a href="{{ post.link }}">{{ post.title }}</a></h3>
+
+                {% for ageGroup in post.get_field('age_group') %}
+
+                {% set ages = post.get_field( ageGroup | lower ~ '_ages') %}
+                {% if ages %}
+                <p class="meta">Ages
+                {% for age in ages %}
+                    {% if ( loop.first or loop.last ) %}
+                        {{ age }}
+                        {% if ( loop.first ) %}
+                            &ndash;
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                </p>
+                {% endif %}
+                {% endfor %}
+                
+                <hr class="dash" />
+                <p>Our kids classes focus on the process of creating theatre through fun, imaginative, nurturing, creative play and ensemble building.</p>
+            </div>
+        </div>
+    {% endfor %}
+
+
+    <!--<div class="list grid page-content">
+        <div class="list-item six column">
+            <div class="image" style="background-image: url({{ theme.link }}/images/classes/for_kids.jpg);"></div>
+            <div class="content">
+                <h3>For Kids</h3>
+                <p class="meta">Ages 4-12</p>
+                <hr class="dash" />
+                <p>Our kids classes focus on the process of creating theatre through fun, imaginative, nurturing, creative play and ensemble building.</p>
+            </div>
+        </div>
+        <div class="list-item six column">
+            <div class="image" style="background-image: url({{ theme.link }}/images/classes/for_teens.jpg)"></div>
+            <div class="content">
+                <h3>For Teens</h3>
+                <p class="meta">Ages 13-18</p>
+                <hr class="dash" />
+                <p>Our kids classes focus on the process of creating theatre through fun, imaginative, nurturing, creative play and ensemble building.</p>
+            </div>
+        </div>
+        <div class="list-item six column">
+            <div class="image" style="background-image: url({{ theme.link }}/images/classes/for_adults.jpg)"></div>
+            <div class="content">
+                <h3>For Adults</h3>
+                <p class="meta">Ages 18+</p>
+                <hr class="dash" />
+                <p>Our kids classes focus on the process of creating theatre through fun, imaginative, nurturing, creative play and ensemble building.</p>
+            </div>
+        </div>
+    </div>-->
+</main>
+{% endblock %}

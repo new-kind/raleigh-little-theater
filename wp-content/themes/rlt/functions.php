@@ -32,9 +32,47 @@ class StarterSite extends TimberSite {
 					'singular_name' => __( 'Show' )
 				),
 				'public' => true,
-				'has_archive' => false
+				'has_archive' => false,
+				'menu_icon' => 'dashicons-tickets-alt'
 			)
 		);
+
+		register_post_type( 'events',
+			array(
+				'labels' => array(
+					'name' => __( 'Events' ),
+					'singular_name' => __( 'Event' )
+				),
+				'public' => true,
+				'has_archive' => false,
+				'menu_icon' => 'dashicons-tickets'
+			)
+		);
+
+		register_post_type( 'people',
+			array(
+				'labels' => array(
+					'name' => __( 'People' ),
+					'singular_name' => __( 'Person' )
+				),
+				'public' => true,
+				'has_archive' => false,
+				'menu_icon' => 'dashicons-groups'
+			)
+		);
+
+		register_post_type( 'classes',
+			array(
+				'labels' => array(
+					'name' => __( 'Classes' ),
+					'singular_name' => __( 'Class' )
+				),
+				'public' => true,
+				'has_archive' => false,
+				'menu_icon' => 'dashicons-welcome-learn-more'
+			)
+		);
+
 
 	}
 
@@ -46,6 +84,89 @@ class StarterSite extends TimberSite {
 
 	function register_taxonomies() {
 		//this is where you can register custom taxonomies
+		register_taxonomy(
+			'series',
+			array( 'shows' ),
+			array(
+				'labels' => array(
+					'name'              => _x( 'Series', 'taxonomy general name', 'textdomain' ),
+					'singular_name'     => _x( 'Series', 'taxonomy singular name', 'textdomain' ),
+					'search_items'      => __( 'Search Series', 'textdomain' ),
+					'all_items'         => __( 'All Series', 'textdomain' ),
+					'parent_item'       => __( 'Parent Series', 'textdomain' ),
+					'parent_item_colon' => __( 'Parent Series:', 'textdomain' ),
+					'edit_item'         => __( 'Edit Series', 'textdomain' ),
+					'update_item'       => __( 'Update Series', 'textdomain' ),
+					'add_new_item'      => __( 'Add New Series', 'textdomain' ),
+					'new_item_name'     => __( 'New Series Name', 'textdomain' ),
+					'menu_name'         => __( 'Series', 'textdomain' ),
+				),
+				'hierarchical' => true
+			)
+		);
+
+		register_taxonomy(
+			'locations',
+			array( 'classes' ),
+			array(
+				'labels' => array(
+					'name'              => _x( 'Locations', 'taxonomy general name', 'textdomain' ),
+					'singular_name'     => _x( 'Location', 'taxonomy singular name', 'textdomain' ),
+					'search_items'      => __( 'Search Locations', 'textdomain' ),
+					'all_items'         => __( 'All Locations', 'textdomain' ),
+					'parent_item'       => __( 'Parent Location', 'textdomain' ),
+					'parent_item_colon' => __( 'Parent Location:', 'textdomain' ),
+					'edit_item'         => __( 'Edit Location', 'textdomain' ),
+					'update_item'       => __( 'Update Location', 'textdomain' ),
+					'add_new_item'      => __( 'Add New Location', 'textdomain' ),
+					'new_item_name'     => __( 'New Location Name', 'textdomain' ),
+					'menu_name'         => __( 'Locations', 'textdomain' ),
+				),
+				'hierarchical' => true
+			)
+		);
+
+		register_taxonomy(
+			'types',
+			array( 'classes' ),
+			array(
+				'labels' => array(
+					'name'              => _x( 'Types', 'taxonomy general name', 'textdomain' ),
+					'singular_name'     => _x( 'Type', 'taxonomy singular name', 'textdomain' ),
+					'search_items'      => __( 'Search Types', 'textdomain' ),
+					'all_items'         => __( 'All Types', 'textdomain' ),
+					'parent_item'       => __( 'Parent Type', 'textdomain' ),
+					'parent_item_colon' => __( 'Parent Type:', 'textdomain' ),
+					'edit_item'         => __( 'Edit Type', 'textdomain' ),
+					'update_item'       => __( 'Update Type', 'textdomain' ),
+					'add_new_item'      => __( 'Add New Type', 'textdomain' ),
+					'new_item_name'     => __( 'New Type Name', 'textdomain' ),
+					'menu_name'         => __( 'Types', 'textdomain' ),
+				),
+				'hierarchical' => true
+			)
+		);
+
+		register_taxonomy(
+			'roles',
+			array( 'people' ),
+			array(
+				'labels' => array(
+					'name'              => _x( 'Roles', 'taxonomy general name', 'textdomain' ),
+					'singular_name'     => _x( 'Role', 'taxonomy singular name', 'textdomain' ),
+					'search_items'      => __( 'Search Roles', 'textdomain' ),
+					'all_items'         => __( 'All Roles', 'textdomain' ),
+					'parent_item'       => __( 'Parent Role', 'textdomain' ),
+					'parent_item_colon' => __( 'Parent Role:', 'textdomain' ),
+					'edit_item'         => __( 'Edit Role', 'textdomain' ),
+					'update_item'       => __( 'Update Role', 'textdomain' ),
+					'add_new_item'      => __( 'Add New Role', 'textdomain' ),
+					'new_item_name'     => __( 'New Role Name', 'textdomain' ),
+					'menu_name'         => __( 'Roles', 'textdomain' ),
+				),
+				'hierarchical' => true
+			)
+		);
 	}
 
 	function add_to_context( $context ) {

@@ -1,0 +1,88 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<main id="show">
+        <div class="page-header bg-breeze-blue">
+            <h2 class="inline-block mar-r-xs">{{ post.post_title }}</h2>
+            {% for ageGroup in post.get_field('age_group') %}
+                
+                {% set ages = post.get_field( ageGroup | lower ~ '_ages') %}
+                <h4 class="inline-block">Ages
+                {% for age in ages %}
+                    {% if ( loop.first or loop.last ) %}
+                        {{ age }}
+                        {% if ( loop.first ) %}
+                            &ndash;
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                </h4>
+
+            {% endfor %}
+
+            {% if post.get_field('class_focus') %}
+                <p><strong>Class Focus:</strong> {{ post.get_field('class_focus') }}</p>
+            {% endif %}
+
+            {% if post.get_field('class_limit') %}
+                <p><strong>Class Limit:</strong> {{ post.get_field('class_limit') }}</p>
+            {% endif %}
+
+            {% if post.get_field('cost') %}
+                <p><strong>Cost:</strong> {{ post.get_field('cost') }}</p>
+            {% endif %}
+        </div>
+
+        <div class="page-content grid">
+
+            {% for track in post.get_field('tracks') %}
+                <div class="five column">
+                    <h4 class="mar-b-md">
+                    {% for day in track.days %}
+                        {{ day | capitalize }}s
+                    {% endfor %}, 
+                {{ track.start_time }} - 
+                {{ track.end_time }}</h4>
+                {% for session in track.sessions %}
+                    <div class="session mar-b-md">
+                        <h5>Session {{ loop.index }}: {{ session.title }}</h5>
+                        <p class="meta color-black">{{ session.start_date | date( "F j") }} - {{ session.end_date | date("F j") }}</p>
+                        <p class="meta color-black">{{ session.description }}</p>
+                        <p class="meta color-black">Instructor: {{ session.instructor.title }}</p>
+                    </div>
+                {% endfor %}
+                </div>
+                <div class="one column"></div>
+            {% endfor %}
+        
+            <div class="twelve column">
+            {% if post.get_field('registration_link') %}
+                <a href="{{ post.get_field('registration_link') }}" class="button">Register Here</a>
+            {% else %}
+                <p>Registration coming soon.</p>
+            {% endif %}
+            </div>
+
+            <div class="twelve column">
+                <p class="border-t mar-t-sm pad-t-md"><a href="{{ site.url }}/classes">&laquo; Back to Classes</a></p>
+                <p>For more information about the youth education program, please contact Kathleen Rudolph at 919-821-4579, x225.</p>
+            </div>
+        
+        </div>
+
+            <!--<div class="six column">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam turpis sem, fermentum nec turpis quis, porta tristique ex. Pellentesque elementum dolor eu aliquet condimentum. Sed tincidunt, augue ut rutrum dignissim, felis risus ullamcorper ligula, vitae dignissim magna orci quis tortor.</p>
+
+                <p>Based on the fairy tale by Charles Perrault.</p>
+                <p>Adaptation and lyrics by Jim Eiler.</p>
+                <p>Music by Jim Eiler and Jeanne Bargy.</p>
+                <p>Directed by Rod &amp; Nancy Rich.</p>
+
+                <p>Suspendisse ex mauris, imperdiet vel eleifend id, accumsan non ipsum. Pellentesque malesuada semper feugiat. Suspendisse mi dolor, ultrices eu eros sed, pulvinar semper lacus.</p>
+
+                </div>
+        </div>-->
+
+
+    </main>
+{% endblock %}

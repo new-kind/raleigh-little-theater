@@ -9,23 +9,24 @@ $mid_grey: #D8D8D8;
 $off_black: #1F1F1F;
 $white: white;
 
-.bg-bloom-red{      background: $bloom_red; }
-.bg-cool-grey{      background: $cool_grey; }
-.bg-rose-purple{    background: $rose_purple; }
-.bg-deep-maroon{    background: $deep_maroon; }
-.bg-lawn-green{     background: $lawn_green; }
-.bg-breeze-blue{    background: $breeze_blue; }
-.bg-summer-yellow{  background: $summer_yellow; }
-.bg-mid-grey{       background: $mid_grey; }
-.bg-off-black{      background: $off_black; }
+.bg-bloom-red{      background: $bloom_red!important; }
+.bg-cool-grey{      background: $cool_grey!important; }
+.bg-rose-purple{    background: $rose_purple!important; }
+.bg-deep-maroon{    background: $deep_maroon!important; }
+.bg-lawn-green{     background: $lawn_green!important; }
+.bg-breeze-blue{    background: $breeze_blue!important; }
+.bg-summer-yellow{  background: $summer_yellow!important; }
+.bg-mid-grey{       background: $mid_grey!important; }
+.bg-off-black{      background: $off_black!important; }
 
-.color-bloom-red{      color: $bloom_red; }
-.color-cool-grey{      color: $cool_grey; }
-.color-rose-purple{    color: $rose_purple; }
-.color-deep-maroon{    color: $deep_maroon; }
-.color-lawn-green{     color: $lawn_green; }
-.color-breeze-blue{    color: $breeze_blue; }
-.color-summer-yellow{  color: $summer_yellow; }
-.color-mid-grey{       color: $mid_grey; }
-.color-off-black{      color: $off_black; }
-.color-white{          color: $white; }
+.color-bloom-red{      color: $bloom_red!important; }
+.color-cool-grey{      color: $cool_grey!important; }
+.color-rose-purple{    color: $rose_purple!important; }
+.color-deep-maroon{    color: $deep_maroon!important; }
+.color-lawn-green{     color: $lawn_green!important; }
+.color-breeze-blue{    color: $breeze_blue!important; }
+.color-summer-yellow{  color: $summer_yellow!important; }
+.color-mid-grey{       color: $mid_grey!important; }
+.color-off-black{      color: $off_black!important; }
+.color-black{          color: $off_black!important; }
+.color-white{          color: $white!important; }

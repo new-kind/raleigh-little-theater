@@ -2,9 +2,10 @@
     position: relative;
 
     .bg-image{
-        background: url('http://placehold.it/1600x800') no-repeat center;
-        height: 40vh;
+        background: url('../../images/shows/cinderella_cover.jpg') no-repeat center;
+        height: 30vw;
         display: block;
+        background-size: cover;
     }
 
     .show-navigation{
@@ -24,13 +25,17 @@
     }
 
     .content{
-        padding: 4em;
+        padding: 4em 4em 0;
         position: relative;
 
         .button{
             position: absolute;
-            top: 2em;
-            right: 2em;
+            top: 3.25em;
+            left: 1rem;
+        }
+        
+        .dash{
+            margin-top: 2.5em;
         }
     }
 
@@ -38,4 +43,8 @@
 
 .show-content{
     padding: 0 4em 4em;
+
+        h4 + p{
+            margin-top: 1.5em;
+        }
 }

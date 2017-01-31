@@ -16,22 +16,46 @@
                 padding-top: 50%;
                 background: url('http://placehold.it/800x600') center no-repeat;
                 background-size: cover;
+                transition: opacity .5s;
+
+                &:hover{
+                    opacity: .92;
+                }
             }
 
             .content{
-                margin: 4em -4em 0 4em;
-                padding-bottom: 4em;
-                border-bottom: 1px solid $rose_purple;
-                box-sizing: border-box;
+                padding: 4em;
+                position: relative;
+                overflow-x: hidden;
+
+                &:after{
+                    content: '';
+                    height: 1px;
+                    background: $rose_purple;
+                    width: 100%;
+                    position: absolute;
+                    bottom: 0;
+                    left: 4em;
+                }
 
                 *{
                     max-width: 600px;
                 }
             }
 
+            &:last-child{
+                .content{
+                    &:after{
+                        content: none;
+                    }
+                }
+            }
+
         }
 
-        &.grid{
+    }
+
+    &.grid{
             padding: 4em;
 
             .list-item{
@@ -71,9 +95,8 @@
                 }
             }
 
-        }
 
-    }
+}
 
 }
 
@@ -99,8 +122,9 @@
                     box-sizing: border-box;
                 }
             }
+        }
 
-            &.grid{
+        &.grid{
                 .list-item{
                     width: 30%;
 
@@ -113,14 +137,12 @@
                     }
                 }
             }
-        }
     }
 }
 
 @media screen and (min-width: 800px){
 
     .list{
-        &.with-images{
 
             &.grid{
 
@@ -136,7 +158,7 @@
                         margin: 0;
                     }
                 }
-            }
+            
         }
     }
 
@@ -144,7 +166,7 @@
 
 @media screen and (min-width: 1200px){
     .list{
-        &.with-images.grid{
+        &.grid{
             .list-item{
                 width: 18%;
 
