@@ -11,17 +11,17 @@
 
 @font-face{
   font-family: "Apercu Light";
-  src: url(../../fonts/Apercu-Light.otf);
+  src: url(../../fonts/apercu-light.ttf);
 }
 
 @font-face{
   font-family: "Apercu Regular";
-  src: url(../../fonts/Apercu.otf);
+  src: url(../../fonts/apercu-regular.ttf);
 }
 
 @font-face{
   font-family: "Apercu Bold";
-  src: url(../../fonts/Apercu-Bold.otf);
+  src: url(../../fonts/apercu-bold.ttf);
 }
 
 h1{
@@ -80,7 +80,7 @@ strong{
 
 p{
   font-size: em(16);
-  font-family: "Apercu Regular", "Lato Regular", Helvetica, sans-serif;
+  font-family: "Apercu Light", "Lato Regular", Helvetica, sans-serif;
   line-height: 1.4em;
 
   + p{
@@ -112,6 +112,7 @@ a{
   font-size: em(36);
   font-family: "Apercu Light", "Lato Light", Helvetica, sans-serif;
   line-height: 1.3em;
+  font-weight: normal;
 }
 
 .dash{
@@ -127,6 +128,7 @@ a{
 .meta{
   color: $rose_purple;
   font-size: .95em;
+  font-family: "Apercu Regular";
 
   +.meta{
     margin-top: 0;
