@@ -1,14 +1,14 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div>
-		<article>
-			<section>
-				<h1>{{post.title}}</h1>
-				<div>
-					{{post.content}}
-				</div>
-			</section>
-		</article>
-	</div><!-- /content-wrapper -->
+
+<div id="{{ post.title }}">
+	<div class="page-header bg-breeze-blue">
+		<h1>{{ post.title }}</h1>
+	</div>
+	<article class="dynamic-content">
+		{{ post.content }}
+	</article>
+</div>
+
 {% endblock %}

@@ -5,7 +5,7 @@
 .frame{
     background: #111 url('http://placehold.it/600x600') no-repeat center;
     background-size: cover;
-    min-height: 300px;
+    padding-top: 33%!important;
     position: relative;
 
     &.purple{
@@ -17,6 +17,27 @@
         &:before{ background: $lawn_green; }
         header{ background: $lawn_green; }
     }
+
+    &.yellow{
+        &:before{ background: $summer_yellow; }
+        header{ background: $summer_yellow; }
+    }
+
+    &.maroon{
+        &:before{ background: $deep_maroon; }
+        header{ background: $deep_maroon; }
+    }
+
+    &.red{
+        &:before{ background: $bloom_red; }
+        header{ background: $bloom_red; }
+    }
+
+    &.black{
+        &:before{ background: $off_black }
+        header{ background: $off_black; }
+    }
+    
     
     &:before{
         content: '';
@@ -52,14 +73,18 @@
         display: block;
     }
 
-    &:nth-child(1){
+    &:nth-child(3n+1){
         position: relative;
         left: -2em;
     }
 
-    &:nth-child(3){
+    &:nth-child(3n){
         position: relative;
         right: -2em;
+    }
+
+    &:nth-child(n+4){
+        margin-top: 2em;
     }
 
 }

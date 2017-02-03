@@ -1,7 +1,7 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<main id="shows-and-events">
+<main id="{{ post.title }}">
     <div class="page-header bg-rose-purple">
         <h1>Shows &amp; Events</h1>
         <p>This is a Season of Discovery at Raleigh Little Theatre!</p>
@@ -9,12 +9,26 @@
         <p>&ndash; Patrick Torres, Artistic Director</p>
     </div>
 
+
     <div class="list with-images">
+
+
         <div class="list-item">
-            <div class="image" style="background-image:url({{ theme.link }}/images/shows/the_whipping_man.jpg);"></div>
+            <a href="{{ site.url }}/shows/cinderella" class="image" style="background-image:url({{ theme.link }}/images/shows/cinderella_cover.jpg);"></a>
+            <div class="content">
+                <h5>Musical Comedy / Special Shows</h5>
+                <h3><a href="{{ site.url }}/shows/cinderella">Cinderella</a></h3>
+                <p class="meta">Dec 2 - Dec 18</p>
+                <hr class="dash" />
+                <p>This musical comedy is a holiday sugarplum for the whole family; just the right mixture of comedy and romance to add the sparkle of magic to your holiday season. A visually stunning musical combining elegant costumes and scenery with song, dance, conniving step-relatives and resourceful fairy-folk.</p>
+            </div>
+        </div>
+
+        <div class="list-item">
+            <a href="#" class="image" style="background-image:url({{ theme.link }}/images/shows/the_whipping_man.jpg);"></a>
             <div class="content">
                 <h5>Historical Drama / City Series</h5>
-                <h3>The Whipping Man</h3>
+                <h3><a href="#">The Whipping Man</a></h3>
                 <p class="meta">Jan 13 - Jan 29</p>
                 <hr class="dash" />
                 <p>The Civil War is over. Throughout the South, slaves are being freed and soldiers are returning home. In one home, the annual celebration of Passover is celebrated by a young Confederate officer, who has been severely wounded, and two former slaves. However, the pain of enslavement will not be soothed by this tradition. Deeply buried secrets from the past refuse to be hidden forever, as the play comes to its thrilling conclusion.</p>
@@ -22,10 +36,10 @@
         </div>
 
         <div class="list-item">
-            <div class="image" style="background-image:url({{ theme.link }}/images/shows/a_piece_of_my_heart.jpg);"></div>
+            <a href="#" class="image" style="background-image:url({{ theme.link }}/images/shows/a_piece_of_my_heart.jpg);"></a>
             <div class="content">
                 <h5>Historical Drama / Sutton Series</h5>
-                <h3>A Piece of My Heart</h3>
+                <h3><a href="#">A Piece of My Heart</a></h3>
                 <p class="meta">May 5 - May 21</p>
                 <hr class="dash" />
                 <p>A powerful, true drama of six women who went to Vietnam: five nurses and a country-western singer. The latter is booked to entertain the troops by an unscrupulous agent. Follow each young woman’s story before, during, and after her tour in the war-torn nation. It was named “The most enduring play on Vietnam in the nation,” by The Vietnam Vets Association.</p>
@@ -33,48 +47,74 @@
         </div>
 
         <div class="list-item">
-            <div class="image" style="background-image:url({{ theme.link }}/images/shows/avenue_q.jpg);"></div>
+            <a href="#" class="image" style="background-image:url({{ theme.link }}/images/shows/avenue_q.jpg);"></a>
             <div class="content">
                 <h5>Musical / City Series</h5>
-                <h3>Avenue Q</h3>
+                <h3><a href="#">Avenue Q</a></h3>
                 <p class="meta">June 2 - June 18</p>
                 <hr class="dash" />
                 <p>Recent college grad, Princeton, moves into a shabby New York apartment all the way out on Avenue Q. Along with his new friends, Princeton struggles to find a job, date, and discover an ever-elusive purpose in life. Filled with gut-busting humor and a delightfully catchy score, not to mention puppets, this truly unique show has quickly become a favorite for audiences everywhere.</p>
             </div>
         </div>
-
-        <div class="list-item">
-            <div class="image"></div>
-            <div class="content">
-                <h5>Musical Comedy / Special Shows</h5>
-                <h3>Cinderella</h3>
-                <p class="meta">Dec 2 - Dec 18</p>
-                <hr class="dash" />
-                <p>This musical comedy is a holiday sugarplum for the whole family; just the right mixture of comedy and romance ot add the sparkle of magic to your holiday season.</p>
-            </div>
-        </div>
-
-        <div class="list-item">
-            <div class="image"></div>
-            <div class="content">
-                <h5>Musical Comedy / Special Shows</h5>
-                <h3>Cinderella</h3>
-                <p class="meta">Dec 2 - Dec 18</p>
-                <hr class="dash" />
-                <p>This musical comedy is a holiday sugarplum for the whole family; just the right mixture of comedy and romance ot add the sparkle of magic to your holiday season.</p>
-            </div>
-        </div>
-
-        <div class="list-item">
-            <div class="image"></div>
-            <div class="content">
-                <h5>Musical Comedy / Special Shows</h5>
-                <h3>Cinderella</h3>
-                <p class="meta">Dec 2 - Dec 18</p>
-                <hr class="dash" />
-                <p>This musical comedy is a holiday sugarplum for the whole family; just the right mixture of comedy and romance ot add the sparkle of magic to your holiday season.</p>
-            </div>
-        </div>
     </div>
+
+    <div class="grid bulletin">
+    
+        <div class="primary">
+
+            <header>
+                <p class="eyebrow">Memberships &amp; Flex Passes</p>
+                <h2 class="title quote">Join us as a member or flex pass holder for the 2016-2017 season</h2>
+            </header>
+
+            {#<div class="buttons centered">#}
+                <a href="#" class="inverse button ">Join or Renew</a>
+            {#</div>#}
+
+        </div>
+
+        <div class="secondary">
+
+            <header>
+                <p class="eyebrow">Blast to the Past</p>
+                <h2 class="title quote">Visit our archives to see your favorite past shows and events</h2>
+            </header>
+
+            {#<div class="buttons centered">#}
+                <a href="#" class="inverse button">Archive</a>
+            {#</div>#}
+
+        </div>
+
+        <div class="feed">
+            <header>
+                <p class="eyebrow has-squiggle"><span class="bg-cool-grey">Links &amp; Resources</span></p>
+            </header>
+            <article>
+                <h6 class="title"><a href="#">Download 2016-17 Season Calendar (PDF)</a></h6>
+                <p>Downloadable showtimes and information.</p>
+            </article>
+            <article>
+                <h6 class="title"><a href="#">Auditions</a></h6>
+                <p>Interested in starring in a Raleigh Little Theatre production? Visit our Auditions page for more info.</p>
+            </article>
+            <article>
+                <h6 class="title"><a href="#">Photo Gallery</a></h6>
+                <p>A picture is worth 1,000 words; and we have a whole lot of pictures.</p>
+            </article>
+            <article>
+                <h6 class="title"><a href="#">Volunteers</a></h6>
+                <p>You can be more than a spectator. Find out how you can get involved with Raleigh Little Theatre!</p>
+            </article>
+            <article>
+                <h6 class="title"><a href="#">Accessibility</a></h6>
+                <p>RLT welcomes people with disabilities to our theatre. Check out our organization&rsquo;s efforts at ADA accomodations.</p>
+            </article>
+
+            <a href="#" class="button">More News</a>
+        </div>
+
+    </div><!--.bulletin-->
+
 </main>
 {% endblock %}

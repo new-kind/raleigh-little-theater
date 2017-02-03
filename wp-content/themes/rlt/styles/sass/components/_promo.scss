@@ -2,10 +2,16 @@
     background: url('http://placehold.it/800x600') no-repeat center;
     background-size: cover;
     min-height: 45vh;
+    transition: opacity .5s;
+
+    &:hover{
+        opacity: .92;
+    }
 
     > header{
-        padding: 1em 2em;
+        padding: 1em 3em;
         margin-top: 1em;
+        margin-left: -1em;
         background: $bloom_red;
         color: $white;
         display: inline-block;
