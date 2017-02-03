@@ -2,10 +2,10 @@ define("bulletin.module", ["require", "exports"], function (require, exports) {
     "use strict";
     var Bulletin = (function () {
         function Bulletin() {
+            var _this = this;
             this.setHeight();
-            var ctrl = this; // set context to a variable
             $(window).on('resize', function () {
-                ctrl.setHeight(); // using context variable in place of "this"
+                _this.setHeight();
             });
         }
         // function to get heights of selectors
