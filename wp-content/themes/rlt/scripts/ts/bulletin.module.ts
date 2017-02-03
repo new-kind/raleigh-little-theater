@@ -5,9 +5,8 @@ export class Bulletin {
 
     constructor(){
         this.setHeight();
-        let ctrl = this; // set context to a variable
-        $(window).on('resize', function(){
-            ctrl.setHeight(); // using context variable in place of "this"
+        $(window).on('resize', ()=>{
+            this.setHeight(); 
         });
     }
 
