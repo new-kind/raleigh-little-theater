@@ -4,6 +4,16 @@
 
 .list{
 
+    &.with-members{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        
+        .list-names{
+            margin: em(65) em(100);
+        }
+    }
+
     &.with-images{
         
         .list-item{
