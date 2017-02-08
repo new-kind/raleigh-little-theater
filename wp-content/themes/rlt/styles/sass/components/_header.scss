@@ -1,25 +1,25 @@
 .site-header{
     height: 150px;
     background: $cool_grey;
-    height: 100vh;
     width: 100vw;
     display: block;
     position: fixed;
     z-index: 9998;
+    height: 60px;;
     top: 0;
-    right: -100vw;
 
     .logo{
         background: url('../../assets/RLT_logo_header.svg') no-repeat center;
         background-size: contain;
         text-indent: -9999em;
         display: block;
-        width: 100px;
-        height: 50px;
+        width: 60px;
+        height: 30px;
         padding: 1em;
-        top: 1em;
+        top: 0;
         left: 1em;
         position: relative;
+        z-index: 9999;
     }
 
     .primary-nav, .utility-nav{
@@ -42,7 +42,7 @@
 
     .toggle-nav{
         position: absolute;
-        top: 2em;
+        top: 1em;
         right: 1em;
         width: 30px;
         height: 30px;
@@ -54,6 +54,25 @@
         color: $rose_purple;
     }
 
+    .nav-wrapper{
+        position: fixed;
+        padding-top: 60px;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        right: -100vw;
+        background: $cool_grey;
+        transition: right .3s;
+
+        &.do-show{
+            right: 0;
+        }
+    }
+
+}
+
+main{
+    margin-top: 60px;
 }
 
 @media screen and (min-width: 800px){
@@ -69,6 +88,27 @@
             width: 200px;
             background-size: auto;
             float: left;
+        }
+
+        .nav-wrapper{
+            position: static;
+            height: auto;
+            width: auto;
+            padding: 0;
+        }
+
+        .primary-nav, .utility-nav{
+            margin: 0;
+            
+            ul li{
+
+                a{
+                    padding: 0;
+                }
+                + li{
+                    border: none;
+                }
+            }
         }
 
         .primary-nav{
@@ -110,5 +150,7 @@
                 }
             }
         }
-    }       
+    }     
+
+    main{ margin-top: 0; }  
 }       

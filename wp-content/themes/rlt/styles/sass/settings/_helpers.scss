@@ -79,3 +79,7 @@ $browser-context: 16; // Default
 @function em($pixels, $context: $browser-context) {
   @return #{$pixels/$context}em;
 }
+
+@media screen and (min-width: 800px){
+  .mobile{ display: none; }
+}

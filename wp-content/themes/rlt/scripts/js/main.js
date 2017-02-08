@@ -62,7 +62,22 @@ define("classFilter.module", ["require", "exports"], function (require, exports)
     }());
     exports.ClassFilter = ClassFilter;
 });
-define("main", ["require", "exports", "bulletin.module", "classFilter.module", 'jquery', 'chosen'], function (require, exports, bulletin_module_1, classFilter_module_1) {
+define("header.module", ["require", "exports"], function (require, exports) {
+    "use strict";
+    var Header = (function () {
+        function Header() {
+            this.toggleClass('.mobile.toggle-nav', '.nav-wrapper', 'do-show');
+        }
+        Header.prototype.toggleClass = function (elemClicked, elemToggled, className) {
+            $(elemClicked).on('click', function () {
+                $(elemToggled).toggleClass(className);
+            });
+        };
+        return Header;
+    }());
+    exports.Header = Header;
+});
+define("main", ["require", "exports", "bulletin.module", "classFilter.module", "header.module", 'jquery', 'chosen'], function (require, exports, bulletin_module_1, classFilter_module_1, header_module_1) {
     "use strict";
     $(document).ready(function () {
         if ($('.bulletin')) {
@@ -74,6 +89,9 @@ define("main", ["require", "exports", "bulletin.module", "classFilter.module", '
         }
         if ($('select')) {
             $('select').chosen();
+        }
+        if ($('.site-header')) {
+            var header = new header_module_1.Header;
         }
     });
 });
