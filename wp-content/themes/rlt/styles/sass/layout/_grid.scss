@@ -34,23 +34,46 @@ $columnWidth: 8.333;
         vertical-align: top;
         box-sizing: border-box;
 
-        &[class *= "one column"]{    width: $columnWidth + %!important; }
-        &[class *= "two column"]{    width: ($columnWidth * 2) + %!important; }
-        &[class *= "three column"]{  width: ($columnWidth * 3) + %!important; }
-        &[class *= "four column"]{   width: ($columnWidth * 4) + %!important; }
-        &[class *= "five column"]{   width: ($columnWidth * 5) + %!important; }
-        &[class *= "six column"]{    width: ($columnWidth * 6) + %!important; }
-        &[class *= "seven column"]{  width: ($columnWidth * 7) + %!important; }
-        &[class *= "eight column"]{  width: ($columnWidth * 8) + %!important; }
-        &[class *= "nine column"]{   width: ($columnWidth * 9) + %!important; }
-        &[class *= "ten column"]{    width: ($columnWidth * 10) + %!important; }
-        &[class *= "eleven column"]{ width: ($columnWidth * 11) + %!important; }
-        &[class *= "twelve column"]{ width: ($columnWidth * 12) + %!important; }
+        &[class *= "one column"]{    width: $columnWidth + %; }
+        &[class *= "two column"]{    width: ($columnWidth * 2) + %; }
+        &[class *= "three column"]{  width: ($columnWidth * 3) + %; }
+        &[class *= "four column"]{   width: ($columnWidth * 4) + %; }
+        &[class *= "five column"]{   width: ($columnWidth * 5) + %; }
+        &[class *= "six column"]{    width: ($columnWidth * 6) + %; }
+        &[class *= "seven column"]{  width: ($columnWidth * 7) + %; }
+        &[class *= "eight column"]{  width: ($columnWidth * 8) + %; }
+        &[class *= "nine column"]{   width: ($columnWidth * 9) + %; }
+        &[class *= "ten column"]{    width: ($columnWidth * 10) + %; }
+        &[class *= "eleven column"]{ width: ($columnWidth * 11) + %; }
+        &[class *= "twelve column"]{ width: ($columnWidth * 12) + %; }
 
         &:not(.row){
             padding-top: 1rem;
             padding-bottom: 1rem;
         }
+    }
+
+}
+
+@media screen and (max-width: 600px){
+
+    .grid{
+        margin: 0 -1rem;
+    }
+    
+    .grid > .column{
+        &[class *= "one column"]{    width: 100%; }
+        &[class *= "two column"]{    width: 100%; }
+        &[class *= "three column"]{  width: 100%; }
+        &[class *= "four column"]{   width: 100%; }
+        &[class *= "five column"]{   width: 100%; }
+        &[class *= "six column"]{    width: 100%; }
+        &[class *= "seven column"]{  width: 100%; }
+        &[class *= "eight column"]{  width: 100%; }
+        &[class *= "nine column"]{   width: 100%; }
+        &[class *= "ten column"]{    width: 100%; }
+        &[class *= "eleven column"]{ width: 100%; }
+        &[class *= "twelve column"]{ width: 100%; }
     }
 
 }

@@ -1,90 +1,100 @@
 .frames{
-    margin: 4em 8em!important;
+    margin: 2em;
 }
 
 .frame{
-    background: #111 url('http://placehold.it/600x600') no-repeat center;
-    background-size: cover;
-    padding-top: 33%!important;
-    position: relative;
-
-    &.purple{
-        &:before{ background: $rose_purple; }
-        header{ background: $rose_purple; }
-    }
-
-    &.green{
-        &:before{ background: $lawn_green; }
-        header{ background: $lawn_green; }
-    }
-
-    &.yellow{
-        &:before{ background: $summer_yellow; }
-        header{ background: $summer_yellow; }
-    }
-
-    &.maroon{
-        &:before{ background: $deep_maroon; }
-        header{ background: $deep_maroon; }
-    }
-
-    &.red{
-        &:before{ background: $bloom_red; }
-        header{ background: $bloom_red; }
-    }
-
-    &.black{
-        &:before{ background: $off_black }
-        header{ background: $off_black; }
-    }
-    
-    
-    &:before{
-        content: '';
-        width: 100%;
-        height: 100%;
-        background: $breeze_blue;
-        position: absolute;
-        z-index: -1;
-        top: -1em;
-        left: -1em;
-        padding-right: 1em;
-        display: block;
-    }
-
-    header{
-        background:$breeze_blue;
-        color: #fff;
-        padding: 1em 2em 1em 0;
-        text-align: left;
-        display: inline-block;
-        position: absolute;
-        left: 0;
-        top: 2em;
-        max-width: 95%;
-        box-sizing: border-box;
-    }
-
-    .buttons{
-        position: absolute;
-        bottom: 1em;
-        left: 0;
-        width: 100%;
-        display: block;
-    }
-
-    &:nth-child(3n+1){
-        position: relative;
-        left: -2em;
-    }
-
-    &:nth-child(3n){
-        position: relative;
-        right: -2em;
-    }
-
-    &:nth-child(n+4){
-        margin-top: 2em;
-    }
 
 }
+
+@media screen and (min-width: 600px){
+
+    .frames{
+        margin: 4em 8em!important;
+    }
+
+    .frame{
+        background: #111 url('http://placehold.it/600x600') no-repeat center;
+        background-size: cover;
+        padding-top: 33%!important;
+        position: relative;
+    
+        &.purple{
+            &:before{ background: $rose_purple; }
+            header{ background: $rose_purple; }
+        }
+    
+        &.green{
+            &:before{ background: $lawn_green; }
+            header{ background: $lawn_green; }
+        }
+    
+        &.yellow{
+            &:before{ background: $summer_yellow; }
+            header{ background: $summer_yellow; }
+        }
+    
+        &.maroon{
+            &:before{ background: $deep_maroon; }
+            header{ background: $deep_maroon; }
+        }
+    
+        &.red{
+            &:before{ background: $bloom_red; }
+            header{ background: $bloom_red; }
+        }
+    
+        &.black{
+            &:before{ background: $off_black }
+            header{ background: $off_black; }
+        }
+        
+        &:before{
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: $breeze_blue;
+            position: absolute;
+            z-index: -1;
+            top: -1em;
+            left: -1em;
+            padding-right: 1em;
+            display: block;
+        }
+    
+        header{
+            background:$breeze_blue;
+            color: #fff;
+            padding: 1em 2em 1em 0;
+            text-align: left;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 2em;
+            max-width: 95%;
+            box-sizing: border-box;
+        }
+    
+        .buttons{
+            position: absolute;
+            bottom: 1em;
+            left: 0;
+            width: 100%;
+            display: block;
+        }
+    
+        &:nth-child(3n+1){
+            position: relative;
+            left: -2em;
+        }
+    
+        &:nth-child(3n){
+            position: relative;
+            right: -2em;
+        }
+    
+        &:nth-child(n+4){
+            margin-top: 2em;
+        }
+    }
+}
+

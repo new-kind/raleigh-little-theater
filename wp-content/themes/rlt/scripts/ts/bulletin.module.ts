@@ -19,6 +19,11 @@ export class Bulletin {
     // function to test + set heights dynamically
     setHeight(){
 
+        if( $(window).width() < 800 ){
+            $('.bulletin, .bulletin > .feed').css('height', '');
+            return false;
+        }
+
         $('.bulletin, .bulletin *').css('height', '');
 
         // check heights of objects and set variables
