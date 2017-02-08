@@ -22,5 +22,25 @@
 }
 
 .sponsors{
-    padding: 4em 0;
+    padding: 4em;
+
+    img{
+        width: 45%;
+        margin: 2.5%;
+    }
+}
+
+@media screen and (min-width: 400px){
+    
+    .sponsors{
+        img{ width: 27%; }
+    }
+
+}
+
+@media screen and (min-width: 800px){
+    
+    .sponsors{
+        img{ width: 20%; }
+    }
 }
