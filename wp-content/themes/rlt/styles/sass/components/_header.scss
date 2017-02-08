@@ -52,6 +52,11 @@
 
     .utility-nav a{
         color: $rose_purple;
+        transition: color 0.4s ease;
+
+        &:hover{
+            color: lighten($rose_purple, 25%);
+        }
     }
 
     .nav-wrapper{
@@ -82,6 +87,7 @@ main{
         height: auto;
         width: auto;
         position: static;
+        @include clearfix;
 
         .logo{
             height: 100px;
@@ -99,7 +105,7 @@ main{
 
         .primary-nav, .utility-nav{
             margin: 0;
-            
+
             ul li{
 
                 a{
@@ -134,14 +140,6 @@ main{
             ul li{
                 display: inline-block;
                 font-size: .9em;
-
-                a{
-
-                   &:hover{
-                        transition: opacity 0.4s ease;
-                        opacity: 0.6
-                    }
-                }
 
                 & + li {
                     margin-left: 1em;

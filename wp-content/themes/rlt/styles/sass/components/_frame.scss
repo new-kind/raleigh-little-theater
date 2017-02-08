@@ -1,22 +1,20 @@
 .frames{
-    margin: 2em;
+    padding-bottom: 1em;
 }
 
 .frame{
 
-}
-
-@media screen and (min-width: 600px){
-
-    .frames{
-        margin: 4em 8em!important;
-    }
-
-    .frame{
-        background: #111 url('http://placehold.it/600x600') no-repeat center;
+     background: #111 url('http://placehold.it/600x600') no-repeat center;
         background-size: cover;
         padding-top: 33%!important;
         position: relative;
+        top: 1em;
+        left: 2em;
+        height: 200px;
+        
+        + .frame{
+            margin-top: 1em;
+        }
     
         &.purple{
             &:before{ background: $rose_purple; }
@@ -58,6 +56,7 @@
             top: -1em;
             left: -1em;
             padding-right: 1em;
+            padding-bottom: 1em;
             display: block;
         }
     
@@ -68,8 +67,8 @@
             text-align: left;
             display: inline-block;
             position: absolute;
-            left: 0;
             top: 2em;
+            left: 0;
             max-width: 95%;
             box-sizing: border-box;
         }
@@ -77,18 +76,39 @@
         .buttons{
             position: absolute;
             bottom: 1em;
-            left: 0;
+            left: -2em;
             width: 100%;
             display: block;
         }
+
+        
+    
+    }
+
+@media screen and (min-width: 600px){
+
+    .frames{
+        padding: 0;
+        margin: 4em 8em!important;
+    }
+
+    .frame{
+        top: auto;
+        left: auto;
+
+        + .frame{
+            margin: auto;
+        }
+    
+        .buttons{
+            left: 0;
+        }
     
         &:nth-child(3n+1){
-            position: relative;
             left: -2em;
         }
     
         &:nth-child(3n){
-            position: relative;
             right: -2em;
         }
     
