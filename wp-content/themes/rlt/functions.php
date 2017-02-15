@@ -76,7 +76,7 @@ class StarterSite extends TimberSite {
 					'singular_name' => __( 'Class' )
 				),
 				'public' => true,
-				'has_archive' => true,
+				'has_archive' => false,
 				'menu_icon' => 'dashicons-welcome-learn-more'
 			)
 		);
