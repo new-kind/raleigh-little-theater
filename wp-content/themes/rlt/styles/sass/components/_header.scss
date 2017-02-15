@@ -86,7 +86,7 @@ main{
         background: none;
         height: auto;
         width: auto;
-        position: static;
+        position: relative;
         @include clearfix;
 
         .logo{
