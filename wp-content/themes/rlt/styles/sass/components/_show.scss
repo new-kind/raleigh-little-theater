@@ -36,6 +36,10 @@
 
 }
 
+.cast-list dl{
+        margin-top: .5em;
+}
+
 .show-content{
     padding: 0 4em 4em;
 
@@ -43,6 +47,8 @@
             margin-top: 1.5em;
         }
 }
+
+#show{ .grid{ margin-bottom: 0; }}
 
 @media screen and (min-width: 800px){
 
@@ -52,6 +58,14 @@
             position: absolute;
             top: 3.25em;
             left: 1rem;
+        }
+    }
+
+    .cast-list{
+        dl{
+            width: 50%;
+            float: left;
+            
         }
     }
 

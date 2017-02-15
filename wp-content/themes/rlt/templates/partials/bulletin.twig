@@ -31,16 +31,54 @@
             <header>
                 <p class="eyebrow has-squiggle"><span class="bg-cool-grey">Links &amp; Resources</span></p>
             </header>
-        {% endif %}
-        {% for item in feed %}
+            {% for item in feed %}
 
             <article>
                 <h6 class="title"><a href="{{ item.link }}">{{ item.link_text }}</a></h6>
                 <p>{{ item.summary }}</p>
             </article>
 
-        {% endfor %}
+            {% endfor %}
             </div>
+        {% else %}
+            <div class="feed">
+            <header>
+                <p class="eyebrow has-squiggle"><span class="bg-cool-grey">Recent News</span></p>
+            </header>
+            <article>
+                <h6 class="title"><a href="#">Callbacks for The Whipping Man</a></h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
+                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
+            </article>
+            <article>
+                <h6 class="title"><a href="#">Callbacks for The Whipping Man</a></h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
+                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
+            </article>
+            <article>
+                <h6 class="title"><a href="#">Callbacks for The Whipping Man</a></h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
+                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
+            </article>
+            <article>
+                <h6 class="title"><a href="#">Callbacks for The Whipping Man</a></h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
+                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
+            </article>
+            <article>
+                <h6 class="title"><a href="#">Callbacks for The Whipping Man</a></h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
+                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
+            </article>
+
+            <a href="#" class="button">More News</a>
+            </div>
+
+        {% endif %}
+
+
+
+
 
 
         <!--<div class="feed">

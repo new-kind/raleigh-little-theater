@@ -81,6 +81,18 @@ class StarterSite extends TimberSite {
 			)
 		);
 
+		register_post_type( 'sponsors',
+			array(
+				'labels' => array(
+					'name' => __( 'Sponsors' ),
+					'singular_name' => __( 'Sponsor' )
+				),
+				'public' => true,
+				'has_archive' => true,
+				'menu_icon' => 'dashicons-money'
+			)
+		);
+
 
 	}
 

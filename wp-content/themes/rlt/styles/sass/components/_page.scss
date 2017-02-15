@@ -24,16 +24,21 @@
 .sponsors{
     padding: 4em;
 
-    img{
+    a{
+        height: 100px;
+        display: inline-block;
         width: 45%;
         margin: 2.5%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
     }
 }
 
 @media screen and (min-width: 400px){
     
     .sponsors{
-        img{ width: 27%; }
+        a{ width: 27%; }
     }
 
 }
@@ -41,6 +46,6 @@
 @media screen and (min-width: 800px){
     
     .sponsors{
-        img{ width: 20%; }
+        a{ width: 20%; }
     }
 }

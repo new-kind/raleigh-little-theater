@@ -25,14 +25,14 @@
             </select>
 
             <label for="kids" data-listen="ages" data-show="kids">Kids Ages</label>
-            <select name="kids" data-listen="ages" data-show="kids" multiple style="width: 20em;">
+            <select name="kids" data-listen="ages" data-show="kids" multiple style="width: 14em;">
                 {% for age in acf.kids_ages.choices %}
                     <option value="{{ age }}">{{ age }}</option>
                 {% endfor %}
             </select>
 
             <label for="teens" data-listen="ages" data-show="teens">Teens Ages</label>
-            <select name="teens" data-listen="ages" data-show="teens" multiple style="width: 20em;">
+            <select name="teens" data-listen="ages" data-show="teens" multiple style="width: 14em;">
                 {% for age in acf.teens_ages.choices %}
                     <option value="{{ age }}">{{ age }}</option>
                 {% endfor %}

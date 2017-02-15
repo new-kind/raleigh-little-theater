@@ -4,8 +4,27 @@
 <main id="front-page">
 
     <div class="grid promos">
+
+
+        {% for promo in post.get_field('promos') %}
+        {% set content = promo.content %}
+
+            {% if loop.first %}
+                <a class="twelve column promo" href="{{ content.permalink }}">
+            {% else %}
+                <a class="six column promo" href="{{ content.permalink }}">
+            {% endif %}
+
+                <header>
+                    <h3 class="title">{{ content.title }}</h3>
+                    <p class="meta dates">{{ content.start_date | date('M d') }} &ndash; {{ content.end_date | date('M d') }}</p>
+                </header>
+                <div class="promo-bg" style="background-image: url({{ content.get_field('promo_image').sizes.1200 }});"></div>
+            </a>
+
+        {% endfor %}
        
-        <a class="twelve column promo" href="#">
+        <!--<a class="twelve column promo" href="#">
             <header>
                 <h3 class="title">The Whipping Man</h3>
                 <p class="meta dates">Jan 13 &ndash; Jan 29</p>
@@ -27,13 +46,32 @@
                 <p class="meta dates">June 2 &ndash; June 18</p>
             </header>
             <div class="promo-bg" style="background-image: url({{ theme.link }}/images/shows/avenue_q.jpg);"></div>
-        </a>
+        </a>-->
 
     </div><!--.promos-->
     
     <div class="grid frames">
 
-        <div class="four column frame" style="background-image:url({{ theme.link }}/images/educating_all_ages.jpg);">
+        {% set links = post.get_field('links') %}
+
+        {% for link in links %}
+
+        {% set class = "" %}
+        {% if loop.index == 2 %}{% set class = "purple" %}{% endif %}
+        {% if loop.index == 3 %}{% set class = "green" %}{% endif %}
+
+        <div class="four column frame {{ class }}" style="background-image:url({{ link.image.sizes.800 }});">
+            <header>
+                <h3 class="title">{{ link.text }}</h3>
+            </header>
+            <div class="buttons centered">
+                <a href="{{ link.link }}" class="inverse button">{{ link.button_text }}</a>
+            </div>
+        </div>
+
+        {% endfor %}
+
+        <!--<div class="four column frame" style="background-image:url({{ theme.link }}/images/educating_all_ages.jpg);">
             <header>
                 <h3 class="title">Educating all ages</h3>
             </header>
@@ -59,11 +97,13 @@
             <div class="buttons centered">
                 <a href="#" class="inverse button">Visit Us</a>
             </div>
-        </div>
+        </div>-->
 
     </div><!--.frames-->
 
-    <div class="grid bulletin">
+    {% include 'partials/bulletin.twig' %}
+
+   <!-- <div class="grid bulletin">
     
         <div class="primary">
 
@@ -125,25 +165,20 @@
         </div>
 
     </div><!--.bulletin-->
-
-    <div class="grid sponsors">
-
-        <h4 class="title twelve column text centered color-bloom-red">Raleigh Little Theatre thanks its generous season sponsors</h4>
-
-        <div class="eight column grid centered">
-            <img src="http://placehold.it/300x300" />
-            <img src="http://placehold.it/300x300" />
-            <img src="http://placehold.it/300x300" />
-            <img src="http://placehold.it/300x300" />
-            <img src="http://placehold.it/300x300" />
-            <img src="http://placehold.it/300x300" />
-            <img src="http://placehold.it/300x300" />
-            <img src="http://placehold.it/300x300" />
+        {% set sponsors = post.get_field('sponsors') %}
+        {% if sponsors %}
+        <div class="grid sponsors">
+            <h4 class="title twelve column text centered color-bloom-red">Raleigh Little Theatre thanks its generous season sponsors</h4>
+            <div class="eight column grid centered">
+        {% for item in sponsors %}
+        {% set sponsor = item.sponsor %}
+            <a href="{{ sponsor.url }}" target="_blank" style="background-image: url({{ TimberImage(sponsor.logo).src }});"></a>
+        {% endfor %}
+            </div>
         </div>
+        {% endif %}
 
-        <div class="buttons centered twelve column">
-            <a href="#" class="button inverse">See all sponsors &rarr;</a>
-        </div>
+        
 
     </div>
 

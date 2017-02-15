@@ -112,7 +112,7 @@ define("classFilter.module", ["require", "exports"], function (require, exports)
             console.log($('.class-listing[style="display: none;"]').length);
             $('.no-listing-msg').remove();
             if ($('.class-listing').length == $('.class-listing[style="display: none;"]').length) {
-                $('.page-content').append('<h3 class="no-listing-msg">No courses match your criteria. Please try another combination of filters.</h3>');
+                $('.page-content').append('<h3 class="no-listing-msg color-bloom-red">No courses match your criteria. Please try another combination of filters.</h3>');
             }
             function checkLocation(object, location) {
                 if (location == object.attr('data-locations')) {
