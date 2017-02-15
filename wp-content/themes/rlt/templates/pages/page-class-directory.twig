@@ -1,6 +1,7 @@
 {% extends "base.twig" %}
 
 {% block content %}
+{{ testid }}
 <main id="shows-and-events">
     <div class="page-header bg-breeze-blue">
         <h1>Classes</h1>
@@ -8,7 +9,7 @@
     <div class="filter pad-l-md">
         <form>
             <label for="locations">Location</label>
-            <select name="locations">
+            <select name="locations" style="width: 20em;">
                 <option value="all">All</option>
                 {% for location in locations %}
                     <option value="{{ location.slug }}">{{ location.name }}</option>
@@ -23,16 +24,16 @@
                 {% endfor %}
             </select>
 
-            <label for="kids" data-listen="ages" data-show="kids">Ages</label>
-            <select name="kids" data-listen="ages" data-show="kids" multiple>
+            <label for="kids" data-listen="ages" data-show="kids">Kids Ages</label>
+            <select name="kids" data-listen="ages" data-show="kids" multiple style="width: 20em;">
                 {% for age in acf.kids_ages.choices %}
                     <option value="{{ age }}">{{ age }}</option>
                 {% endfor %}
             </select>
 
-            <label for="teens" data-listen="ages" data-show="teens">Ages</label>
-            <select name="teens" data-listen="ages" data-show="teens" multiple>
-                {% for age in acf.teen_ages.choices %}
+            <label for="teens" data-listen="ages" data-show="teens">Teens Ages</label>
+            <select name="teens" data-listen="ages" data-show="teens" multiple style="width: 20em;">
+                {% for age in acf.teens_ages.choices %}
                     <option value="{{ age }}">{{ age }}</option>
                 {% endfor %}
             </select>
@@ -53,6 +54,7 @@
         
     {% for post in posts %}
         {% set dataAges, dataAgeGroup, dataLocations, dataTypes = [], [], [], [] %}
+        {% set ages = '' %}
         
         
         {% for ageGroup in post.get_field('age_group') %}    
@@ -73,7 +75,7 @@
         {% endfor %}
 
         
-        <div class="six column" 
+        <div class="six column class-listing" 
             data-ages="{{ dataAges | join(',') }}" 
             data-age-group="{{ dataAgeGroup | join(',') }}"
             data-types="{{ dataTypes | join(',') }}"

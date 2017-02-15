@@ -57,29 +57,88 @@ define("classFilter.module", ["require", "exports"], function (require, exports)
                 //console.log( selected );
                 ctrl.filterList(selected);
             });
-            $('.filter select[data-ctrl]').change(function () {
-                var currentCtrl = $(this).data('ctrl');
-                var currentVal = $(this).val();
-                //ctrl.checkConditionals( currentCtrl, currentVal );
-            });
         }
         ClassFilter.prototype.filterList = function (selected) {
-            $.each(selected, function (key, val) {
-                //console.log(key);
-                $('.column').each(function () {
-                    console.log(val);
-                    if (val != 'all') {
-                        if ($(this).attr('data-' + key) != val) {
-                            $(this).hide();
+            //console.log(key);
+            $('.class-listing').each(function () {
+                var listing = $(this);
+                var locations = true;
+                var ageGroup = true;
+                var types = true;
+                var ages = true;
+                console.log(selected);
+                $.each(selected, function (key, val) {
+                    if (key == 'locations') {
+                        if (val != 'all') {
+                            locations = checkLocation(listing, val);
                         }
                         else {
-                            $(this).show();
+                            locations = true;
                         }
                     }
-                    else {
+                    if (key == 'age-group') {
+                        if (val != 'all') {
+                            ageGroup = checkAgeGroup(listing, val);
+                        }
+                        else {
+                            ageGroup = true;
+                        }
+                    }
+                    if (key == 'types') {
+                        if (val != 'all') {
+                            types = checkTypes(listing, val);
+                        }
+                        else {
+                            types = true;
+                        }
+                    }
+                    if ((key == 'kids') || (key == 'teens')) {
+                        if (val != 'all') {
+                            ages = checkAges(listing, val);
+                        }
+                        else {
+                            ages = true;
+                        }
                     }
                 });
+                if ((ageGroup && locations && ages && types) != true) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
             });
+            console.log($('.class-listing').length);
+            console.log($('.class-listing[style="display: none;"]').length);
+            $('.no-listing-msg').remove();
+            if ($('.class-listing').length == $('.class-listing[style="display: none;"]').length) {
+                $('.page-content').append('<h3 class="no-listing-msg">No courses match your criteria. Please try another combination of filters.</h3>');
+            }
+            function checkLocation(object, location) {
+                if (location == object.attr('data-locations')) {
+                    return true;
+                }
+                return false;
+            }
+            function checkTypes(object, types) {
+                if (types == object.attr('data-types')) {
+                    return true;
+                }
+                return false;
+            }
+            function checkAgeGroup(object, ageGroup) {
+                if (object.attr('data-age-group').includes(ageGroup)) {
+                    return true;
+                }
+                return false;
+            }
+            function checkAges(object, ages) {
+                console.log('checkAges: ' + ages);
+                if (object.attr('data-ages').includes(ages)) {
+                    return true;
+                }
+                return false;
+            }
         };
         ClassFilter.prototype.checkConditionals = function (ctrl, value) {
         };

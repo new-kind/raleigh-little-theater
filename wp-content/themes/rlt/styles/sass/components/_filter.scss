@@ -1,8 +1,31 @@
 .filter{
+    position: relative;
+    padding-bottom: .5em;
 
+    &:after{
+        content: '';
+        height: 8px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: url('../../assets/squiggle_line.png') repeat-x;
+    }
 
     select[multiple]{
         width: 50px;
     }
 
+    label{
+        margin-left: 1em;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .filter{
+        label{
+            display: block;
+            margin: 1.5em 0 .5em;
+        }
+    }
 }
