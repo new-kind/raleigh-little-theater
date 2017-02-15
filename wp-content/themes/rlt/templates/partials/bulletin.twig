@@ -1,0 +1,74 @@
+ <div class="grid bulletin">
+
+        {% set CTAs = post.get_field('ctas') %}
+
+        {% for item in CTAs %}
+
+
+            {% if loop.first %}
+                <div class="primary bg-{{ ctaColors.primary }}">
+            {% else %}
+                <div class="secondary bg-{{ ctaColors.secondary }}">
+            {% endif %}
+        
+
+                <header>
+                    <p class="eyebrow">{{ item.label}}</p>
+                    <h2 class="title quote">{{ item.text }}</h2>
+                </header>
+
+                {#<div class="buttons centered">#}
+                    <a href="{{ item.link }}" class="inverse button ">{{ item.button_text }}</a>
+                {#</div>#}
+
+            </div>
+
+        {% endfor %}
+
+        {% set feed = post.get_field('list_item') %}
+        {% if feed %}
+            <div class="feed">
+            <header>
+                <p class="eyebrow has-squiggle"><span class="bg-cool-grey">Links &amp; Resources</span></p>
+            </header>
+        {% endif %}
+        {% for item in feed %}
+
+            <article>
+                <h6 class="title"><a href="{{ item.link }}">{{ item.link_text }}</a></h6>
+                <p>{{ item.summary }}</p>
+            </article>
+
+        {% endfor %}
+            </div>
+
+
+        <!--<div class="feed">
+            <header>
+                <p class="eyebrow has-squiggle"><span class="bg-cool-grey">Links &amp; Resources</span></p>
+            </header>
+            <article>
+                <h6 class="title"><a href="#">Download 2016-17 Season Calendar (PDF)</a></h6>
+                <p>Downloadable showtimes and information.</p>
+            </article>
+            <article>
+                <h6 class="title"><a href="#">Auditions</a></h6>
+                <p>Interested in starring in a Raleigh Little Theatre production? Visit our Auditions page for more info.</p>
+            </article>
+            <article>
+                <h6 class="title"><a href="#">Photo Gallery</a></h6>
+                <p>A picture is worth 1,000 words; and we have a whole lot of pictures.</p>
+            </article>
+            <article>
+                <h6 class="title"><a href="#">Volunteers</a></h6>
+                <p>You can be more than a spectator. Find out how you can get involved with Raleigh Little Theatre!</p>
+            </article>
+            <article>
+                <h6 class="title"><a href="#">Accessibility</a></h6>
+                <p>RLT welcomes people with disabilities to our theatre. Check out our organization&rsquo;s efforts at ADA accomodations.</p>
+            </article>
+
+            <a href="#" class="button">More News</a>
+        </div>-->
+
+    </div><!--.bulletin-->

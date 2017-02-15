@@ -1,9 +1,9 @@
 
 import 'jquery';
+import 'chosen';
 import { Bulletin } from './bulletin.module';
 import { ClassFilter } from './classFilter.module';
 import { Header } from './header.module';
-import 'chosen';
 
 $(document).ready(function(){
 

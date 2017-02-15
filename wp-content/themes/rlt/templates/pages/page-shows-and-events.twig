@@ -4,16 +4,36 @@
 <main id="{{ post.title }}">
     <div class="page-header bg-rose-purple">
         <h1>Shows &amp; Events</h1>
+        {{ post.content }}
+        <!--
         <p>This is a Season of Discovery at Raleigh Little Theatre!</p>
         <p>Nine of the eleven shows, including all of the adult plays, will be produced for the first time in our 80 year history. We invite you to share in these stories that include characters ranging from a pioneering radio DJ, to a young girl who will do anything to fly, to a puppet looking for his place in the world. This season is full of opportunities to discover more about who we are.</p>
-        <p>&ndash; Patrick Torres, Artistic Director</p>
+        <p>&ndash; Patrick Torres, Artistic Director</p>-->
     </div>
 
 
     <div class="list with-images">
 
-
+        {% for item in posts %} 
+        
         <div class="list-item">
+
+            {% set promoImage = item.get_field('promo_image').sizes.large %}
+    
+            <a href="{{ item.link }}" class="image" style="background-image:url({{ promoImage }});"></a>
+            <div class="content">
+                <h5>{{ item.get_field('show_type') }}</h5>
+                <h3><a href="{{ item.link }}">{{ item.title }}</a></h3>
+                <p class="meta">{{ item.get_field('start_date') }} - {{ item.get_field('end_date') }}</p>
+                <hr class="dash" />
+                <p>{{ item.get_field('show_information') }}</p>
+            </div>
+        </div>
+
+        {% endfor %}
+
+
+        <!--<div class="list-item">
             <a href="{{ site.url }}/shows/cinderella" class="image" style="background-image:url({{ theme.link }}/images/shows/cinderella_cover.jpg);"></a>
             <div class="content">
                 <h5>Musical Comedy / Special Shows</h5>
@@ -55,66 +75,16 @@
                 <hr class="dash" />
                 <p>Recent college grad, Princeton, moves into a shabby New York apartment all the way out on Avenue Q. Along with his new friends, Princeton struggles to find a job, date, and discover an ever-elusive purpose in life. Filled with gut-busting humor and a delightfully catchy score, not to mention puppets, this truly unique show has quickly become a favorite for audiences everywhere.</p>
             </div>
-        </div>
+        </div>-->
     </div>
 
-    <div class="grid bulletin">
+    {% set ctaColors = {
+            'primary': 'lawn-green',
+            'secondary': 'breeze-blue'
+        }
+    %}
     
-        <div class="primary">
-
-            <header>
-                <p class="eyebrow">Memberships &amp; Flex Passes</p>
-                <h2 class="title quote">Join us as a member or flex pass holder for the 2016-2017 season</h2>
-            </header>
-
-            {#<div class="buttons centered">#}
-                <a href="#" class="inverse button ">Join or Renew</a>
-            {#</div>#}
-
-        </div>
-
-        <div class="secondary">
-
-            <header>
-                <p class="eyebrow">Blast to the Past</p>
-                <h2 class="title quote">Visit our archives to see your favorite past shows and events</h2>
-            </header>
-
-            {#<div class="buttons centered">#}
-                <a href="#" class="inverse button">Archive</a>
-            {#</div>#}
-
-        </div>
-
-        <div class="feed">
-            <header>
-                <p class="eyebrow has-squiggle"><span class="bg-cool-grey">Links &amp; Resources</span></p>
-            </header>
-            <article>
-                <h6 class="title"><a href="#">Download 2016-17 Season Calendar (PDF)</a></h6>
-                <p>Downloadable showtimes and information.</p>
-            </article>
-            <article>
-                <h6 class="title"><a href="#">Auditions</a></h6>
-                <p>Interested in starring in a Raleigh Little Theatre production? Visit our Auditions page for more info.</p>
-            </article>
-            <article>
-                <h6 class="title"><a href="#">Photo Gallery</a></h6>
-                <p>A picture is worth 1,000 words; and we have a whole lot of pictures.</p>
-            </article>
-            <article>
-                <h6 class="title"><a href="#">Volunteers</a></h6>
-                <p>You can be more than a spectator. Find out how you can get involved with Raleigh Little Theatre!</p>
-            </article>
-            <article>
-                <h6 class="title"><a href="#">Accessibility</a></h6>
-                <p>RLT welcomes people with disabilities to our theatre. Check out our organization&rsquo;s efforts at ADA accomodations.</p>
-            </article>
-
-            <a href="#" class="button">More News</a>
-        </div>
-
-    </div><!--.bulletin-->
+    {% include 'partials/bulletin.twig' with ctaColors %}
 
 </main>
 {% endblock %}

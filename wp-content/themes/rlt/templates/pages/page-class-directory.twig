@@ -5,68 +5,81 @@
     <div class="page-header bg-breeze-blue">
         <h1>Classes</h1>
     </div>
-
     <div class="filter pad-l-md">
         <form>
-            <label for="location">Location</label>
-            <select name="location">
+            <label for="locations">Location</label>
+            <select name="locations">
                 <option value="all">All</option>
-                <option value="rlt">Raleigh Little Theater</option>
-                <option value="apex">Apex</option>
-                <option value="wake-forest">Wake Forest</option>
+                {% for location in locations %}
+                    <option value="{{ location.slug }}">{{ location.name }}</option>
+                {% endfor %}
             </select>
 
-            <label for="age_range">Age Range</label>
-            <select name="age_range" data-ctrl="ages">
+            <label for="age-group">Age Range</label>
+            <select name="age-group" data-ctrl="ages">
                 <option value="all">All</option>
-                <option value="kids">Kids</option>
-                <option value="teens">Teens</option>
-                <option value="adult">Adults</option>
+                {% for group in acf.age_group.choices %}
+                    <option value="{{ group|lower }}">{{ group }}</option>
+                {% endfor %}
             </select>
 
-            <label for="kids" data-listen="ages" data-show="kids" class="conditional">Ages</label>
-            <select name="kids" data-listen="ages" data-show="kids" multiple class="conditional">
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
+            <label for="kids" data-listen="ages" data-show="kids">Ages</label>
+            <select name="kids" data-listen="ages" data-show="kids" multiple>
+                {% for age in acf.kids_ages.choices %}
+                    <option value="{{ age }}">{{ age }}</option>
+                {% endfor %}
             </select>
 
-            <label for="teens" data-listen="ages" data-show="teens" class="conditional">Ages</label>
-            <select name="teens" data-listen="ages" data-show="teens" multiple class="conditional">
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
+            <label for="teens" data-listen="ages" data-show="teens">Ages</label>
+            <select name="teens" data-listen="ages" data-show="teens" multiple>
+                {% for age in acf.teen_ages.choices %}
+                    <option value="{{ age }}">{{ age }}</option>
+                {% endfor %}
             </select>
 
-            <label for="class_type">Class Type</label>
-            <select name="class_type">
+            <label for="types">Class Type</label>
+            <select name="types">
                 <option value="all">All</option>
-                <option value="core">Core Class</option>
-                <option value="performance">Performance Class</option>
+                {% for type in types %}
+                    <option value="{{ type.slug }}">{{ type.name }}</option>
+                {% endfor %}
             </select>
 
         </form>
+
     </div>
     
     <div class="list grid page-content">
         
     {% for post in posts %}
+        {% set dataAges, dataAgeGroup, dataLocations, dataTypes = [], [], [], [] %}
         
-        <div class="six column">
+        
+        {% for ageGroup in post.get_field('age_group') %}    
+            {% set dataAgeGroup = dataAgeGroup | merge ([ ageGroup | lower ]) %}
+            {% set ages = post.get_field( ageGroup | lower ~ '_ages') %}
+            {% for age in ages %}
+                {% set dataAges = dataAges | merge ([ age ])  %}
+            {% endfor %}
+        {% endfor %}
+        
+
+        {% for term in post.terms('locations') %}
+            {% set dataLocations = dataLocations | merge ([ term.slug ]) %}
+        {% endfor %}
+
+        {% for term in post.terms('types') %}
+            {% set dataTypes = dataTypes | merge ([ term.slug ]) %}
+        {% endfor %}
+
+        
+        <div class="six column" 
+            data-ages="{{ dataAges | join(',') }}" 
+            data-age-group="{{ dataAgeGroup | join(',') }}"
+            data-types="{{ dataTypes | join(',') }}"
+            data-locations="{{ dataLocations | join(',') }}">
             <div class="content">
                 <h3><a href="{{ post.link }}">{{ post.title }}</a></h3>
-
-                {% for ageGroup in post.get_field('age_group') %}
-
-                {% set ages = post.get_field( ageGroup | lower ~ '_ages') %}
                 {% if ages %}
                 <p class="meta">Ages
                 {% for age in ages %}
@@ -79,7 +92,6 @@
                 {% endfor %}
                 </p>
                 {% endif %}
-                {% endfor %}
                 
                 <hr class="dash" />
                 <p>Our kids classes focus on the process of creating theatre through fun, imaginative, nurturing, creative play and ensemble building.</p>

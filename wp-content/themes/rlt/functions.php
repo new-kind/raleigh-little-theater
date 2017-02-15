@@ -20,7 +20,15 @@ class StarterSite extends TimberSite {
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'init', array( $this, 'register_nav_menus' ) );
+		add_action( 'init', array( $this, 'customImageSizes' ) );
 		parent::__construct();
+	}
+
+	function customImageSizes(){
+		add_image_size( '1600', 1600 );
+		add_image_size( '1200', 1200 );
+		add_image_size( '800', 800 );
+		add_image_size( '400', 400 );
 	}
 
 	function register_post_types() {
@@ -68,7 +76,7 @@ class StarterSite extends TimberSite {
 					'singular_name' => __( 'Class' )
 				),
 				'public' => true,
-				'has_archive' => false,
+				'has_archive' => true,
 				'menu_icon' => 'dashicons-welcome-learn-more'
 			)
 		);

@@ -45,18 +45,43 @@ define("classFilter.module", ["require", "exports"], function (require, exports)
     var ClassFilter = (function () {
         function ClassFilter() {
             var ctrl = this;
+            $('.filter select').change(function () {
+                var selected = {};
+                $('.filter').find('option:selected').each(function () {
+                    var parent = $(this).closest('select').attr('name');
+                    if (selected[parent] == undefined) {
+                        selected[parent] = [];
+                    }
+                    selected[parent].push($(this).val());
+                });
+                //console.log( selected );
+                ctrl.filterList(selected);
+            });
             $('.filter select[data-ctrl]').change(function () {
                 var currentCtrl = $(this).data('ctrl');
                 var currentVal = $(this).val();
-                ctrl.checkConditionals(currentCtrl, currentVal);
+                //ctrl.checkConditionals( currentCtrl, currentVal );
             });
         }
-        ClassFilter.prototype.checkConditionals = function (ctrl, value) {
-            $('.conditional').hide().each(function () {
-                if (($(this).data('listen') == ctrl) && ($(this).data('show') == value)) {
-                    $(this).fadeIn();
-                }
+        ClassFilter.prototype.filterList = function (selected) {
+            $.each(selected, function (key, val) {
+                //console.log(key);
+                $('.column').each(function () {
+                    console.log(val);
+                    if (val != 'all') {
+                        if ($(this).attr('data-' + key) != val) {
+                            $(this).hide();
+                        }
+                        else {
+                            $(this).show();
+                        }
+                    }
+                    else {
+                    }
+                });
             });
+        };
+        ClassFilter.prototype.checkConditionals = function (ctrl, value) {
         };
         return ClassFilter;
     }());

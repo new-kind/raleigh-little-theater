@@ -9,6 +9,7 @@
   "author": "Brent Brinkley",
   "license": "ISC",
   "dependencies": {
+    "@types/chosen": "^1.6.32",
     "@types/jquery": "^2.0.33",
     "browser-sync": "^2.17.5",
     "chosen-npm": "^1.4.2",

@@ -4,16 +4,16 @@
 	<main id="show">
         <div class="show-header">
             <div class="bg-image"></div>
-            <div class="show-navigation">
+            <!--<div class="show-navigation">
                 <a href="#" class="prev button inverse">Previous</a>
                 <a href="#" class="next button inverse">Next</a>
-            </div>
-            <div class="content grid">
+            </div>-->
+            <div class="content grid wrapper">
                 <div class="eight column">
-                    <h5 class="color-rose-purple">Musical Comedy / Special Shows</h5>
-                    <h2 class="color-bloom-red">Cinderella</h2>
-                    <p class="meta">Dec 2 - Dec 18</p>
-                    <p class="meta">Cantey V. Sutton Theatre (Reserved Seating)</p>
+                    <h5 class="color-rose-purple">{{ post.get_field('show_type') }}</h5>
+                    <h2 class="color-bloom-red">{{ post.title }}</h2>
+                    <p class="meta">{{ post.get_field('start_date') }} - {{ post.get_field('end_date') }}</p>
+                    <p class="meta">{{ post.get_field('venue') }} {% if post.get_field('reserved') %}(Reserved Seating){% endif %}</p>
                     <hr class="dash" />
                 </div>
                 <div class="four column">
@@ -22,18 +22,10 @@
             </div>
         </div>
 
-        <div class="show-content grid">
+        <div class="show-content grid wrapper">
 
-            <div class="seven column">
-            <p>This musical comedy is a holiday sugarplum for the whole family; just the right mixture of comedy and romance to add the sparkle of magic to your holiday season. A visually stunning musical combining elegant costumes and scenery with song, dance, conniving step-relatives and resourceful fairy-folk.</p>
-
-            <p>Based on the fairy tale by Charles Perrault.</p>
-            <p>Adaptation and lyrics by Jim Eiler.</p>
-            <p>Music by Jim Eiler and Jeanne Bargy.</p>
-            <p>Directed by Rod &amp; Nancy Rich.</p>
-
-            <p><strong>In partnership with WRAL, Friday, December 2 is <a href="#">Coats for the Children night</a> at Cinderella! $10 of every ticket goes to provide warm, winter clothing for Salvation Army families in need.</strong></p>
-
+            <div class="seven column dynamic-content">
+            {{ post.get_field('show_information') }}
             </div>
 
             <div class="one column"></div>
@@ -42,51 +34,83 @@
 
                 <h4>Ticket Information</h4>
 
-                <p>Tickets available now. Buy them online or from the box office at 919-821-3111. Group sales will also be available from the box office.</p>
-
-                <p>Tickets for Cinderella are also available now as an add-on to a Season Membership - save $6 off a ticket!</p>
-
-                <p>Ticket prices (tax included):</p>
-
-                <ul>
-                    <li>First Weekend: $28</li>
-                    <li>Members: $27</li>
-                    <li>All other tickets: Starting at $33</li>
-                </ul>
+                {{ post.get_field('ticket_information') }}
 
             </div>
         </div>
 
         <a class="photo-gallery" href="#">
             <header class="bg-bloom-red">
-                <h3 href="#" class="color-white">
+                <h3 class="color-white">
                 Photo Gallery
                 </h3>
             </header>
             <span><h2>View &rarr;</h2></span>
             <div class="grid">
-            <div class="four column"></div>
-            <div class="four column"></div>
-            <div class="four column"></div>
+                <div class="four column"></div>
+                <div class="four column"></div>
+                <div class="four column"></div>
             </div>
         </a>
 
-        <div style="height: 600px;"></div>
+        
+
+        <div style="display: none; ">
+            {% set gallery = post.get_field('photo_gallery') %}
+            {% for image in gallery %}
+            <img src="{{ image.sizes.large }}" />
+            {% endfor %}
+        </div>
+        
+        {% set castList = post.get_field('cast_list') %} 
+        {% set wheelchair = post.get_field('wheelchair') %}
+        {% set assistive = post.get_field('assistive') %}
+        {% set audio = post.get_field('audio') %}
+
+        {% if ( castList or wheelchair or assistive or audio ) %}
+        <div class="grid wrapper pad-xl">
+            <div class="eight column dynamic-content">
+                    <h3 class="color-rose-purple mar-b-md">Cast List</h3>
+                    <dl>
+                    {% for role in castList %}
+                        <dt>{{ role.position }}</dt> 
+                        <dd>{{ role.name }}</dd>
+                    {% endfor %}
+                    </dl>
+            </div>
+
+           {% if ( wheelchair or assistive or audio ) %}
+
+            <div class="four column dynamic-content">  
+                <h3>Accessibility Information</h3>
+
+                <ul>
+                    {% if wheelchair %}<li>{{ wheelchair }}</li> {% endif %}
+                    {% if assistive %}<li>{{ assistive }}</li> {% endif %}
+                    {% if audio %}<li>{{ audio }}</li> {% endif %}
+                </ul>
+            </div>
+
+            {% endif %}
+        </div>
+        {% endif %}
 
         <div class="grid promos">
        
-        <a class="six column promo" href="#" style="background-image: url({{ theme.link }}/images/shows/the_whipping_man.jpg);">
+        <a class="six column promo" href="#">
             <header>
                 <p class="eyebrow">Prev:</p>
                 <h3 class="title">The Whipping Man</h3>
             </header>
+            <div class="promo-bg" style="background-image: url({{ theme.link }}/images/shows/the_whipping_man.jpg);"></div>
         </a>
 
-        <a class="six column promo" href="#" style="background-image: url({{ theme.link }}/images/shows/a_piece_of_my_heart.jpg);">
+        <a class="six column promo" href="#">
             <header style="position: absolute; right: 0; text-align: right;">
                 <p class="eyebrow">Next:</p>
                 <h3 class="title">A Piece of My Heart</h3>
             </header>
+            <div class="promo-bg"  style="background-image: url({{ theme.link }}/images/shows/a_piece_of_my_heart.jpg);"></div>
         </a>
 
         </div>

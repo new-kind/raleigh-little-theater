@@ -28,11 +28,6 @@
         padding: 4em 4em 0;
         position: relative;
 
-        .button{
-            position: absolute;
-            top: 3.25em;
-            left: 1rem;
-        }
         
         .dash{
             margin-top: 2.5em;
@@ -47,4 +42,17 @@
         h4 + p{
             margin-top: 1.5em;
         }
+}
+
+@media screen and (min-width: 800px){
+
+    .show-header{
+
+        .button{
+            position: absolute;
+            top: 3.25em;
+            left: 1rem;
+        }
+    }
+
 }

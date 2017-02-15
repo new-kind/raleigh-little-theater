@@ -1,0 +1,48 @@
+
+
+    {% set items = post.get_field('list_with_images') %}
+
+    {% if items %}
+
+
+    <div class="list with-images">
+
+    {% if post.get_field('customize') %}
+        
+        {% for item in items %}
+
+
+        <div class="list-item">
+            <a class="image" href="{{ item.link }}" style="background-image: url({{ item.image.sizes.large }});"></a>
+            <div class="content">
+                <a href="{{ item.link }}"><h3>{{ item.title }}</h3></a>
+                <p class="meta">{{ item['sub-title'] }}</p>
+                <hr class="dash" />
+                <p>{{ item.summary }}</p>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+     {% for item in items %}
+        {% set item = item.page_or_post %}
+        <div class="list-item">
+            <a href="{{ item.permalink }}" class="image" style="background-image: url(http://placehold.it/800x600);"></a>
+            <div class="content">
+                <a href="{{ item.permalink }}"><h3>{{ item.post_title }}</h3></a>
+                <hr class="dash" />
+                <p>{{ item.get_preview(40, false, '', true) }}</p>
+            </div>
+        </div>
+     {% endfor %}
+
+
+    {% endif %}
+
+    
+
+    </div>
+
+    {% endif %}
