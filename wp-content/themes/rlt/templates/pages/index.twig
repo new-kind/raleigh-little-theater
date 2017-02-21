@@ -1,10 +1,40 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<h2>Rendering From The Index Page</h2>
-	<p>Hello from gulp js</p>
+
+<main id="news">
+	<div class="page-header bg-deep-maroon">
+		<h1>News</h1>
+	</div>
+	<div class="list simple">
 	{% for post in posts %}
+		<div class="list-item">
 		<h2><a href="{{post.link}}">{{post.title}}</a></h2>
-		<p>{{post.get_preview}}</p>
+		<p class="meta">{{ post.date }}</p>
+		<p class="excerpt">{{ post.get_preview }}</p>
+		</div>
 	{% endfor %}
+	</div>
+	<div class="content">
+		<div class="pagination centered">
+		    {% if pagination.prev %}
+		        <a href="{{pagination.prev.link}}" class="prev {{pagination.prev.link|length ? '' : 'invisible'}}">Prev</a>
+		    {% endif %}
+		    <ul class="pages">
+		        {% for page in pagination.pages %}
+		            <li>
+		                {% if page.link %}
+		                    <a href="{{page.link}}" class="{{page.class}}">{{page.title}}</a>
+		                {% else %}
+		                    <span class="{{page.class}}">{{page.title}}</span>
+		                {% endif %}
+		            </li>
+		        {% endfor %}
+		    </ul>
+		    {% if pagination.next %}
+		        <a href="{{pagination.next.link}}" class="next {{pagination.next.link|length ? '' : 'invisible'}}">Next</a>
+		    {% endif %}
+		</div>
+	</div>
+</main>
 {% endblock %}

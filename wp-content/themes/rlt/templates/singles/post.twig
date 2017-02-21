@@ -1,0 +1,51 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<main id="news">
+        <div class="page-header bg-deep-maroon">
+            <h1 class="inline-block mar-r-xs"><a href="{{ site.url }}/news">News</a></h1>
+        </div>
+
+        <div class="page-content grid">
+                    
+            <div class="content">
+
+                    <h5 class="color-rose-purple">{% for cat in post.categories %}{{ cat }}{% if loop.last == false %}, {% endif %}{% endfor %}</h5>
+                    <h2 class="color-bloom-red">{{ post.title }}</h2>
+                    <p class="meta">{{ post.date }}</p>
+                    <hr class="dash" />
+
+
+                <div class="dynamic-content">
+                    {% if post.thumbnail %}
+                    <img class="featured-image" src="{{ post.thumbnail }}" />
+                    {% endif %}
+                    {{ post.content }}
+                </div>
+
+                <div class="pagination">
+
+                    <div class="next-link">
+                        <h5>Next Post:</h5>
+                        <a href="{{ post.next.link }}">
+                            <h3>{{ post.next.title }}</h3>
+                        </a>
+                    </div>
+
+                    <div class="prev-link">
+                        <h5>Previous Post:</h5>
+                        <a href="{{ post.prev.link }}">
+                            <h3>{{ post.prev.title }}</h3>
+                         </a>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </main>
+{% endblock %}
