@@ -7,6 +7,5 @@
 
     $context = Timber::get_context();
     $context['posts'] = Timber::get_posts();
-    $context['navbar'] = array();
-    $context['foo'] = 'bar';
+    $context['pagination'] = Timber::get_pagination();
     Timber::render( "pages/index.twig", $context );

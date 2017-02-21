@@ -6,6 +6,34 @@
   display: inline-block;
 }
 
+.aligncenter{
+  text-align: center;
+  width: auto!important;
+  padding: 4em 0;
+}
+
+.alignnone{
+  padding: 4em 0;
+}
+
+.alignleft{
+  float: left;
+  margin: 1em 2em 1em 0;
+}
+
+.alignright{
+  float: right;
+  margin: 1em 0 1em 2em;
+}
+
+.size-full{
+  max-width: 100%;
+}
+
+.wp-caption-text{
+  padding: .5em 1em;
+}
+
 .pad-xs{ padding: .5em!important; }
 .pad-sm{ padding: 1em!important; }
 .pad-md{ padding: 1.5em!important; }
@@ -88,4 +116,20 @@ $browser-context: 16; // Default
 
 @media screen and (min-width: 800px){
   .mobile{ display: none; }
+}
+
+@media screen and (min-width: 1600px){
+
+  .alignleft{
+    position: absolute;
+    right: 100%;
+    margin-right: 4em;
+  }
+
+  .alignright{
+    position: absolute;
+    left: 100%;
+    margin-left: 4em;
+  }
+
 }
