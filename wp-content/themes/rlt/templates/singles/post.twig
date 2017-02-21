@@ -24,20 +24,23 @@
                 </div>
 
                 <div class="pagination">
-
+                    {% if post.next.title %}
                     <div class="next-link">
                         <h5>Next Post:</h5>
                         <a href="{{ post.next.link }}">
                             <h3>{{ post.next.title }}</h3>
                         </a>
                     </div>
+                    {% endif %}
 
+                    {% if post.prev.title %}
                     <div class="prev-link">
                         <h5>Previous Post:</h5>
                         <a href="{{ post.prev.link }}">
                             <h3>{{ post.prev.title }}</h3>
                          </a>
                     </div>
+                    {% endif %}
 
                 </div>
 
