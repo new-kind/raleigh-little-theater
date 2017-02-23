@@ -26,14 +26,14 @@
 
             <label for="kids" data-listen="ages" data-show="kids">Kids Ages</label>
             <select name="kids" data-listen="ages" data-show="kids" multiple style="width: 14em;">
-                {% for age in acf.kids_ages.choices %}
+                {% for age in kids_ages.choices %}
                     <option value="{{ age }}">{{ age }}</option>
                 {% endfor %}
             </select>
 
             <label for="teens" data-listen="ages" data-show="teens">Teens Ages</label>
             <select name="teens" data-listen="ages" data-show="teens" multiple style="width: 14em;">
-                {% for age in acf.teens_ages.choices %}
+                {% for age in teens_ages.choices %}
                     <option value="{{ age }}">{{ age }}</option>
                 {% endfor %}
             </select>
@@ -53,16 +53,15 @@
     <div class="list grid page-content">
         
     {% for post in posts %}
-        {% set dataAges, dataAgeGroup, dataLocations, dataTypes = [], [], [], [] %}
-        {% set ages = '' %}
+        {% set ages, dataAges, dataAgeGroup, dataLocations, dataTypes = [], [], [], [], [] %}
         
         
         {% for ageGroup in post.get_field('age_group') %}    
             {% set dataAgeGroup = dataAgeGroup | merge ([ ageGroup | lower ]) %}
-            {% set ages = post.get_field( ageGroup | lower ~ '_ages') %}
-            {% for age in ages %}
-                {% set dataAges = dataAges | merge ([ age ])  %}
-            {% endfor %}
+        {% endfor %}
+ 
+        {% for group in dataAgeGroup %}
+            {% set ages = ages | merge ( [ post.get_field( group | lower ~ '_ages') ] ) %}
         {% endfor %}
         
 
@@ -74,9 +73,29 @@
             {% set dataTypes = dataTypes | merge ([ term.slug ]) %}
         {% endfor %}
 
+        {% set ageString = '' %}
+
+        {% if ages[0] is not empty %}
+        
+            {% for groups in ages %}
+
+                {% if groups is not empty %}
+
+                    {% set ageString = ageString ~ ( groups | join(',') )  %}
+
+                {% endif %}
+
+            {% endfor %}
+
+        {% else %}
+
+            {% set ageString = '18+' %}
+
+        {% endif %}
+
         
         <div class="six column class-listing" 
-            data-ages="{{ dataAges | join(',') }}" 
+            data-ages="{{ ageString }}" 
             data-age-group="{{ dataAgeGroup | join(',') }}"
             data-types="{{ dataTypes | join(',') }}"
             data-locations="{{ dataLocations | join(',') }}">
@@ -84,19 +103,32 @@
                 <h3><a href="{{ post.link }}">{{ post.title }}</a></h3>
                 {% if ages %}
                 <p class="meta">Ages
-                {% for age in ages %}
-                    {% if ( loop.first or loop.last ) %}
-                        {{ age }}
-                        {% if ( loop.first ) %}
-                            &ndash;
-                        {% endif %}
+                {% for age in ageString | split(',') %}
+
+                    {% if ( loop.first ) %}
+                        {{ age }} 
+                    {% elseif ( loop.last ) %}
+                        &ndash; {{ age }}
                     {% endif %}
+
                 {% endfor %}
                 </p>
                 {% endif %}
+                <p class="meta">
+                    {% for location in post.terms('locations') %}
+                        {{ location }}
+                    {% endfor %} 
+                </p>
+                <p class="meta">
+                    {% for type in post.terms('types') %}
+                        {{ type }}
+                    {% endfor %}
+                </p>
+                <p class="meta">{{ post.cost }}</p>
                 
                 <hr class="dash" />
-                <p>Our kids classes focus on the process of creating theatre through fun, imaginative, nurturing, creative play and ensemble building.</p>
+                
+                <p>{{ post.class_focus }}</p>
             </div>
         </div>
     {% endfor %}

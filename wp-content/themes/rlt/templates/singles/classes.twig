@@ -45,7 +45,7 @@
                 {{ track.end_time }}</h4>
                 {% for session in track.sessions %}
                     <div class="session mar-b-md">
-                        <h5>Session {{ loop.index }}: {{ session.title }}</h5>
+                        <h5>{{ session.title }}</h5>
                         <p class="meta color-black">{{ session.start_date | date( "F j") }} - {{ session.end_date | date("F j") }}</p>
                         <p class="meta color-black">{{ session.description }}</p>
                         <p class="meta color-black">Instructor: {{ session.instructor.title }}</p>

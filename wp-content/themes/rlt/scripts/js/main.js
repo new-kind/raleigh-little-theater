@@ -161,7 +161,7 @@ define("header.module", ["require", "exports"], function (require, exports) {
     }());
     exports.Header = Header;
 });
-define("main", ["require", "exports", "bulletin.module", "classFilter.module", "header.module", 'jquery', 'chosen'], function (require, exports, bulletin_module_1, classFilter_module_1, header_module_1) {
+define("main", ["require", "exports", 'jquery', "bulletin.module", "classFilter.module", "header.module", 'chosen'], function (require, exports, $, bulletin_module_1, classFilter_module_1, header_module_1) {
     "use strict";
     $(document).ready(function () {
         if ($('.bulletin')) {

@@ -1,5 +1,5 @@
 
-import 'jquery';
+import * as $ from 'jquery';
 import 'chosen';
 import { Bulletin } from './bulletin.module';
 import { ClassFilter } from './classFilter.module';

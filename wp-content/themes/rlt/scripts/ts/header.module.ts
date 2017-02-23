@@ -6,7 +6,7 @@ export class Header{
 
     }
 
-    toggleClass(elemClicked, elemToggled, className){
+    toggleClass(elemClicked: string, elemToggled: string, className: string){
         $(elemClicked).on('click', function(){
             $(elemToggled).toggleClass(className);
         });

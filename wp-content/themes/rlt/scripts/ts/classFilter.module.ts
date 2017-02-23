@@ -83,28 +83,28 @@ export class ClassFilter {
             $('.page-content').append('<h3 class="no-listing-msg color-bloom-red">No courses match your criteria. Please try another combination of filters.</h3>');
         }
 
-        function checkLocation( object, location ){
+        function checkLocation( object: JQuery, location : string ){
             if( location == object.attr('data-locations') ){
                 return true;
             }
             return false;
         }
 
-        function checkTypes( object, types ){
+        function checkTypes( object: JQuery, types: string ){
             if( types == object.attr('data-types') ) {
                 return true;
             }
             return false;
         }
 
-        function checkAgeGroup( object, ageGroup ){
+        function checkAgeGroup( object: JQuery, ageGroup: string){
             if( object.attr('data-age-group').includes( ageGroup ) ) {
                 return true;
             }
             return false;
         }
 
-        function checkAges( object, ages ){
+        function checkAges( object: JQuery, ages: string ){
             console.log( 'checkAges: ' + ages );
             if( object.attr('data-ages').includes( ages ) ){
                 return true;
