@@ -19,7 +19,7 @@
             <label for="age-group">Age Range</label>
             <select name="age-group" data-ctrl="ages">
                 <option value="all">All</option>
-                {% for group in acf.age_group.choices %}
+                {% for group in age_groups.choices %}
                     <option value="{{ group|lower }}">{{ group }}</option>
                 {% endfor %}
             </select>
