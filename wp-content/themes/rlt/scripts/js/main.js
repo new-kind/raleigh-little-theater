@@ -45,13 +45,32 @@ define("classFilter.module", ["require", "exports", 'chosen'], function (require
     var ClassFilter = (function () {
         function ClassFilter() {
             var ctrl = this;
-            $('select').chosen({ disable_search_threshold: 10 });
+            var query = ctrl.parseURI();
+            ctrl.updateOptions(query);
             $('.filter select').change(function () {
                 ctrl.checkConditionals('.filter select[name="age-group"]');
                 var selected = ctrl.buildFilterObject();
                 ctrl.filterList(selected);
             });
+            $('select').chosen({ disable_search_threshold: 10 });
         }
+        ClassFilter.prototype.parseURI = function () {
+            var href = window.location.href;
+            var props = href.split('?')[1].split('&');
+            var propObject = {};
+            for (var i = 0; i < props.length; i++) {
+                var keyValProp = props[i].split('=');
+                propObject[keyValProp[0]] = keyValProp[1];
+            }
+            return propObject;
+        };
+        ClassFilter.prototype.updateOptions = function (propsObj) {
+            $.each(propsObj, function (key, val) {
+                $('[name="' + key + '"]').val([val]).trigger('chosen:updated');
+            });
+            this.checkConditionals('.filter select[name="age-group"]');
+            this.filterList(this.buildFilterObject());
+        };
         ClassFilter.prototype.buildFilterObject = function () {
             var selected = {};
             $('.filter').find('option:selected').each(function () {
@@ -61,6 +80,7 @@ define("classFilter.module", ["require", "exports", 'chosen'], function (require
                 }
                 selected[parent].push($(this).val());
             });
+            console.log(selected);
             return selected;
         };
         ClassFilter.prototype.filterList = function (selected) {

@@ -6,8 +6,9 @@ export class ClassFilter {
 
         let ctrl = this;
 
-        
-        $('select').chosen({disable_search_threshold: 10});
+        let query = ctrl.parseURI();
+
+        ctrl.updateOptions( query );
 
         $('.filter select').change( function(){
             ctrl.checkConditionals( '.filter select[name="age-group"]' );
@@ -15,6 +16,34 @@ export class ClassFilter {
             ctrl.filterList( selected );
         });
 
+
+        
+        $('select').chosen({disable_search_threshold: 10});
+
+
+    }
+
+    parseURI(){
+        let href = window.location.href;
+        let props = href.split('?')[1].split('&');
+        let propObject = {};
+        for( let i = 0; i < props.length; i++ ){
+            let keyValProp = props[i].split('=');
+            propObject[keyValProp[0]] = keyValProp[1];
+        }
+        return propObject;
+    }
+
+    updateOptions( propsObj : Object ){
+
+        $.each( propsObj , function(key,val){
+            $('[name="' + key + '"]').val([val]).trigger('chosen:updated');
+        });
+
+
+        this.checkConditionals('.filter select[name="age-group"]');
+        this.filterList( this.buildFilterObject() );
+        
 
     }
 
@@ -29,6 +58,8 @@ export class ClassFilter {
             }
             selected[parent].push($(this).val());
         });
+
+        console.log( selected );
 
         return selected;
     }
