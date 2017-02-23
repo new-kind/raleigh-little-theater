@@ -38,11 +38,17 @@
     } 
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 1050px){
     .filter{
         label{
             display: block;
             margin: 1.5em 0 .5em;
+        }
+
+        [name="kids"], [for="kids"], [name="teens"], [for="teens"]{
+            &.is-visible{
+                display: block;
+            }
         }
     }
 }
