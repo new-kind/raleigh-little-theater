@@ -36,6 +36,14 @@
     }
 
     &.with-images{
+
+        &.grid{
+            .list-item{
+                .image:hover{
+                    opacity: 1;
+                }
+            }
+        }
         
         .list-item{
             position: relative;
@@ -139,6 +147,18 @@
 
     .list{
         &.with-images{
+
+         &.grid{
+            .list-item{
+                .image{
+                    padding-top: 100%;
+                }
+
+                .content{
+                    padding: 0;
+                }
+            }
+        }
 
             .list-item{
                 flex-direction: row;

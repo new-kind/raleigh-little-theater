@@ -1,4 +1,4 @@
  <?php   
     $context = Timber::get_context();
     $context['post'] = new TimberPost();
-    Timber::render( "singles/post.twig", $context );
+    Timber::render( array( 'singles/single-' . $post->post_type . '.twig',  'singles/post.twig' ), $context );

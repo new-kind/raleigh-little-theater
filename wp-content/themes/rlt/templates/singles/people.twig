@@ -1,0 +1,57 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<main id="people">
+        <div class="page-header bg-deep-maroon">
+            <h1 class="inline-block mar-r-xs"><a href="{{ site.url }}/news">Our Staff</a></h1>
+        </div>
+
+        <div class="page-content grid">
+                    
+            <div class="content">
+
+                <h5 class="color-rose-purple">
+                    {% for cat in post.categories %}
+                        {{ cat }}
+                        {% if loop.last == false %}, {%endif %}
+                    {% endfor %}
+                </h5>
+                <h2 class="color-bloom-red">{{ post.title }}</h2>
+                <hr class="dash" />
+
+
+                <div class="dynamic-content">
+                    {% if post.get_field('headshot') %}
+                    <img class="featured-image" src="{{ post.get_field('headshot') }}" />
+                    {% endif %}
+                    {{ post.content }}
+                </div>
+
+                <div class="pagination">
+                    {% if post.next.title %}
+                    <div class="next-link">
+                        <h5>Next Person:</h5>
+                        <a href="{{ post.next.link }}">
+                            <h3>{{ post.next.title }}</h3>
+                        </a>
+                    </div>
+                    {% endif %}
+
+                    {% if post.prev.title %}
+                    <div class="prev-link">
+                        <h5>Previous Person:</h5>
+                        <a href="{{ post.prev.link }}">
+                            <h3>{{ post.prev.title }}</h3>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </main>
+{% endblock %}
