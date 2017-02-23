@@ -13,9 +13,9 @@
 
 
         <div class="list-item">
-            <a class="image" href="{{ item.link }}" style="background-image: url({{ item.image.sizes.large }});"></a>
+            <a class="image" href="{{ item.link_url }}" style="background-image: url({{ item.image.sizes.large }});"></a>
             <div class="content">
-                <a href="{{ item.link }}"><h3>{{ item.title }}</h3></a>
+                <a href="{{ item.link_url }}"><h3>{{ item.title }}</h3></a>
                 <p class="meta">{{ item['sub-title'] }}</p>
                 <hr class="dash" />
                 <p>{{ item.summary }}</p>
