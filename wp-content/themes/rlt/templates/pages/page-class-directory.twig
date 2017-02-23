@@ -25,14 +25,14 @@
             </select>
 
             <label for="kids" data-listen="ages" data-show="kids">Kids Ages</label>
-            <select name="kids" data-listen="ages" data-show="kids" multiple style="width: 14em;">
+            <select name="kids" class="conditional" data-listen="ages" data-show="kids" multiple>
                 {% for age in kids_ages.choices %}
                     <option value="{{ age }}">{{ age }}</option>
                 {% endfor %}
             </select>
 
             <label for="teens" data-listen="ages" data-show="teens">Teens Ages</label>
-            <select name="teens" data-listen="ages" data-show="teens" multiple style="width: 14em;">
+            <select name="teens" class="conditional" data-listen="ages" data-show="teens" multiple>
                 {% for age in teens_ages.choices %}
                     <option value="{{ age }}">{{ age }}</option>
                 {% endfor %}
@@ -80,7 +80,10 @@
             {% for groups in ages %}
 
                 {% if groups is not empty %}
-
+                    
+                    {% if loop.last and ( ages | length > 1 ) %}
+                        {% set ageString = ageString ~ ',' %}
+                    {% endif %}
                     {% set ageString = ageString ~ ( groups | join(',') )  %}
 
                 {% endif %}
@@ -89,7 +92,7 @@
 
         {% else %}
 
-            {% set ageString = '18+' %}
+            {% set ageString = 'Adult' %}
 
         {% endif %}
 
@@ -102,17 +105,21 @@
             <div class="content">
                 <h3><a href="{{ post.link }}">{{ post.title }}</a></h3>
                 {% if ages %}
-                <p class="meta">Ages
-                {% for age in ageString | split(',') %}
+                    {% if ageString == 'Adult' %}
+                        <p class="meta">Adults</p>
+                    {% else %}
+                        <p class="meta">Ages
+                        {% for age in ageString | split(',') %}
 
-                    {% if ( loop.first ) %}
-                        {{ age }} 
-                    {% elseif ( loop.last ) %}
-                        &ndash; {{ age }}
+                            {% if ( loop.first ) %}
+                                {{ age }} 
+                            {% elseif ( loop.last ) %}
+                                &ndash; {{ age }}
+                            {% endif %}
+
+                        {% endfor %}
+                        </p>
                     {% endif %}
-
-                {% endfor %}
-                </p>
                 {% endif %}
                 <p class="meta">
                     {% for location in post.terms('locations') %}

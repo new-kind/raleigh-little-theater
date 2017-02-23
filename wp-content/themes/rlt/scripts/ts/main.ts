@@ -1,6 +1,5 @@
 
 import * as $ from 'jquery';
-import 'chosen';
 import { Bulletin } from './bulletin.module';
 import { ClassFilter } from './classFilter.module';
 import { Header } from './header.module';
@@ -14,10 +13,6 @@ $(document).ready(function(){
 
     if( $('.filter' ) ){
         let filter = new ClassFilter;
-    }
-
-    if( $('select') ){
-        $('select').chosen();
     }
 
     if( $('.site-header') ){

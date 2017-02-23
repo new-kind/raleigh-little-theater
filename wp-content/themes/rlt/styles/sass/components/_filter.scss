@@ -19,6 +19,23 @@
     label{
         margin-left: 1em;
     }
+
+    [name="kids"], [for="kids"], [name="teens"], [for="teens"]{
+        display: none;
+        
+        + .chosen-container{
+            display: none;
+        }
+
+        &.is-visible{
+            display: inline-block;
+
+            + .chosen-container{
+                display: inline-block;
+            }
+        }
+
+    } 
 }
 
 @media screen and (max-width: 800px){

@@ -40,33 +40,36 @@ define("bulletin.module", ["require", "exports"], function (require, exports) {
     }());
     exports.Bulletin = Bulletin;
 });
-define("classFilter.module", ["require", "exports"], function (require, exports) {
+define("classFilter.module", ["require", "exports", 'chosen'], function (require, exports) {
     "use strict";
     var ClassFilter = (function () {
         function ClassFilter() {
             var ctrl = this;
+            $('select').chosen({ disable_search_threshold: 10 });
             $('.filter select').change(function () {
-                var selected = {};
-                $('.filter').find('option:selected').each(function () {
-                    var parent = $(this).closest('select').attr('name');
-                    if (selected[parent] == undefined) {
-                        selected[parent] = [];
-                    }
-                    selected[parent].push($(this).val());
-                });
-                //console.log( selected );
+                ctrl.checkConditionals('.filter select[name="age-group"]');
+                var selected = ctrl.buildFilterObject();
                 ctrl.filterList(selected);
             });
         }
+        ClassFilter.prototype.buildFilterObject = function () {
+            var selected = {};
+            $('.filter').find('option:selected').each(function () {
+                var parent = $(this).closest('select').attr('name');
+                if (selected[parent] == undefined) {
+                    selected[parent] = [];
+                }
+                selected[parent].push($(this).val());
+            });
+            return selected;
+        };
         ClassFilter.prototype.filterList = function (selected) {
-            //console.log(key);
             $('.class-listing').each(function () {
                 var listing = $(this);
                 var locations = true;
                 var ageGroup = true;
                 var types = true;
                 var ages = true;
-                console.log(selected);
                 $.each(selected, function (key, val) {
                     if (key == 'locations') {
                         if (val != 'all') {
@@ -93,7 +96,7 @@ define("classFilter.module", ["require", "exports"], function (require, exports)
                         }
                     }
                     if ((key == 'kids') || (key == 'teens')) {
-                        if (val != 'all') {
+                        if (val != '') {
                             ages = checkAges(listing, val);
                         }
                         else {
@@ -108,8 +111,6 @@ define("classFilter.module", ["require", "exports"], function (require, exports)
                     $(this).show();
                 }
             });
-            console.log($('.class-listing').length);
-            console.log($('.class-listing[style="display: none;"]').length);
             $('.no-listing-msg').remove();
             if ($('.class-listing').length == $('.class-listing[style="display: none;"]').length) {
                 $('.page-content').append('<h3 class="no-listing-msg color-bloom-red">No courses match your criteria. Please try another combination of filters.</h3>');
@@ -133,14 +134,26 @@ define("classFilter.module", ["require", "exports"], function (require, exports)
                 return false;
             }
             function checkAges(object, ages) {
-                console.log('checkAges: ' + ages);
                 if (object.attr('data-ages').includes(ages)) {
                     return true;
                 }
                 return false;
             }
         };
-        ClassFilter.prototype.checkConditionals = function (ctrl, value) {
+        ClassFilter.prototype.checkConditionals = function (ctrl) {
+            var value = $(ctrl).val();
+            var that = this;
+            $('.conditional').each(function () {
+                if ($(this).attr('name') == value) {
+                    $(this).addClass('is-visible').next('.chosen-container').css('width', '14em');
+                    $(this).prev('label').addClass('is-visible');
+                }
+                else {
+                    $(this).removeClass('is-visible');
+                    $(this).prev('label').removeClass('is-visible');
+                    $(this).val([]).trigger('chosen:updated');
+                }
+            });
         };
         return ClassFilter;
     }());
@@ -161,7 +174,7 @@ define("header.module", ["require", "exports"], function (require, exports) {
     }());
     exports.Header = Header;
 });
-define("main", ["require", "exports", 'jquery', "bulletin.module", "classFilter.module", "header.module", 'chosen'], function (require, exports, $, bulletin_module_1, classFilter_module_1, header_module_1) {
+define("main", ["require", "exports", 'jquery', "bulletin.module", "classFilter.module", "header.module"], function (require, exports, $, bulletin_module_1, classFilter_module_1, header_module_1) {
     "use strict";
     $(document).ready(function () {
         if ($('.bulletin')) {
@@ -170,9 +183,6 @@ define("main", ["require", "exports", 'jquery', "bulletin.module", "classFilter.
         }
         if ($('.filter')) {
             var filter = new classFilter_module_1.ClassFilter;
-        }
-        if ($('select')) {
-            $('select').chosen();
         }
         if ($('.site-header')) {
             var header = new header_module_1.Header;

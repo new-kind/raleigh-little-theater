@@ -1,41 +1,52 @@
+import 'chosen';
+
 export class ClassFilter {
 
     constructor(){
 
         let ctrl = this;
 
-        $('.filter select').change( function(){
-            let selected = {};
-            $('.filter').find('option:selected').each( function(){
-                let parent = $(this).closest('select').attr('name');
-                if( selected[parent] == undefined ){
-                    selected[parent] = [];
-                }
-                selected[parent].push($(this).val());
-            });
-            //console.log( selected );
+        
+        $('select').chosen({disable_search_threshold: 10});
 
+        $('.filter select').change( function(){
+            ctrl.checkConditionals( '.filter select[name="age-group"]' );
+            let selected = ctrl.buildFilterObject();
             ctrl.filterList( selected );
         });
 
 
     }
 
+    buildFilterObject(){
+
+        let selected : Object = {};
+        
+        $('.filter').find('option:selected').each( function(){
+            let parent = $(this).closest('select').attr('name');
+            if( selected[parent] == undefined ){
+                selected[parent] = [];
+            }
+            selected[parent].push($(this).val());
+        });
+
+        return selected;
+    }
+
     filterList(selected : Object ){
-            //console.log(key);
-            $('.class-listing').each( function(){
 
-                let listing = $(this);
+        $('.class-listing').each( function(){
 
-                let locations = true;
-                let ageGroup = true;
-                let types = true;
-                let ages = true;
+            let listing = $(this);
 
-                console.log( selected );
-                
+            let locations = true;
+            let ageGroup = true;
+            let types = true;
+            let ages = true;
+
+
             $.each( selected, function(key,val){
-
+            
                 if( key == 'locations' ){
                     if( val != 'all' ){
                         locations = checkLocation( listing, val);
@@ -43,7 +54,7 @@ export class ClassFilter {
                         locations = true;
                     }
                 }
-
+            
                 if( key == 'age-group' ){
                     if( val != 'all' ){
                         ageGroup = checkAgeGroup( listing, val );
@@ -51,7 +62,7 @@ export class ClassFilter {
                         ageGroup = true;
                     }
                 }
-
+            
                 if( key == 'types' ){
                     if( val != 'all' ){
                         types = checkTypes( listing, val );
@@ -59,26 +70,25 @@ export class ClassFilter {
                         types = true;
                     }
                 }
-
+            
                 if( ( key == 'kids' ) ||( key == 'teens' ) ){
-                    if( val != 'all' ){
+                    if( val != '' ){
                         ages = checkAges( listing, val );
                     }else{
                         ages = true;
                     }
                 }
             });
-            
+
             if( ( ageGroup && locations && ages && types ) != true ){
                 $(this).hide();
             }else{
                 $(this).show();
             }
         });
-        console.log( $('.class-listing').length );
-        console.log( $('.class-listing[style="display: none;"]').length );
 
         $('.no-listing-msg').remove();
+
         if( $('.class-listing').length == $('.class-listing[style="display: none;"]').length ){
             $('.page-content').append('<h3 class="no-listing-msg color-bloom-red">No courses match your criteria. Please try another combination of filters.</h3>');
         }
@@ -105,7 +115,6 @@ export class ClassFilter {
         }
 
         function checkAges( object: JQuery, ages: string ){
-            console.log( 'checkAges: ' + ages );
             if( object.attr('data-ages').includes( ages ) ){
                 return true;
             }
@@ -113,7 +122,21 @@ export class ClassFilter {
         }
     }
 
-    checkConditionals( ctrl: string, value: string ): void{
+    checkConditionals( ctrl: string ): void{
+        let value = $(ctrl).val();
+        let that = this;
+        $('.conditional').each( function(){ 
+            if( $(this).attr('name') == value ){
+                $(this).addClass('is-visible').next('.chosen-container').css('width', '14em');
+                $(this).prev('label').addClass('is-visible');
+            }else{
+                $(this).removeClass('is-visible');
+                $(this).prev('label').removeClass('is-visible');
+                $(this).val([]).trigger('chosen:updated');
+               
+            }
+        });
+        
     }
 
 }
