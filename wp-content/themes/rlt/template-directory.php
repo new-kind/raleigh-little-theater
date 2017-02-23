@@ -5,7 +5,8 @@
     $post = new TimberPost();
     $context['post'] = $post;
     $args = array(
-        'post_type' => 'classes'
+        'post_type' => 'classes',
+        'posts_per_page' => -1
     );
     $context['posts'] = Timber::get_posts($args);
     $context['locations'] = Timber::get_terms('locations');
