@@ -5,6 +5,7 @@ require.config({
             exports: '$'
         },
         "chosen": ['jquery']
-    }
+    },
+    urlArgs: "bust=" + (new Date()).getTime()
 });
 require(['main']);
