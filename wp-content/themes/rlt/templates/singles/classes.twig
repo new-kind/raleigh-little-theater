@@ -48,7 +48,15 @@
                         <h5>{{ session.title }}</h5>
                         <p class="meta color-black">{{ session.start_date | date( "F j") }} - {{ session.end_date | date("F j") }}</p>
                         <p class="meta color-black">{{ session.description }}</p>
-                        <p class="meta color-black">Instructor: {{ session.instructor.title }}</p>
+                        <p class="meta color-black">Instructor:
+                            {% for instructor in session.instructors %}
+                                {% for item in instructor %}
+                                <a href="{{ item.permalink }}">
+                                    {{ item.post_title }} 
+                                </a>
+                                {% endfor %}
+                            {% endfor %}
+                        </p>
                     </div>
                 {% endfor %}
                 </div>
