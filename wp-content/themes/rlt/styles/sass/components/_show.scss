@@ -48,7 +48,19 @@
         }
 }
 
-#show{ .grid{ margin-bottom: 0; }}
+#show{ 
+    .grid{ margin-bottom: 0; }
+    .spacer{ display: none; }    
+}
+
+@media screen and (min-width: 600px){
+
+    #show{
+        .spacer{
+            display: block;
+        }
+    }
+}
 
 @media screen and (min-width: 800px){
 
@@ -68,5 +80,6 @@
             
         }
     }
+
 
 }

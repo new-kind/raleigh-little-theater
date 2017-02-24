@@ -16,9 +16,11 @@
                     <p class="meta">{{ post.get_field('venue') }} {% if post.get_field('reserved') %}(Reserved Seating){% endif %}</p>
                     <hr class="dash" />
                 </div>
-                <div class="four column">
-                    <a href="#" class="button">Buy Tickets</a>
-                </div>
+                {% if {{ post.ticket_url }} %}
+                    <div class="four column">
+                        <a href="#" class="button">Buy Tickets</a>
+                    </div>
+                {% endif %}
             </div>
         </div>
 
@@ -42,6 +44,7 @@
 
         {% set gallery = post.get_field('photo_gallery') %}
 
+        {% if gallery %}
 
         <a class="photo-gallery" href="#" style="background-image: url({{ gallery[0].sizes.1200 }});">
             <header class="bg-bloom-red">
@@ -64,6 +67,7 @@
                     <img src="{{ image.sizes.1600 }}" data-caption="{{ image.caption }}" />
                 {% endfor %}
             </div>
+        {% endif %}
         
         {% set castList = post.get_field('cast_list') %} 
         {% set wheelchair = post.get_field('wheelchair') %}
@@ -72,7 +76,8 @@
 
         {% if ( castList or wheelchair or assistive or audio ) %}
         <div class="grid wrapper pad-xl">
-            <div class="eight column dynamic-content cast-list">
+            {% if castList %}
+                <div class="eight column dynamic-content cast-list">
                     <h3 class="color-rose-purple mar-b-md">Cast List</h3>
                     {% for role in castList %}
                     <dl>
@@ -80,7 +85,8 @@
                         <dd>{{ role.name }}</dd>
                     </dl>
                     {% endfor %}
-            </div>
+                </div>
+            {% endif %}
 
            {% if ( wheelchair or assistive or audio ) %}
 
@@ -98,24 +104,39 @@
         </div>
         {% endif %}
 
-        <div class="grid promos">
-       
-        <a class="six column promo" href="#">
-            <header>
-                <p class="eyebrow">Prev:</p>
-                <h3 class="title">The Whipping Man</h3>
-            </header>
-            <div class="promo-bg" style="background-image: url({{ theme.link }}/images/shows/the_whipping_man.jpg);"></div>
-        </a>
+        {% if post.next or post.prev %}
 
-        <a class="six column promo" href="#">
-            <header style="position: absolute; right: 0; text-align: right;">
-                <p class="eyebrow">Next:</p>
-                <h3 class="title">A Piece of My Heart</h3>
-            </header>
-            <div class="promo-bg"  style="background-image: url({{ theme.link }}/images/shows/a_piece_of_my_heart.jpg);"></div>
-        </a>
+             <div class="grid promos">
+         
+            {% if post.prev %}
+                 <a class="six column promo" href="{{ post.prev.link }}">
+                     <header>
+                         <p class="eyebrow">Prev:</p>
+                         <h3 class="title">{{ post.prev.title }}</h3>
+                     </header>
+                     <div class="promo-bg" style="background-image: url({{ TimberImage(post.prev.promo_image).src }});"></div>
+                 </a>
+             {% else %}
+                 <div class="six column promo spacer" data-note="this is a spacer" style="background: #111;"></div>
+             {% endif %}
+         
+             {% if post.next %}
+                 <a class="six column promo" href="{{ post.next.link }}">
+                     <header style="position: absolute; right: 0; text-align: right;">
+                         <p class="eyebrow">Next:</p>
+                         <h3 class="title">{{ post.next.title }}</h3>
+                     </header>
+                     <div class="promo-bg"  style="background-image: url({{ TimberImage(post.next.promo_image).src }});"></div>
+                 </a>
+             
+             {% else %}
+                 <div class="six column promo spacer" data-note="this is a spacer" style="background: #111;"></div>
+             {% endif %}
+         
+             </div>
 
-        </div>
+        {% endif %}
+
+        
     </main>
 {% endblock %}
