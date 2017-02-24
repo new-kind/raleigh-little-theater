@@ -5,6 +5,7 @@ require.config({
             exports: '$'
         },
         "chosen": ['jquery'],
+        "fotorama": ['jquery']
     },
     urlArgs: "bust=" + (new Date()).getTime()
 });
