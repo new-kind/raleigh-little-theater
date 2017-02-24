@@ -4,8 +4,12 @@
     $post = new TimberPost();
     $context['post'] = $post;
     $args = array(
-        'post_type' => 'shows',
-        'orderby' => 'start_date',
+        'post_type' => array(
+            'events',
+            'shows',
+        ),
+        'orderby' => 'meta_value',
+        'meta_key' => 'end_date',
         'order' => 'ASC'
     );
     $context['posts'] = Timber::get_posts( $args ); 

@@ -22,11 +22,19 @@
     
             <a href="{{ item.link }}" class="image" style="background-image:url({{ promoImage }});"></a>
             <div class="content">
-                <h5>{{ item.get_field('show_type') }}</h5>
+                {% if item.post_type == "events" %}
+                    <h5>Event - {{ item.event_type }}</h6>
+                {% else %}
+                    <h5>{{ item.show_type }}</h5>
+                {% endif %}
                 <h3><a href="{{ item.link }}">{{ item.title }}</a></h3>
                 <p class="meta">{{ item.get_field('start_date') }} - {{ item.get_field('end_date') }}</p>
                 <hr class="dash" />
-                <p>{{ item.get_field('show_information') }}</p>
+                {% if item.post_type == "events" %}
+                    <p>{{ item.event_information }}</p>
+                {% else %}
+                    <p>{{ item.show_information }}</p>
+                {% endif %}
             </div>
         </div>
 
