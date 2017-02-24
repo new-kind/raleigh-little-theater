@@ -1,0 +1,48 @@
+.search-form{
+    display: inline-block;
+    position: absolute;
+    margin-left: -2em;
+    top: 0;
+    margin: 0;
+    left: 1.5em;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity .3s;
+    border-bottom: 1px solid $rose_purple;
+
+    input{
+        display: inline-block;
+        width: 200px;
+        padding: .5em;
+        font-size: 1em;        
+        border: none;
+        background: none;
+        font-family: "Apercu Light", sans-serif;
+
+        &[type="submit"]{
+            width: auto;
+            padding: .75em 1em 1.5em;
+            line-height: 1em;
+            position: absolute;
+            right: .5em;
+            top: 0;
+            background: none;
+            padding: 0;
+            color: $rose_purple;
+            font-family: "Apercu Bold", sans-serif;
+        }
+    }
+
+    &.is-visible{
+        opacity: 1;
+        z-index: 1;
+    }
+}
+
+@media screen and (min-width: 600px){
+    .search-form{
+        top: -.25em;
+        right: 10em;
+        left: auto;
+    }
+}

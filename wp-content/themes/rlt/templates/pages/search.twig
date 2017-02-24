@@ -4,18 +4,25 @@
 
 <main id="news">
 	<div class="page-header bg-deep-maroon">
-		<h1>News</h1>
+		<h1>Search Results</h1>
+        <h3>&ldquo;{{ function( 'the_search_query' ) }}&rdquo;</h3>
 	</div>
 	<div class="list simple">
+    {% if posts is empty %}
+        <div class="content" style="padding: 4em 0;">
+            <h2>No results matched your search terms. Please try again.</h2>
+        </div>
+    {% else %}
 	{% for post in posts %}
 		<div class="list-item">
 		<h2><a href="{{post.link}}">{{post.title}}</a></h2>
+        <h5>{{ post.post_type }}</h5>
 		<p class="meta">{{ post.date }}</p>
 		<p class="excerpt">{{ post.get_preview }}</p>
 		</div>
 	{% endfor %}
 	</div>
-	{% if pagination.prev or pagination.next %}
+    {% if pagination.prev or pagination.next %}
 	<div class="content">
 		<div class="pagination centered">
 		    {% if pagination.prev %}
@@ -37,6 +44,7 @@
 		    {% endif %}
 		</div>
 	</div>
-	{% endif %}
+    {% endif %}
+    {% endif %}
 </main>
 {% endblock %}

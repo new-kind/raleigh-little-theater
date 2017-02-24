@@ -23,6 +23,8 @@
                     {{ post.content }}
                 </div>
 
+                {% if post.next or post.prev %}
+
                 <div class="pagination">
                     {% if post.next.title %}
                     <div class="next-link">
@@ -43,6 +45,8 @@
                     {% endif %}
 
                 </div>
+
+                {% endif %}
 
 
             </div>

@@ -16,7 +16,15 @@
 				
 					<nav class="utility-nav" role="navigation">
 						<ul>
-							<li class="{{ item.classes | join(' ') }}"><a href="#">Search</a></li>
+							<li class="{{ item.classes | join(' ') }}">
+								<a href="#" class="search-link">Search</a>
+								<form class="search-form" role="search" method="get" action="{{site.url}}">
+									<input type="text" class="form-control" name="s" placeholder="Search">
+                        			<input type="submit" value="Go" />
+                      			</form>
+							</li>
+							 
+                    	
                 	        {% for item in utility_nav.get_items %}
                 	            <li><a href="{{ item.get_path }}">{{ item.title }}</a></li>
                 	        {% endfor %}

@@ -184,10 +184,18 @@ define("header.module", ["require", "exports", 'jquery'], function (require, exp
     var Header = (function () {
         function Header() {
             this.toggleClass('.mobile.toggle-nav', '.nav-wrapper', 'do-show');
+            this.toggleSearch('.search-link');
         }
         Header.prototype.toggleClass = function (elemClicked, elemToggled, className) {
             $(elemClicked).on('click', function () {
                 $(elemToggled).toggleClass(className);
+            });
+        };
+        Header.prototype.toggleSearch = function (elemClicked) {
+            $(elemClicked).on('click', function (ev) {
+                ev.preventDefault();
+                $(this).toggleClass('is-hidden');
+                $('.search-form').toggleClass('is-visible');
             });
         };
         return Header;
