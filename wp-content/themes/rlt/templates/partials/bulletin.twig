@@ -1,3 +1,5 @@
+ {% if post.get_field('ctas') %}
+ 
  <div class="grid bulletin">
 
         {% set CTAs = post.get_field('ctas') %}
@@ -97,3 +99,5 @@
         </div>-->
 
     </div><!--.bulletin-->
+
+{% endif %}
