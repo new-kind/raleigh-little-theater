@@ -9,6 +9,13 @@
 
     <div class="grid frames">
 
+    {% for link in post.tiled_links %}
+
+        {{ link | print_r }}
+
+
+    {% endfor %}
+
         <div class="four column frame blue">
             <header>
                 <h3 class="title">Contact</h3>
