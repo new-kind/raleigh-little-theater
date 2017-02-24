@@ -9,7 +9,7 @@
 
     <div class="grid frames">
 
-    {% for link in post.tiled_links %}
+    {% for link in post.get_field('tiled_links') %}
 
         {{ link | print_r }}
 
