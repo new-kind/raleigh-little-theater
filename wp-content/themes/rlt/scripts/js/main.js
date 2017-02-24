@@ -179,7 +179,7 @@ define("classFilter.module", ["require", "exports", 'chosen'], function (require
     }());
     exports.ClassFilter = ClassFilter;
 });
-define("header.module", ["require", "exports"], function (require, exports) {
+define("header.module", ["require", "exports", 'jquery'], function (require, exports, $) {
     "use strict";
     var Header = (function () {
         function Header() {
@@ -194,18 +194,28 @@ define("header.module", ["require", "exports"], function (require, exports) {
     }());
     exports.Header = Header;
 });
-define("main", ["require", "exports", 'jquery', "bulletin.module", "classFilter.module", "header.module"], function (require, exports, $, bulletin_module_1, classFilter_module_1, header_module_1) {
+define("main", ["require", "exports", 'jquery', "bulletin.module", "classFilter.module", "header.module", 'fotorama'], function (require, exports, $, bulletin_module_1, classFilter_module_1, header_module_1) {
     "use strict";
     $(document).ready(function () {
-        if ($('.bulletin')) {
+        if ($('.bulletin').length > 0) {
             //instantiate Bulletin class to handle sizing
             var bulletin = new bulletin_module_1.Bulletin;
         }
-        if ($('.filter')) {
+        if ($('.filter').length > 0) {
             var filter = new classFilter_module_1.ClassFilter;
         }
-        if ($('.site-header')) {
+        if ($('.site-header').length > 0) {
             var header = new header_module_1.Header;
+        }
+        $('.photo-gallery').on('click', function (event) {
+            event.preventDefault();
+            var fotorama = $('.fotorama').addClass('is-visible').fotorama({ allowfullscreen: true }).data('fotorama');
+            fotorama.requestFullScreen();
+            $('.fotorama').on('fotorama:fullscreenexit', function () {
+                $(this).removeClass('is-visible');
+            });
+        });
+        function openFotorama() {
         }
     });
 });

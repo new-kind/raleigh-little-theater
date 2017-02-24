@@ -58,13 +58,12 @@
         </a>
 
 
-        <div style="display: none; ">
             {% set gallery = post.get_field('photo_gallery') %}
-            {{ gallery | print_r }}
-            {% for image in gallery %}
-            <img src="{{ image.sizes.large }}" />
-            {% endfor %}
-        </div>
+            <div class="fotorama" data-auto="false" data-width="100%" data-ratio="1.333">
+                {% for image in gallery %}
+                    <img src="{{ image.sizes.1600 }}" data-caption="{{ image.caption }}" />
+                {% endfor %}
+            </div>
         
         {% set castList = post.get_field('cast_list') %} 
         {% set wheelchair = post.get_field('wheelchair') %}
