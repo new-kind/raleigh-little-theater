@@ -5,7 +5,7 @@
     $post = new TimberPost();
     $context['post'] = $post;
     $args = array(
-        'post_type' => 'classes',
+        'post_type' => 'class',
         'orderby' => "title",
         'order' => "ASC",
         'posts_per_page' => -1
