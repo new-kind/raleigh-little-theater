@@ -69,7 +69,7 @@ class StarterSite extends TimberSite {
 			)
 		);
 
-		register_post_type( 'classes',
+		/*register_post_type( 'classes',
 			array(
 				'labels' => array(
 					'name' => __( 'Classes' ),
@@ -79,7 +79,7 @@ class StarterSite extends TimberSite {
 				'has_archive' => false,
 				'menu_icon' => 'dashicons-welcome-learn-more'
 			)
-		);
+		);*/
 
 		register_post_type( 'class',
 			array(
