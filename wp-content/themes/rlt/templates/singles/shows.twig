@@ -111,7 +111,7 @@
             {% if post.prev %}
                  <a class="six column promo" href="{{ post.prev.link }}">
                      <header>
-                         <p class="eyebrow">Prev:</p>
+                         <p class="eyebrow">Prev Show:</p>
                          <h3 class="title">{{ post.prev.title }}</h3>
                      </header>
                      <div class="promo-bg" style="background-image: url({{ TimberImage(post.prev.promo_image).src }});"></div>
@@ -123,7 +123,7 @@
              {% if post.next %}
                  <a class="six column promo" href="{{ post.next.link }}">
                      <header style="position: absolute; right: 0; text-align: right;">
-                         <p class="eyebrow">Next:</p>
+                         <p class="eyebrow">Next Show:</p>
                          <h3 class="title">{{ post.next.title }}</h3>
                      </header>
                      <div class="promo-bg"  style="background-image: url({{ TimberImage(post.next.promo_image).src }});"></div>
