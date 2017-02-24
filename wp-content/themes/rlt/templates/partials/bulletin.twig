@@ -40,41 +40,28 @@
 
             {% endfor %}
             </div>
-        {% else %}
+        {% elseif news %}
             <div class="feed">
             <header>
                 <p class="eyebrow has-squiggle"><span class="bg-cool-grey">Recent News</span></p>
             </header>
-            <article>
-                <h6 class="title"><a href="#">Callbacks for The Whipping Man</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
-                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
-            </article>
-            <article>
-                <h6 class="title"><a href="#">Callbacks for The Whipping Man</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
-                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
-            </article>
-            <article>
-                <h6 class="title"><a href="#">Callbacks for The Whipping Man</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
-                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
-            </article>
-            <article>
-                <h6 class="title"><a href="#">Callbacks for The Whipping Man</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
-                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
-            </article>
-            <article>
-                <h6 class="title"><a href="#">Callbacks for The Whipping Man</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
-                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
-            </article>
 
-            <a href="#" class="button">More News</a>
-            </div>
+            {% for item in news %}
+
+                <article>
+                    <h6 class="title"><a href="{{ item.link }}">{{ item.title }}</a></h6>
+                    <p>{{ item.get_preview(40) }}</p>
+                </article>
+
+            {% endfor %}
+
+
+            <a href="{{ site.url }}/news" class="button">More News</a>
+
 
         {% endif %}
+
+            </div>
 
 
 
