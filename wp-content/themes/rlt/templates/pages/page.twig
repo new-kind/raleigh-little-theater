@@ -10,5 +10,13 @@
 		{{ post.content }}
 	</article>
 </div>
+    
+	{% set ctaColors = {
+        'primary': 'rose-purple', 
+        'secondary' : 'breeze-blue' 
+        }
+    %}
+
+    {% include 'partials/bulletin.twig' with ctaColors %}
 
 {% endblock %}
