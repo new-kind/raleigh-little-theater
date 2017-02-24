@@ -29,7 +29,7 @@
      {% for item in items %}
         {% set item = item.page_or_post %}
         <div class="list-item">
-            <a href="{{ item.permalink }}" class="image" style="background-image: url(http://placehold.it/800x600);"></a>
+            <a href="{{ item.permalink }}" class="image" style="background-image: url({{ TimberImage(item.thumbnail).src }});"></a>
             <div class="content">
                 <a href="{{ item.permalink }}"><h3>{{ item.post_title }}</h3></a>
                 <hr class="dash" />
