@@ -1,6 +1,5 @@
-
-import 'fotorama';
 import * as $ from 'jquery';
+import 'fotorama';
 import { Bulletin } from './bulletin.module';
 import { ClassFilter } from './classFilter.module';
 import { Header } from './header.module';
