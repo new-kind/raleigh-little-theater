@@ -13,7 +13,7 @@
 
 
         <div class="list-item">
-            <a class="image" href="{{ item.link_url }}" style="background-image: url({{ item.image.sizes.large }});"></a>
+            <a class="image" href="{{ item.link_url }}" style="background-image: url({{ item.image.sizes.800 }});"></a>
             <div class="content">
                 <a href="{{ item.link_url }}"><h3>{{ item.title }}</h3></a>
                 <p class="meta">{{ item['sub-title'] }}</p>
@@ -29,7 +29,7 @@
      {% for item in items %}
         {% set item = item.page_or_post %}
         <div class="list-item">
-            <a href="{{ item.permalink }}" class="image" style="background-image: url({{ TimberImage(item.thumbnail).src }});"></a>
+            <a href="{{ item.permalink }}" class="image" style="background-image: url({{ TimberImage(item.thumbnail).src | resize(800)}});"></a>
             <div class="content">
                 <a href="{{ item.permalink }}"><h3>{{ item.post_title }}</h3></a>
                 <hr class="dash" />
