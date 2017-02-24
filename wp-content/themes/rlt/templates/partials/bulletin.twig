@@ -6,24 +6,27 @@
 
         {% for item in CTAs %}
 
+            {% if item.text %}
 
-            {% if loop.first %}
-                <div class="primary bg-{{ ctaColors.primary }}">
-            {% else %}
-                <div class="secondary bg-{{ ctaColors.secondary }}">
-            {% endif %}
+                {% if loop.first %}
+                    <div class="primary bg-{{ ctaColors.primary }}">
+                {% else %}
+                    <div class="secondary bg-{{ ctaColors.secondary }}">
+                {% endif %}
         
 
-                <header>
-                    <p class="eyebrow">{{ item.label}}</p>
-                    <h2 class="title quote">{{ item.text }}</h2>
-                </header>
+                    <header>
+                        <p class="eyebrow">{{ item.label}}</p>
+                        <h2 class="title quote">{{ item.text }}</h2>
+                    </header>
 
-                {#<div class="buttons centered">#}
-                    <a href="{{ item.link }}" class="inverse button ">{{ item.button_text }}</a>
-                {#</div>#}
+                    {#<div class="buttons centered">#}
+                        <a href="{{ item.link }}" class="inverse button ">{{ item.button_text }}</a>
+                    {#</div>#}
 
-            </div>
+                </div>
+
+            {% endif %}
 
         {% endfor %}
 
