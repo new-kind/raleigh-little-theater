@@ -104,6 +104,11 @@ class StarterSite extends TimberSite {
 		register_nav_menu( 'footer_2', __( 'Footer Nav 2', 'footer-nav-2' ) );
 		register_nav_menu( 'footer_3', __( 'Footer Nav 3', 'footer-nav-3' ) );
 		register_nav_menu( 'footer_4', __( 'Footer Nav 4', 'footer-nav-4' ) );
+		if( function_exists('acf_add_options_page') ) {
+	
+			acf_add_options_page();
+	
+		}
 	}
 
 	function register_taxonomies() {
@@ -203,6 +208,7 @@ class StarterSite extends TimberSite {
 		$context['footer_nav_2'] = new TimberMenu('footer_2');
 		$context['footer_nav_3'] = new TimberMenu('footer_3');
 		$context['footer_nav_4'] = new TimberMenu('footer_4');
+		$context['options'] = get_fields('options');
 		$context['site'] = $this;
 		return $context;
 	}

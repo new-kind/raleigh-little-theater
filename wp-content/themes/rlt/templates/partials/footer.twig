@@ -59,10 +59,13 @@
                         {% for child in item.children %}
                             {% if loop.first %}<ul>{% endif %}
                                 <li>
-                                    <a href="{{ child.get_path }}">{{ child.title }}</a>
+                                    <a href="{{ child.get_path }}">{{ child.title }}wat</a>
                                 </li>
                             {% if loop.last %}</ul>{% endif %}
                     {% endfor %}
+                    <a href="{{ options.twitter }}" target="_blank">Twitter</a>
+                    <a href="{{ options.facebook }}" target="_blank">Facebook</a>
+                    <a href="{{ options.youtube }}" target="_blank">Youtube</a>
                     </li>
                 {% endfor %}
         </ul>
