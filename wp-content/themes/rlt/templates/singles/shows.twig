@@ -16,7 +16,7 @@
                     <p class="meta">{{ post.get_field('venue') }} {% if post.get_field('reserved') %}(Reserved Seating){% endif %}</p>
                     <hr class="dash" />
                 </div>
-                {% if {{ post.ticket_url }} %}
+                {% if post.ticket_url %}
                     <div class="four column">
                         <a href="#" class="button">Buy Tickets</a>
                     </div>
