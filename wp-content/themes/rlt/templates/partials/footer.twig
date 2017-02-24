@@ -2,65 +2,69 @@
 
     <nav class="footer-nav grid">
         <ul class="three column">
-            <li class="col-container">
-                <a href="#" class="col-head">Shows and Events</a>
-                <ul>
-                    <li><a href="#">Photo Gallery</a></li>
-                    <li><a href="#">Membership</a></li>
-                    <li><a href="#">Archive</a></li>
-                </ul>
-            </li>
-            <li class="col-container">
-                <a href="#" class="col-head">Classes</a>
-                <ul>
-                    <li><a href="#">For kids</a></li>
-                    <li><a href="#">For schools</a></li>
-                    <li><a href="#">For adults</a></li>
-                </ul>
-            </li>
+                {% for item in footer_nav_1.get_items %}
+                    <li class="col-container">
+                        <a href="{{ item.get_path }}" class="col-head">{{ item.title }}</a>
+                        
+                        {% for child in item.children %}
+                            {% if loop.first %}<ul>{% endif %}
+                                <li>
+                                    <a href="{{ child.get_path }}">{{ child.title }}</a>
+                                </li>
+                            {% if loop.last %}</ul>{% endif %}
+                    {% endfor %}
+                    </li>
+                {% endfor %}
+
         </ul>
 
         <ul class="three column">
-            <li class="col-container">
-                <a href="#" class="col-head">Get Involved</a>
-                <ul>
-                    <li><a href="#">Volunteers</a></li>
-                    <li><a href="#">Auditions</a></li>
-                </ul>
-            </li>
-            <li class="col-container">
-                <a href="#" class="col-head">About</a>
-                <ul>
-                    <li><a href="#">Our staff</a></li>
-                    <li><a href="#">Our sponsors</a></li>
-                </ul>
-            </li>
+
+                {% for item in footer_nav_2.get_items %}
+                    <li class="col-container">
+                        <a href="{{ item.get_path }}" class="col-head">{{ item.title }}</a>
+                        
+                        {% for child in item.children %}
+                            {% if loop.first %}<ul>{% endif %}
+                                <li>
+                                    <a href="{{ child.get_path }}">{{ child.title }}</a>
+                                </li>
+                            {% if loop.last %}</ul>{% endif %}
+                    {% endfor %}
+                    </li>
+                {% endfor %}
         </ul>
 
         <ul class="three column">
-            <li class="col-container">
-                <a href="#" class="col-head">Visit Us</a>
-                <ul>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Rose Garden</a></li>
-                    <li><a href="#">Reserve Space</a></li>
-                    <li><a href="#">Accessibility</a></li>
-                </ul>
-            </li>
+                {% for item in footer_nav_3.get_items %}
+                    <li class="col-container">
+                        <a href="{{ item.get_path }}" class="col-head">{{ item.title }}</a>
+                        
+                        {% for child in item.children %}
+                            {% if loop.first %}<ul>{% endif %}
+                                <li>
+                                    <a href="{{ child.get_path }}">{{ child.title }}</a>
+                                </li>
+                            {% if loop.last %}</ul>{% endif %}
+                    {% endfor %}
+                    </li>
+                {% endfor %}
         </ul>
 
         <ul class="three column">
-            <li class="col-container">
-                <a href="#" class="col-head">FAQ</a>
-            </li>
-            <li class="col-container">
-                <a href="#" class="col-head">Connect</a>
-                <ul>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">YouTube</a></li>
-                </ul>
-            </li>
+                {% for item in footer_nav_4.get_items %}
+                    <li class="col-container">
+                        <a href="{{ item.get_path }}" class="col-head">{{ item.title }}</a>
+                        
+                        {% for child in item.children %}
+                            {% if loop.first %}<ul>{% endif %}
+                                <li>
+                                    <a href="{{ child.get_path }}">{{ child.title }}</a>
+                                </li>
+                            {% if loop.last %}</ul>{% endif %}
+                    {% endfor %}
+                    </li>
+                {% endfor %}
         </ul>
 
         <p class="twelve column copyright">&copy; 2017. Raleigh Little Theatre  |  Site design by <a href="http://newkind.com">New Kind</a></p>

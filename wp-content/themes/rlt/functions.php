@@ -100,6 +100,10 @@ class StarterSite extends TimberSite {
 		// register navs
 		register_nav_menu( 'primary', __( 'Primary Nav', 'primary-nav' ) );
 		register_nav_menu( 'utility', __( 'Utility Nav', 'utility-nav' ) );
+		register_nav_menu( 'footer_1', __( 'Footer Nav 1', 'footer-nav-1' ) );
+		register_nav_menu( 'footer_2', __( 'Footer Nav 2', 'footer-nav-2' ) );
+		register_nav_menu( 'footer_3', __( 'Footer Nav 3', 'footer-nav-3' ) );
+		register_nav_menu( 'footer_4', __( 'Footer Nav 4', 'footer-nav-4' ) );
 	}
 
 	function register_taxonomies() {
@@ -195,6 +199,10 @@ class StarterSite extends TimberSite {
 		$context['notes'] = 'These values are available everytime you call Timber::get_context();';
 		$context['primary_nav'] = new TimberMenu('primary');
 		$context['utility_nav'] = new TimberMenu('utility');
+		$context['footer_nav_1'] = new TimberMenu('footer_1');
+		$context['footer_nav_2'] = new TimberMenu('footer_2');
+		$context['footer_nav_3'] = new TimberMenu('footer_3');
+		$context['footer_nav_4'] = new TimberMenu('footer_4');
 		$context['site'] = $this;
 		return $context;
 	}
