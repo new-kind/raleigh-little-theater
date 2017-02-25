@@ -166,8 +166,13 @@
 
                 .image{
                     height: auto;
-                    padding-top: 30%;
                     flex: 0 0 50%;
+
+                    &:before{
+                        content: '';
+                        padding-top: 50%;
+                        float: left;
+                    }
                 }
 
                 .content{
