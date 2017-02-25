@@ -67,3 +67,17 @@
         }
     }
 }
+
+@media screen and (min-width: 1600px){
+
+    .site-footer{
+        position: relative;
+
+        .copyright{
+            position: absolute;
+            bottom: 2.5em;
+            right: 2em;
+        }
+    }
+
+}
