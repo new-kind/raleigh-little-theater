@@ -44,6 +44,9 @@ define("classFilter.module", ["require", "exports", 'chosen'], function (require
     "use strict";
     var ClassFilter = (function () {
         function ClassFilter() {
+            if (!String.prototype.includes) {
+                this.polyfillIncludes();
+            }
             var ctrl = this;
             var query = ctrl.parseURI();
             ctrl.updateOptions(query);
@@ -54,15 +57,34 @@ define("classFilter.module", ["require", "exports", 'chosen'], function (require
             });
             $('select').chosen({ disable_search_threshold: 10 });
         }
+        ClassFilter.prototype.polyfillIncludes = function () {
+            String.prototype.includes = function (search, start) {
+                'use strict';
+                if (typeof start !== 'number') {
+                    start = 0;
+                }
+                if (start + search.length > this.length) {
+                    return false;
+                }
+                else {
+                    return this.indexOf(search, start) !== -1;
+                }
+            };
+        };
         ClassFilter.prototype.parseURI = function () {
             var href = window.location.href;
-            var props = href.split('?')[1].split('&');
-            var propObject = {};
-            for (var i = 0; i < props.length; i++) {
-                var keyValProp = props[i].split('=');
-                propObject[keyValProp[0]] = keyValProp[1];
+            var props;
+            if (href.split('?')[1]) {
+                props = href.split('?')[1].split('&');
             }
-            return propObject;
+            var propObject = {};
+            if (props) {
+                for (var i = 0; i < props.length; i++) {
+                    var keyValProp = props[i].split('=');
+                    propObject[keyValProp[0]] = keyValProp[1];
+                }
+                return propObject;
+            }
         };
         ClassFilter.prototype.updateOptions = function (propsObj) {
             $.each(propsObj, function (key, val) {
