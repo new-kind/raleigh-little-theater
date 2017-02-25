@@ -6,11 +6,16 @@
 
      background: #111 url('http://placehold.it/600x600') no-repeat center;
         background-size: cover;
-        padding-top: 33%!important;
         position: relative;
         top: 1em;
         left: 2em;
-        height: 200px;
+        min-height: 200px;
+
+        &:after{
+            content: '';
+            float: left;
+            padding-top: 100%;
+        }
         
         + .frame{
             margin-top: 1em;

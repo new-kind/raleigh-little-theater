@@ -4,6 +4,10 @@ export class ClassFilter {
 
     constructor(){
 
+        if( !String.prototype.includes ){
+            this.polyfillIncludes();
+        }
+
         let ctrl = this;
 
         let query = ctrl.parseURI();
@@ -20,18 +24,36 @@ export class ClassFilter {
         
         $('select').chosen({disable_search_threshold: 10});
 
+              
+    }
 
+    polyfillIncludes(){
+        String.prototype.includes = function(search, start) {
+                'use strict';
+                if (typeof start !== 'number') {
+                  start = 0;
+                }
+
+                if (start + search.length > this.length) {
+                  return false;
+                } else {
+                  return this.indexOf(search, start) !== -1;
+                }
+              };
     }
 
     parseURI(){
         let href = window.location.href;
-        let props = href.split('?')[1].split('&');
+        let props: Array<string>;
+        if( href.split('?')[1] ){ props = href.split('?')[1].split('&'); }
         let propObject = {};
-        for( let i = 0; i < props.length; i++ ){
-            let keyValProp = props[i].split('=');
-            propObject[keyValProp[0]] = keyValProp[1];
-        }
+        if( props ){
+            for( let i = 0; i < props.length; i++ ){
+                let keyValProp = props[i].split('=');
+                propObject[keyValProp[0]] = keyValProp[1];
+            }
         return propObject;
+        }
     }
 
     updateOptions( propsObj : Object ){

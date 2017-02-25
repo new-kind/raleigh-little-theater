@@ -32,6 +32,11 @@
                 .image:hover{
                     opacity: 1;
                 }
+
+                .image:before{
+                    padding-top: 0;
+                    float: none;
+                }
                 .content{
                     padding: 0 0 2em;
                     margin-top: 1em;
@@ -50,10 +55,15 @@
 
             .image{
                 width: 100%;
-                padding-top: 50%;
                 background: url('http://placehold.it/800x600') center no-repeat;
                 background-size: cover;
                 transition: opacity .5s;
+
+                    &:before{
+                        content: '';
+                        padding-top: 50%;
+                        float: left;
+                    }
 
                 &:hover{
                     opacity: .92;
@@ -166,7 +176,6 @@
 
                 .image{
                     height: auto;
-                    padding-top: 30%;
                     flex: 0 0 50%;
                 }
 
@@ -201,7 +210,8 @@
 
                 .list-item{
                     width: 23%;
-                    margin: 0 2.5% 2.5% 0;
+                    margin: 0 2.5% 0 0;
+                    padding-bottom: 3em;
 
                     &:nth-child( even) {
                         margin-right: 2.5%;
