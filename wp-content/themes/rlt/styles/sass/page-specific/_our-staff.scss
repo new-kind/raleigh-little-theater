@@ -17,7 +17,7 @@
 @media screen and (min-width: 800px){
     #people{
 
-        .content{
+        .dynamic-content{
             @include clearfix;
         }
         .headshot{
@@ -48,6 +48,7 @@
             margin-left: 33%;
             padding-left: 2em;
         }
+
         .pagination{
             clear: both;
         }
