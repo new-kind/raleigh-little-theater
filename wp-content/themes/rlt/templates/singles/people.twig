@@ -23,11 +23,13 @@
 
                 <div class="dynamic-content">
                     {% if post.headshot %}
-                    <div class="four column">
+                    <div class="headshot">
                         <img class="featured-image" src="{{ TimberImage( post.headshot ).src  }}" />
                     </div>
                     {% endif %}
-                    {{ post.content }}
+                    <div class="profile">
+                        {{ post.content }}
+                    </div>
                 </div>
 
                 <div class="pagination">

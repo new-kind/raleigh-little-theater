@@ -13,3 +13,39 @@
 #people{
     @extend #news;
 }
+
+@media screen and (min-width: 800px){
+    #people{
+        .headshot{
+            width: 33%;
+            margin-right: 2em;
+            float: left;
+            position: relative;
+
+            img{ 
+                position: relative; 
+                z-index: 1;
+                margin: 0;
+            }
+
+            &:after{
+                content: '';
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: -1em;
+                left: -1em;
+                padding-right: 1em;
+                background: $mid_grey;
+            }
+        }
+
+        .profile{
+            margin-left: 33%;
+            padding-left: 2em;
+        }
+        .pagination{
+            clear: both;
+        }
+    }
+}
