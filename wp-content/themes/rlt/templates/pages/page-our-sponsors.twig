@@ -7,20 +7,18 @@
 		<h1>{{ post.title }}</h1>
 	</div>
 	<article class="dynamic-content">
-        <h2>Raleigh Little Theatre thanks the following organizations. These organizations, and hundreds of individuals, support our mission of using theatre to enrich, educate, entertain and engage volunteers, students, and audiences of all ages.</h2>
+        <p>Raleigh Little Theatre thanks the following organizations. These organizations, and hundreds of individuals, support our mission of using theatre to enrich, educate, entertain and engage volunteers, students, and audiences of all ages.</p>
         
         {% if season_sponsors %}
         <h3>Season Sponsors</h3>
-        
         <div class="grid sponsors">
-            <h4 class="title twelve column text centered color-bloom-red">Raleigh Little Theatre thanks its generous season sponsors</h4>
-            <div class="eight column grid centered">
         
-            {% for sponsor in season_sponsors %}
+
+        
+            {% for item in season_sponsors %}
                 {% set sponsor = item.sponsor %}
                 <a href="{{ sponsor.url }}" target="_blank" style="background-image: url({{ TimberImage(sponsor.logo).src }});"></a>
             {% endfor %}
-            </div>
         </div>
 
         {% endif %}
