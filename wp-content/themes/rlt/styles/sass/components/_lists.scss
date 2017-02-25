@@ -50,10 +50,15 @@
 
             .image{
                 width: 100%;
-                padding-top: 50%;
                 background: url('http://placehold.it/800x600') center no-repeat;
                 background-size: cover;
                 transition: opacity .5s;
+
+                    &:before{
+                        content: '';
+                        padding-top: 50%;
+                        float: left;
+                    }
 
                 &:hover{
                     opacity: .92;
@@ -167,12 +172,6 @@
                 .image{
                     height: auto;
                     flex: 0 0 50%;
-
-                    &:before{
-                        content: '';
-                        padding-top: 50%;
-                        float: left;
-                    }
                 }
 
                 .content{
