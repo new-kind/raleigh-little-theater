@@ -6,7 +6,7 @@
             <h1 class="inline-block mar-r-xs"><a href="{{ site.url }}/news">Our Staff</a></h1>
         </div>
 
-        <div class="page-content grid">
+        <div class="page-content">
                     
             <div class="content">
 
@@ -17,12 +17,15 @@
                     {% endfor %}
                 </h5>
                 <h2 class="color-bloom-red">{{ post.title }}</h2>
+                <p class="meta">{{ post.get_field('title') }}</p>
                 <hr class="dash" />
 
 
                 <div class="dynamic-content">
-                    {% if post.get_field('headshot') %}
-                    <img class="featured-image" src="{{ post.get_field('headshot') }}" />
+                    {% if post.headshot %}
+                    <div class="four column">
+                        <img class="featured-image" src="{{ TimberImage( post.headshot[0] ).src  }}" />
+                    </div>
                     {% endif %}
                     {{ post.content }}
                 </div>
