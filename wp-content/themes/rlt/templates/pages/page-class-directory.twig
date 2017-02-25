@@ -57,15 +57,13 @@
         {% set expired = false %}
         {% for track in post.get_field('tracks') %}
             {% for session in track.sessions %}
-                {% if ( session.end_date | date('m/d/Y') ) <  ( "now" | date('m/d/Y') ) %}
+                {% if ( session.end_date | date('Y-m-d') ) <  ( "now" | date('Y-m-d') ) %}
                     {% set expired = true %}
                 {% else %}
                     {% set expired = false %}
                 {% endif %}
             {% endfor %}
         {% endfor %}
-
-        {% if expired == false %}
         
         
             {% for ageGroup in post.get_field('age_group') %}    
@@ -113,9 +111,14 @@
                 data-ages="{{ ageString }}" 
                 data-age-group="{{ dataAgeGroup | join(',') }}"
                 data-types="{{ dataTypes | join(',') }}"
-                data-locations="{{ dataLocations | join(',') }}">
+                data-locations="{{ dataLocations | join(',') }}"
+                {% if expired == true %}
+                data-expired="expired"
+                {% endif %}
+            >
                 <div class="content">
                     <h3><a href="{{ post.link }}">{{ post.title }}</a></h3>
+                    {% if expired == true %}<h5 class="color-deep-maroon">Class has Ended</h5>{% endif %}
                     {% if ages %}
                         {% if ageString == 'Adult' %}
                             <p class="meta">Adults</p>
@@ -150,7 +153,6 @@
                     <p>{{ post.class_focus }}</p>
                 </div>
             </div>
-        {% endif %}
     {% endfor %}
 
 </main>

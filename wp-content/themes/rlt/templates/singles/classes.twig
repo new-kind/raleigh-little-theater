@@ -17,8 +17,11 @@
                     {% endif %}
                 {% endfor %}
                 </h4>
+                
 
             {% endfor %}
+
+            
 
             {% if post.get_field('class_focus') %}
                 <p><strong>Class Focus:</strong> {{ post.get_field('class_focus') }}</p>
@@ -33,6 +36,18 @@
             {% endif %}
         </div>
 
+
+        {% set expired = false %}
+        {% for track in post.get_field('tracks') %}
+            {% for session in track.sessions %}
+                {% if ( session.end_date | date('m/d/Y') ) <  ( "now" | date('m/d/Y') ) %}
+                    {% set expired = true %}
+                {% else %}
+                    {% set expired = false %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+
         <div class="page-content grid">
 
             {% for track in post.get_field('tracks') %}
@@ -44,8 +59,15 @@
                 {{ track.start_time }} - 
                 {{ track.end_time }}</h4>
                 {% for session in track.sessions %}
+
+                    {% if (session.end_date | date('Y-m-d')) < ("now" | date('Y-m-d')) %}
+                        {% set over = true %}
+                    {% else %}
+                        {% set over = false %}
+                    {% endif %}
                     <div class="session mar-b-md">
                         <h5>{{ session.title }}</h5>
+                        {% if over == true %}<h5 class="color-bloom-red">Session over</h5>{% endif %}
                         <p class="meta color-black">{{ session.start_date | date( "F j") }} - {{ session.end_date | date("F j") }}</p>
                         <p class="meta color-black">{{ session.description }}</p>
                         <p class="meta color-black">Instructor:
@@ -66,8 +88,6 @@
             <div class="twelve column">
             {% if post.get_field('registration_link') %}
                 <a href="{{ post.get_field('registration_link') }}" class="button">Register Here</a>
-            {% else %}
-                <p>Registration coming soon.</p>
             {% endif %}
             </div>
 
