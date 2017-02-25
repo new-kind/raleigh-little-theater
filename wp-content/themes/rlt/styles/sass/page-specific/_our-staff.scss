@@ -16,6 +16,10 @@
 
 @media screen and (min-width: 800px){
     #people{
+
+        .content{
+            @include clearfix;
+        }
         .headshot{
             width: 33%;
             margin-right: 2em;
@@ -46,7 +50,6 @@
         }
         .pagination{
             clear: both;
-            margin-top: 4em;
         }
     }
 }
