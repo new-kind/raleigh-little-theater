@@ -38,7 +38,7 @@
                 <p class="eyebrow has-squiggle"><span class="bg-cool-grey">Links &amp; Resources</span></p>
             </header>
             {% for item in feed %}
-
+            
                 {% if item.custom_url == true %}
                     {% set link = item.link_url %}
                 {% else %}
@@ -46,7 +46,7 @@
                 {% endif %}
 
                 <article>
-                    <h6 class="title"><a href="{{ item.link }}">{{ item.link_text }}</a></h6>
+                    <h6 class="title"><a href="{{ link }}">{{ item.link_text }}</a></h6>
                     <p>{{ item.summary }}</p>
                 </article>
 
