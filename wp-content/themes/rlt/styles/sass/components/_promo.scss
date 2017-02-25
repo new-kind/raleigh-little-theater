@@ -1,11 +1,13 @@
 .promos{ 
     width: 100vw; 
     padding: 0 1rem;
+    flex-direction: column;
 }
 
 .promo{
     background-size: cover;
     padding: 0!important;
+    width: 100%;
 
     > header{
         padding: 1em;
@@ -29,10 +31,21 @@
 
 @media screen and (min-width: 600px){
 
+    .promos .secondary-container{
+            height: 45vh;
+            width: 100%;
+            display: flex;
+
+            .promo{
+                width: 50%;
+                height: 100%;
+            }
+        }
 
     .promo{
-        min-height: 45vh;
+        height: 45vh;
         transition: opacity .5s;
+        position: relative;
 
         &:hover{
             opacity: .92;
@@ -57,3 +70,25 @@
 
 }
 
+@media screen and (min-width: 1600px){
+    .promos{
+        flex-direction: row;
+        .promo{
+            
+            &.primary{
+                width: 50%;
+                height: 100vh;
+            }
+        }
+
+        .secondary-container{
+            width: 50%;
+            height: 100%;
+            flex-direction: column;
+            
+            .promo{
+                width: 100%;
+            }
+        }
+    }
+}

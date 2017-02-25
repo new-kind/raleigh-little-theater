@@ -10,9 +10,9 @@
         {% set content = promo.content %}
 
             {% if loop.first %}
-                <a class="twelve column promo" href="{{ content.permalink }}">
+                <a class="promo primary" href="{{ content.permalink }}">
             {% else %}
-                <a class="six column promo" href="{{ content.permalink }}">
+                <a class="promo secondary" href="{{ content.permalink }}">
             {% endif %}
 
                 <header>
@@ -21,6 +21,11 @@
                 </header>
                 <div class="promo-bg" style="background-image: url({{ content.get_field('promo_image').sizes.1200 }});"></div>
             </a>
+
+            {% if loop.first %} <div class="secondary-container"> {% endif %}
+            {% if loop.last %}
+            </div><!--.secondary-container-->
+            {% endif %}
 
         {% endfor %}
 
