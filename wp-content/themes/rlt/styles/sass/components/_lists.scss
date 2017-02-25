@@ -25,16 +25,6 @@
 
     }
 
-    &.with-members{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        
-        .list-names{
-            margin: em(65) em(100);
-        }
-    }
-
     &.with-images{
 
         &.grid{
@@ -44,6 +34,11 @@
                 }
                 .content{
                     padding: 0 0 2em;
+                    margin-top: 1em;
+
+                    &:after{
+                        content: none;
+                    }
                 }
             }
         }

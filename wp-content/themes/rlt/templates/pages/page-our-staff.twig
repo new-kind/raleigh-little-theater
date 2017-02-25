@@ -9,8 +9,8 @@
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
     </div>
     
-    <section class="prod-staff">
-        <h5 class="staff-titles text centered">Production Staff</h5>
+    <section class="prod-staff pad-t-lg">
+        <h3 class="staff-titles text centered has-squiggle"><span class="bg-cool-grey color-bloom-red">Production Staff</span></h3>
 
 
         <div class="list with-images grid">
@@ -19,7 +19,7 @@
             <a class="list-item" href="{{ person.link }}">
                 <div class="image" style="background-image: url( {{ person.get_field('headshot').sizes.medium }});"></div>
                 <div class="content">
-                    <h3>{{ person.title }}</h3>
+                    <h4 class="color-black">{{ person.title }}</h4>
                     <p class="meta">{{ person.get_field('title') }}</p>
                 </div>
             </a>
@@ -27,7 +27,7 @@
     </section>
 
     <section class="ed-staff">
-        <h5 class="staff-titles text centered">Educational Faculty</h5>
+        <h3 class="staff-titles text centered has-squiggle"><span class="bg-cool-grey color-bloom-red">Educational Faculty</span></h3>
 
 
         <div class="list with-images grid">
@@ -36,7 +36,7 @@
             <a class="list-item" href="{{ person.link }}">
                 <div class="image" style="background-image: url( {{ person.get_field('headshot').sizes.medium }});"></div>
                 <div class="content">
-                    <h3>{{ person.title }}</h3>
+                    <h4 class="color-black">{{ person.title }}</h4>
                     <p class="meta">{{ person.get_field('title') }}</p>
                 </div>
             </a>
@@ -44,13 +44,13 @@
     </section>
 
     <section class="board">    
-        <h5 class="staff-titles text centered">Board of Directors</h5>
+        <h3 class="staff-titles text centered has-squiggle"><span class="bg-cool-grey color-bloom-red">Board of Directors</span></h3>
         <div class="list with-images grid">
             {% for person in board %}
             <a class="list-item" href="{{ person.link }}">
                 <div class="image" style="background-image: url( {{ person.get_field('headshot').sizes.medium }});"></div>
                 <div class="content">
-                    <h3>{{ person.title }}</h3>
+                    <h4 class="color-black">{{ person.title }}</h4>
                     <p class="meta">{{ person.get_field('title') }}</p>
                 </div>
             </a>
@@ -58,17 +58,16 @@
         </div>
     </section>
 
-    <section class="Members">
-        <h5 class="staff-titles text centered" >Members At Large</h5>
-            <div class="list with-members">
+    <section class="members pad-b-xl">
+        <h3 class="staff-titles text centered has-squiggle mar-b-lg"><span class="bg-cool-grey color-bloom-red">Members At-Large</span></h3>
+            <div class="eight column grid centered">
             {% for person in large %}
-            <a class="list-item" href="{{ person.link }}">
-                <div class="image" style="background-image: url( {{ person.get_field('headshot').sizes.medium }});"></div>
-                <div class="content">
-                    <h3>{{ person.title }}</h3>
+            {#<a class="list-item four column" href="{{ person.link }}">#}
+                <div class="content list-item four column" style="padding: .5em 1em">
+                    <h4 class="color-black">{{ person.title }}</h4>
                     <p class="meta">{{ person.get_field('title') }}</p>
                 </div>
-            </a>
+            {#</a>#}
             {% endfor %}
         </div>
     </section>
