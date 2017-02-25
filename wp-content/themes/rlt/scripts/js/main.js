@@ -1,4 +1,4 @@
-define("bulletin.module", ["require", "exports"], function (require, exports) {
+define("bulletin.module", ["require", "exports", 'jquery'], function (require, exports, $) {
     "use strict";
     var Bulletin = (function () {
         function Bulletin() {

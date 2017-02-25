@@ -1,3 +1,4 @@
+import * as $ from 'jquery';
 export class Bulletin {
 
     feedHeight: number;

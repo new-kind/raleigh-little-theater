@@ -5,6 +5,9 @@
     $context['post'] = $post;
     $boardArgs = array(
         'post_type' => 'people',
+        'posts_per_page' => -1,
+        'orderby' => 'title',
+        'order' => 'ASC',
         'tax_query' => array(
             array( 
                 'taxonomy' => 'roles',
@@ -14,6 +17,9 @@
     );
     $prodArgs = array(
         'post_type' => 'people',
+        'orderby' => 'title',
+        'order' => 'ASC',
+        'posts_per_page' => -1,
         'tax_query' => array(
             array( 
                 'taxonomy' => 'roles',
@@ -23,6 +29,9 @@
     );
     $largeArgs = array(
         'post_type' => 'people',
+        'orderby' => 'title',
+        'order' => 'ASC',
+        'posts_per_page' => -1,
         'tax_query' => array(
             array( 
                 'taxonomy' => 'roles',
@@ -32,10 +41,13 @@
     );
     $instructionArgs = array(
         'post_type' => 'people',
+        'orderby' => 'title',
+        'order' => 'ASC',
+        'posts_per_page' => -1,
         'tax_query' => array(
             array( 
                 'taxonomy' => 'roles',
-                'field' => 'slug', 
+                'field' => 'slug',
                 'terms' => 'instructional-staff')
         )
     );

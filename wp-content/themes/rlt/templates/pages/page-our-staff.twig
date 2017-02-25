@@ -14,8 +14,25 @@
 
 
         <div class="list with-images grid">
-        {{ people | print_r }}
+        
         {% for person in production %}
+            <a class="list-item" href="{{ person.link }}">
+                <div class="image" style="background-image: url( {{ person.get_field('headshot').sizes.medium }});"></div>
+                <div class="content">
+                    <h3>{{ person.title }}</h3>
+                    <p class="meta">{{ person.get_field('title') }}</p>
+                </div>
+            </a>
+        {% endfor %}
+    </section>
+
+    <section class="ed-staff">
+        <h5 class="staff-titles text centered">Educational Faculty</h5>
+
+
+        <div class="list with-images grid">
+        
+        {% for person in instruction %}
             <a class="list-item" href="{{ person.link }}">
                 <div class="image" style="background-image: url( {{ person.get_field('headshot').sizes.medium }});"></div>
                 <div class="content">
