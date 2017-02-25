@@ -11,7 +11,7 @@
 		<div class="list-item">
 		<h2><a href="{{post.link}}">{{post.title}}</a></h2>
 		<p class="meta">{{ post.date }}</p>
-		<p class="excerpt">{{ post.get_preview }}</p>
+		<p class="excerpt">{{ post.get_preview(40) }}</p>
 		</div>
 	{% endfor %}
 	</div>
