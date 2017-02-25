@@ -24,7 +24,7 @@
                 <div class="dynamic-content">
                     {% if post.headshot %}
                     <div class="four column">
-                        <img class="featured-image" src="{{ TimberImage( post.headshot[0] ).src  }}" />
+                        <img class="featured-image" src="{{ TimberImage( post.headshot ).src  }}" />
                     </div>
                     {% endif %}
                     {{ post.content }}
