@@ -57,7 +57,7 @@
         {% set expired = false %}
         {% for track in post.get_field('tracks') %}
             {% for session in track.sessions %}
-                {% if ( session.end_date | date('Y-m-d') ) <  ( "now" | date('Y-m-d') ) %}
+                {% if ( session.start_date | date('Y-m-d') ) <  ( "now" | date('Y-m-d') ) %}
                     {% set expired = true %}
                 {% else %}
                     {% set expired = false %}
@@ -72,6 +72,9 @@
  
             {% for group in dataAgeGroup %}
                 {% set ages = ages | merge ( [ post.get_field( group | lower ~ '_ages') ] ) %}
+                {% if group | lower == "adults" %}
+                    {% set ages = ages | merge ( ['Adult'] ) %}
+                {% endif %}
             {% endfor %}
 
 
@@ -118,7 +121,7 @@
             >
                 <div class="content">
                     <h3><a href="{{ post.link }}">{{ post.title }}</a></h3>
-                    {% if expired == true %}<h5 class="color-deep-maroon">Class has Ended</h5>{% endif %}
+                    {% if expired == true %}<h5 class="color-deep-maroon">Registration Closed</h5>{% endif %}
                     {% if ages %}
                         {% if ageString == 'Adult' %}
                             <p class="meta">Adults</p>

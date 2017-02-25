@@ -4,21 +4,30 @@
 	<main id="show">
         <div class="page-header bg-breeze-blue">
             <h2 class="inline-block mar-r-xs">{{ post.post_title }}</h2>
+            {% set ageArray = [] %}
             {% for ageGroup in post.get_field('age_group') %}
                 
                 {% set ages = post.get_field( ageGroup | lower ~ '_ages') %}
-                <h4 class="inline-block">Ages
+           
+                
                 {% for age in ages %}
-                    {% if ( loop.first or loop.last ) %}
-                        {{ age }}
-                        {% if ( loop.first ) %}
-                            &ndash;
-                        {% endif %}
-                    {% endif %}
+                    {% set ageArray = ageArray | merge( [age] ) %}
                 {% endfor %}
-                </h4>
+
+                {% if ageGroup == "Adults" %}
+                    {% set ageArray = ageArray | merge( ['Adults'] ) %}
+                {% endif %}
                 
 
+            {% endfor %}
+
+            {% for age in ageArray %}
+                {% if loop.first %}
+                    <h4 class="inline-block">Ages: {{ age }}
+                {% endif %}
+                {% if loop.last %}
+                    - {{ age }}</h4>
+                {% endif %}
             {% endfor %}
 
             
@@ -36,18 +45,6 @@
             {% endif %}
         </div>
 
-
-        {% set expired = false %}
-        {% for track in post.get_field('tracks') %}
-            {% for session in track.sessions %}
-                {% if ( session.end_date | date('m/d/Y') ) <  ( "now" | date('m/d/Y') ) %}
-                    {% set expired = true %}
-                {% else %}
-                    {% set expired = false %}
-                {% endif %}
-            {% endfor %}
-        {% endfor %}
-
         <div class="page-content grid">
 
             {% for track in post.get_field('tracks') %}
@@ -60,14 +57,14 @@
                 {{ track.end_time }}</h4>
                 {% for session in track.sessions %}
 
-                    {% if (session.end_date | date('Y-m-d')) < ("now" | date('Y-m-d')) %}
+                    {% if (session.start_date | date('Y-m-d')) < ("now" | date('Y-m-d')) %}
                         {% set over = true %}
                     {% else %}
                         {% set over = false %}
                     {% endif %}
                     <div class="session mar-b-md">
                         <h5>{{ session.title }}</h5>
-                        {% if over == true %}<h5 class="color-bloom-red">Session over</h5>{% endif %}
+                        {% if over == true %}<h5 class="color-bloom-red">Registration Closed</h5>{% endif %}
                         <p class="meta color-black">{{ session.start_date | date( "F j") }} - {{ session.end_date | date("F j") }}</p>
                         <p class="meta color-black">{{ session.description }}</p>
                         <p class="meta color-black">Instructor:
