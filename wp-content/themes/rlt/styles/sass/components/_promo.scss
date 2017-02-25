@@ -32,7 +32,8 @@
 @media screen and (min-width: 600px){
 
     .promos .secondary-container{
-            height: 45vh;
+            height: 50%;
+            height: calc(50vh - 70px);
             width: 100%;
             display: flex;
 
@@ -43,7 +44,7 @@
         }
 
     .promo{
-        height: 45vh;
+        height: calc( 50vh - 70px);
         transition: opacity .5s;
         position: relative;
 
@@ -70,20 +71,20 @@
 
 }
 
-@media screen and (min-width: 1600px){
+@media screen and (min-width: 1200px){
     .promos{
         flex-direction: row;
         .promo{
             
             &.primary{
                 width: 50%;
-                height: 100vh;
+                height: calc( 100vh - 130px );
             }
         }
 
         .secondary-container{
             width: 50%;
-            height: 100%;
+            height: calc( 100vh - 130px );
             flex-direction: column;
             
             .promo{
