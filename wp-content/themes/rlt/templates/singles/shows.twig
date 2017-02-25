@@ -73,6 +73,7 @@
         {% set wheelchair = post.get_field('wheelchair') %}
         {% set assistive = post.get_field('assistive') %}
         {% set audio = post.get_field('audio') %}
+        {% set asl = post.get_field('asl') %}
 
         {% if ( castList or wheelchair or assistive or audio ) %}
         <div class="grid wrapper pad-xl">
@@ -88,7 +89,7 @@
                 </div>
             {% endif %}
 
-           {% if ( wheelchair or assistive or audio ) %}
+           {% if ( wheelchair or assistive or audio or asl ) %}
 
             <div class="four column dynamic-content">  
                 <h3>Accessibility Information</h3>
@@ -97,6 +98,7 @@
                     {% if wheelchair %}<li>{{ wheelchair }}</li> {% endif %}
                     {% if assistive %}<li>{{ assistive }}</li> {% endif %}
                     {% if audio %}<li>{{ audio }}</li> {% endif %}
+                    {% if asl %}<li>{{ asl }}</li> {% endif %}
                 </ul>
             </div>
 
