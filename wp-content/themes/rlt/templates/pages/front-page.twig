@@ -23,30 +23,6 @@
             </a>
 
         {% endfor %}
-       
-        <!--<a class="twelve column promo" href="#">
-            <header>
-                <h3 class="title">The Whipping Man</h3>
-                <p class="meta dates">Jan 13 &ndash; Jan 29</p>
-            </header>
-            <div class="promo-bg" style="background-image: url({{ theme.link }}/images/shows/the_whipping_man.jpg);"></div>
-        </a>
-
-        <a class="six column promo" href="#">
-            <header>
-                <h3 class="title">A Piece of My Heart</h3>
-                <p class="meta dates">May 5 &ndash; May 21</p>
-            </header>
-            <div class="promo-bg" style="background-image: url({{ theme.link }}/images/shows/a_piece_of_my_heart.jpg);"></div>
-        </a>
-
-        <a class="six column promo" href="#">
-            <header>
-                <h3 class="title">Avenue Q</h3>
-                <p class="meta dates">June 2 &ndash; June 18</p>
-            </header>
-            <div class="promo-bg" style="background-image: url({{ theme.link }}/images/shows/avenue_q.jpg);"></div>
-        </a>-->
 
     </div><!--.promos-->
     
@@ -71,100 +47,11 @@
 
         {% endfor %}
 
-        <!--<div class="four column frame" style="background-image:url({{ theme.link }}/images/educating_all_ages.jpg);">
-            <header>
-                <h3 class="title">Educating all ages</h3>
-            </header>
-            <div class="buttons centered">
-                <a href="#" class="inverse button">Classes</a>
-            </div>
-        </div>
-
-        <div class="four column frame purple" style="background-image: url({{ theme.link }}/images/share_the_stage.jpg);">
-            <header>
-                <h3 class="title">Share the stage</h3>
-            </header>
-            <div class="buttons centered">
-                <a href="#" class="inverse button">Get Involved</a>
-            </div>
-        </div>
-
-        <div class="four column frame green" style="background-image: url({{ theme.link }}/images/more_than_just_a_theatre.jpg);">
-            <header>
-                <h3 class="title">More than just a theater</h3>
-            </header>
-
-            <div class="buttons centered">
-                <a href="#" class="inverse button">Visit Us</a>
-            </div>
-        </div>-->
-
     </div><!--.frames-->
 
     {% include 'partials/bulletin.twig' %}
 
-   <!-- <div class="grid bulletin">
-    
-        <div class="primary">
-
-            <header>
-                <p class="eyebrow">Our Mission</p>
-                <h2 class="title quote">Using theater to enrich, educate, entertain, and engage for over 75 years</h2>
-            </header>
-
-            {#<div class="buttons centered">#}
-                <a href="#" class="inverse button ">About Us</a>
-            {#</div>#}
-
-        </div>
-
-        <div class="feed">
-            <header>
-                <p class="eyebrow has-squiggle"><span class="bg-cool-grey">Recent News</span></p>
-            </header>
-            <article>
-                <h6 class="title"><a href="#">Callbacks for The Whipping Man</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
-                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
-            </article>
-            <article>
-                <h6 class="title"><a href="#">Callbacks for The Whipping Man</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
-                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
-            </article>
-            <article>
-                <h6 class="title"><a href="#">Callbacks for The Whipping Man</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
-                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
-            </article>
-            <article>
-                <h6 class="title"><a href="#">Callbacks for The Whipping Man</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
-                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
-            </article>
-            <article>
-                <h6 class="title"><a href="#">Callbacks for The Whipping Man</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit non ipsum finibus feugiat. 
-                Aenean at sollicitudin tortor. Aliquam risus libero, condimentum at sapien.</p>
-            </article>
-
-            <a href="#" class="button">More News</a>
-        </div>
-
-        <div class="secondary">
-
-            <header>
-                <p class="eyebrow">A Little Can Go a Long Way</p>
-                <h2 class="title quote">Support the Raleigh Little Theatre Community</h2>
-            </header>
-
-            {#<div class="buttons centered">#}
-                <a href="#" class="inverse button">Donate</a>
-            {#</div>#}
-
-        </div>
-
-    </div><!--.bulletin-->
+   
         {% set sponsors = post.get_field('sponsors') %}
         {% if sponsors %}
         <div class="grid sponsors">
@@ -177,8 +64,6 @@
             </div>
         </div>
         {% endif %}
-
-        
 
     </div>
 
