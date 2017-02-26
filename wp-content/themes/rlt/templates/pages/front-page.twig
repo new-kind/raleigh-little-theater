@@ -17,7 +17,11 @@
 
                 <header>
                     <h3 class="title">{{ content.title }}</h3>
-                    <p class="meta dates">{{ content.start_date | date('M d') }} &ndash; {{ content.end_date | date('M d') }}</p>
+                    <p class="meta dates">{{ content.start_date | date('M d') }}
+                        {% if content.end_date != content.start_date %}
+                             &ndash; {{ content.end_date | date('M d') }}
+                        {% endif %}
+                    </p>
                 </header>
                 <span class="promo-hover">
                     {% set type = content.post_type %}
