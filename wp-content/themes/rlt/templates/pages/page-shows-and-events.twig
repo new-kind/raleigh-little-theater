@@ -49,13 +49,13 @@
 
     </div>
 
-    <h3 class="has-squiggle color-bloom-red centered"><span class="bg-cool-grey">Past Shows &amp; Events</span></h3>
+    <h3 class="has-squiggle color-bloom-red centered mar-t-lg mar-b-lg"><span class="bg-cool-grey">Past Shows &amp; Events</span></h3>
 
     <div class="list with-images">
 
         {% for item in posts %} 
 
-            {% if item.end_date | date("Y-m-d") > "now" | date("Y-m-d" ) %}
+            {% if item.end_date | date("Y-m-d") < "now" | date("Y-m-d" ) %}
         
         <div class="list-item">
 
