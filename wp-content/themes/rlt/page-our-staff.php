@@ -6,8 +6,6 @@
     $boardArgs = array(
         'post_type' => 'people',
         'posts_per_page' => -1,
-        'orderby' => 'title',
-        'order' => 'ASC',
         'tax_query' => array(
             array( 
                 'taxonomy' => 'roles',
@@ -17,8 +15,6 @@
     );
     $prodArgs = array(
         'post_type' => 'people',
-        'orderby' => 'title',
-        'order' => 'ASC',
         'posts_per_page' => -1,
         'tax_query' => array(
             array( 
@@ -29,8 +25,6 @@
     );
     $largeArgs = array(
         'post_type' => 'people',
-        'orderby' => 'title',
-        'order' => 'ASC',
         'posts_per_page' => -1,
         'tax_query' => array(
             array( 
@@ -41,8 +35,6 @@
     );
     $instructionArgs = array(
         'post_type' => 'people',
-        'orderby' => 'title',
-        'order' => 'ASC',
         'posts_per_page' => -1,
         'tax_query' => array(
             array( 
