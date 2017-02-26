@@ -15,6 +15,8 @@
     <div class="list with-images">
 
         {% for item in posts %} 
+
+            {% if item.end_date | date("Y-m-d") > "now" | date("Y-m-d" ) %}
         
         <div class="list-item">
 
@@ -28,7 +30,11 @@
                     <h5>{{ item.show_type }}</h5>
                 {% endif %}
                 <h3><a href="{{ item.link }}">{{ item.title }}</a></h3>
-                <p class="meta">{{ item.get_field('start_date') }} - {{ item.get_field('end_date') }}</p>
+                <p class="meta">{{ item.get_field('start_date') }}
+                    {% if item.end_date != item.start_date %}
+                         - {{ item.get_field('end_date') }}
+                    {% endif %}
+                </p>
                 <hr class="dash" />
                 {% if item.post_type == "events" %}
                     <p>{{ item.event_information }}</p>
@@ -37,6 +43,46 @@
                 {% endif %}
             </div>
         </div>
+            {% endif %}
+
+        {% endfor %}
+
+    </div>
+
+    <h3 class="has-squiggle color-bloom-red centered"><span class="bg-cool-grey">Past Shows &amp; Events</span></h3>
+
+    <div class="list with-images">
+
+        {% for item in posts %} 
+
+            {% if item.end_date | date("Y-m-d") > "now" | date("Y-m-d" ) %}
+        
+        <div class="list-item">
+
+            {% set promoImage = item.get_field('promo_image').sizes.large %}
+    
+            <a href="{{ item.link }}" class="image" style="background-image:url({{ promoImage }});"></a>
+            <div class="content">
+                {% if item.post_type == "events" %}
+                    <h5>Event - {{ item.event_type }}</h6>
+                {% else %}
+                    <h5>{{ item.show_type }}</h5>
+                {% endif %}
+                <h3><a href="{{ item.link }}">{{ item.title }}</a></h3>
+                <p class="meta">{{ item.get_field('start_date') }}
+                    {% if item.end_date != item.start_date %}
+                         - {{ item.get_field('end_date') }}
+                    {% endif %}
+                </p>
+                <hr class="dash" />
+                {% if item.post_type == "events" %}
+                    <p>{{ item.event_information }}</p>
+                {% else %}
+                    <p>{{ item.show_information }}</p>
+                {% endif %}
+            </div>
+        </div>
+            {% endif %}
 
         {% endfor %}
 
