@@ -5,11 +5,6 @@ namespace Timber;
 use Timber\Helper;
 use Timber\Post;
 
-// Exit if accessed directly
-if ( !defined('ABSPATH') ) {
-	exit;
-}
-
 /**
  * PostCollections are internal objects used to hold a collection of posts
  */
@@ -20,7 +15,7 @@ class PostCollection extends \ArrayObject {
 		parent::__construct($returned_posts, $flags = 0, 'Timber\PostsIterator');
 	}
 
-	protected static function init($posts, $post_class) {
+	protected static function init( $posts, $post_class ) {
 		$returned_posts = array();
 		if ( is_null($posts) ) {
 			$posts = array();
