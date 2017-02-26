@@ -19,6 +19,15 @@
                     <h3 class="title">{{ content.title }}</h3>
                     <p class="meta dates">{{ content.start_date | date('M d') }} &ndash; {{ content.end_date | date('M d') }}</p>
                 </header>
+                <span class="promo-hover">
+                    {% set type = content.post_type %}
+
+                        {% if type == 'shows' %}
+                            <p>{{ content.show_information }}</p>
+                        {% elseif type == 'events'  %}
+                            <p>{{ content.event_information }}</p>
+                        {% endif %}
+                </span>
                 <div class="promo-bg" style="background-image: url({{ content.get_field('promo_image').sizes.1200 }});"></div>
             </a>
 

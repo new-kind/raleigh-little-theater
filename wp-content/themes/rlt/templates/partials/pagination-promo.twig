@@ -1,0 +1,40 @@
+{# 
+Requires variables:
+    - postObj: expects postObj object
+    - direction: expects either "prev" or "next" depending on pagination direction
+#}
+<div class="grid promos">
+{% for post in [post.prev, post.next] %}
+
+    {% if post %}
+
+        {% if loop.first %}
+            {% set direction = 'previous' %}
+        {% else %}
+            {% set direction = 'next' %}
+        {% endif %}
+
+        <a class="six column promo {{ direction }}" href="{{ post.link }}">
+             <header>
+                 <p class="eyebrow">{{ direction | title }} in {{ post.post_type | title }}:</p>
+                 <h3 class="title">{{ post.title }}</h3>
+             </header>
+         
+            <span class="promo-hover">
+        
+                {% if post.post_type == 'shows' %}
+                    <p>{{ post.show_information|excerpt(60) }}</p>
+                {% elseif post.post_type == 'events'  %}
+                    <p>{{ post.event_information|excerpt(60) }}</p>
+                {% endif %}
+            </span>
+        
+             <div class="promo-bg" style="background-image: url({{ TimberImage(post.promo_image).src | resize(800) }});"></div>
+        </a>
+
+    {% else %}
+         <div class="six column promo spacer" data-note="this is a spacer" style="background: #111;"></div>
+    {% endif %}
+
+{% endfor %}
+</div>

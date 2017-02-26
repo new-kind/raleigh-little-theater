@@ -105,40 +105,8 @@
             {% endif %}
         </div>
         {% endif %}
-
-        {% if post.next or post.prev %}
-
-             <div class="grid promos">
-         
-            {% if post.prev %}
-                 <a class="six column promo" href="{{ post.prev.link }}">
-                     <header>
-                         <p class="eyebrow">Prev Show:</p>
-                         <h3 class="title">{{ post.prev.title }}</h3>
-                     </header>
-                     <div class="promo-bg" style="background-image: url({{ TimberImage(post.prev.promo_image).src | resize(800) }});"></div>
-                 </a>
-             {% else %}
-                 <div class="six column promo spacer" data-note="this is a spacer" style="background: #111;"></div>
-             {% endif %}
-         
-             {% if post.next %}
-                 <a class="six column promo" href="{{ post.next.link }}">
-                     <header style="position: absolute; right: 0; text-align: right;">
-                         <p class="eyebrow">Next Show:</p>
-                         <h3 class="title">{{ post.next.title }}</h3>
-                     </header>
-                     <div class="promo-bg"  style="background-image: url({{ TimberImage(post.next.promo_image).src | resize(800) }});"></div>
-                 </a>
              
-             {% else %}
-                 <div class="six column promo spacer" data-note="this is a spacer" style="background: #111;"></div>
-             {% endif %}
-         
-             </div>
-
-        {% endif %}
-
+        {% include 'partials/pagination-promo.twig' %}
         
     </main>
 {% endblock %}

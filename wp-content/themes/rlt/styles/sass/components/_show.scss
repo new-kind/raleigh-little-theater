@@ -50,7 +50,8 @@
 
 #show{ 
     .grid{ margin-bottom: 0; }
-    .spacer{ display: none; }    
+    .spacer{ display: none; }   
+    .promos{ flex-direction: row; } 
 }
 
 @media screen and (min-width: 600px){
@@ -58,6 +59,29 @@
     #show{
         .spacer{
             display: block;
+        }
+
+        .promo{
+
+            .promo-hover{
+                    padding: 10em 2em 2em 3em;
+            }
+            &.next{
+                > header{
+                    position: absolute; 
+                    right: 0; 
+                    text-align: right;
+                }
+                .promo-hover{
+                    text-align: right;
+                    padding: 10em 3em 2em 2em;
+
+                    p{
+                        max-width: 500px;
+                        display: inline-block;
+                    }
+                }
+            }
         }
     }
 }

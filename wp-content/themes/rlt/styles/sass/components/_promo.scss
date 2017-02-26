@@ -9,11 +9,20 @@
     padding: 0!important;
     width: 100%;
 
+    .promo-hover{
+        display: none;
+    }
+
+    .eyebrow{
+        margin-bottom: .5em;
+    }
+
     > header{
         padding: 1em;
         background: $bloom_red;
         background: $bloom_red;
         color: $white;
+        line-height: 2em;
 
         .meta{
             margin-top: .5em;
@@ -48,8 +57,30 @@
         transition: opacity .5s;
         position: relative;
 
+        .promo-hover{
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: $bloom_red;
+            opacity: 0;
+            transition: opacity .5s;
+            position: absolute;
+            display: block;
+            padding: 8em 2em 2em 3em;
+            box-sizing: border-box;
+            color: $white;
+
+            p{
+                max-width: 500px;
+            }
+            
+        }
+
         &:hover{
-            opacity: .92;
+            .promo-hover{
+                opacity: 1;
+            }
         }
 
         .promo-bg{
@@ -66,6 +97,8 @@
             margin-top: 1em;
             display: inline-block;
             max-width: 350px;
+            position: relative;
+            z-index: 1;
         }
     }
 
