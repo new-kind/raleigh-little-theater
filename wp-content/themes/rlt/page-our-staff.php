@@ -24,7 +24,7 @@
             array( 
                 'taxonomy' => 'roles',
                 'field' => 'slug', 
-                'terms' => 'production-staff')
+                'terms' => 'staff')
         )
     );
     $largeArgs = array(
@@ -48,7 +48,7 @@
             array( 
                 'taxonomy' => 'roles',
                 'field' => 'slug',
-                'terms' => 'instructional-staff')
+                'terms' => 'education-faculty')
         )
     );
     $context['board'] = Timber::get_posts($boardArgs);
