@@ -136,7 +136,7 @@ class StarterSite extends TimberSite {
 
 		register_taxonomy(
 			'locations',
-			array( 'classes' ),
+			array( 'class' ),
 			array(
 				'labels' => array(
 					'name'              => _x( 'Locations', 'taxonomy general name', 'textdomain' ),
@@ -157,7 +157,7 @@ class StarterSite extends TimberSite {
 
 		register_taxonomy(
 			'types',
-			array( 'classes' ),
+			array( 'class' ),
 			array(
 				'labels' => array(
 					'name'              => _x( 'Types', 'taxonomy general name', 'textdomain' ),
