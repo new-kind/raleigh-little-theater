@@ -77,9 +77,13 @@ dd{ margin-top: .25em; }
 
 dd + dt{ margin-top: 1em;}
 
-strong{
+strong, b{
   font-family: "Apercu Bold", "Lato Bold", Helvetica, sans-serif;
   font-weight: 800;
+}
+
+em, i{
+  font-style: italic;
 }
 
 pre{
