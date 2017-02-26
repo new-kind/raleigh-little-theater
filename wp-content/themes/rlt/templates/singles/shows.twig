@@ -13,7 +13,13 @@
                     <h5 class="color-rose-purple">{{ post.get_field('show_type') }}</h5>
                     <h2 class="color-bloom-red">{{ post.title }}</h2>
                     <p class="meta">{{ post.get_field('start_date') }} - {{ post.get_field('end_date') }}</p>
-                    <p class="meta">{{ post.get_field('venue') }} {% if post.get_field('reserved') %}(Reserved Seating){% endif %}</p>
+                    <p class="meta">{{ post.get_field('venue') }} 
+                        {% if post.get_field('reserved') %}
+                            (Reserved Seating)
+                        {% else %}
+                            (General Admission)
+                        {% endif %}
+                    </p>
                     <hr class="dash" />
                 </div>
                 {% if post.ticket_url %}
