@@ -23,9 +23,9 @@
                     {% set type = content.post_type %}
 
                         {% if type == 'shows' %}
-                            <p>{{ content.show_information | exerpt(40) }}</p>
+                            <p>{{ content.show_information | excerpt(60) }}</p>
                         {% elseif type == 'events'  %}
-                            <p>{{ content.event_information | exerpt(40) }}</p>
+                            <p>{{ content.event_information | excerpt(60) }}</p>
                         {% endif %}
                 </span>
                 <div class="promo-bg" style="background-image: url({{ content.get_field('promo_image').sizes.1200 }});"></div>
