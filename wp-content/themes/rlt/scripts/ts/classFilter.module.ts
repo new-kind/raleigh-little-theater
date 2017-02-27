@@ -44,10 +44,18 @@ export class ClassFilter {
         let props: Array<string>;
         if( href.split('?')[1] ){ props = href.split('?')[1].split('&'); }
         let propObject = {};
+
         if( props ){
             for( let i = 0; i < props.length; i++ ){
                 let keyValProp = props[i].split('=');
-                propObject[keyValProp[0]] = keyValProp[1];
+                let multiVal = keyValProp[1].split(',');
+
+                if( multiVal ){ 
+                    propObject[keyValProp[0]] = multiVal;
+                }else{
+                    propObject[keyValProp[0]] = keyValProp[1];
+                }
+
             }
         return propObject;
         }
@@ -56,7 +64,8 @@ export class ClassFilter {
     updateOptions( propsObj : Object ){
 
         $.each( propsObj , function(key,val){
-            $('[name="' + key + '"]').val([val]).trigger('chosen:updated');
+            
+            $('[name="' + key + '"]').val(val).trigger('chosen:updated');
         });
 
 

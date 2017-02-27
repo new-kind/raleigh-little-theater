@@ -81,14 +81,20 @@ define("classFilter.module", ["require", "exports", 'chosen'], function (require
             if (props) {
                 for (var i = 0; i < props.length; i++) {
                     var keyValProp = props[i].split('=');
-                    propObject[keyValProp[0]] = keyValProp[1];
+                    var multiVal = keyValProp[1].split(',');
+                    if (multiVal) {
+                        propObject[keyValProp[0]] = multiVal;
+                    }
+                    else {
+                        propObject[keyValProp[0]] = keyValProp[1];
+                    }
                 }
                 return propObject;
             }
         };
         ClassFilter.prototype.updateOptions = function (propsObj) {
             $.each(propsObj, function (key, val) {
-                $('[name="' + key + '"]').val([val]).trigger('chosen:updated');
+                $('[name="' + key + '"]').val(val).trigger('chosen:updated');
             });
             this.checkConditionals('.filter select[name="age-group"]');
             this.filterList(this.buildFilterObject());
