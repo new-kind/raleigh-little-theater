@@ -54,6 +54,32 @@
     .promos{ flex-direction: row; } 
 }
 
+
+
+ul li.icon{
+    position: relative;
+    clear: both;
+    list-style: none;
+    margin: 2em 0 2em -1em;
+    padding: 0 1em;
+
+    &:before{
+        content: '';
+        width: 40px;
+        height: 40px;
+        background-size: contain;
+        background-position: top right;
+        background-repeat: no-repeat;
+        display: block;
+        margin: 1em 0;
+    }
+
+    &.wheelchair:before{ background-image: url('../../assets/accessibility/wheelchair-icon.png'); }
+    &.asl:before{ background-image: url('../../assets/accessibility/asl-icon.png'); }
+    &.audio:before{ background-image: url('../../assets/accessibility/audio-description-icon.png'); }
+    &.assistive:before{ background-image: url('../../assets/accessibility/hearing-icon.png'); }
+}
+
 @media screen and (min-width: 600px){
 
     #show{
@@ -82,6 +108,13 @@
                     }
                 }
             }
+        }
+
+        ul li.icon:before{
+            position: absolute;
+            left: -2.5em;
+            top: 0;
+            margin: 0;
         }
     }
 }
