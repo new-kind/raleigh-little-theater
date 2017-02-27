@@ -76,7 +76,7 @@ ul li.icon{
 
     &.wheelchair:before{ background-image: url('../../assets/accessibility/wheelchair-icon.png'); }
     &.asl:before{ background-image: url('../../assets/accessibility/asl-icon.png'); }
-    &.audio:before{ background-image: url('../../assets/accessibility/audio-description-icon.png'); }
+    &.audio:before{ background-image: url('../../assets/accessibility/audio-description-icon.png');  }
     &.assistive:before{ background-image: url('../../assets/accessibility/hearing-icon.png'); }
 }
 
@@ -110,11 +110,16 @@ ul li.icon{
             }
         }
 
-        ul li.icon:before{
-            position: absolute;
-            left: -2.5em;
-            top: 0;
-            margin: 0;
+        ul li.icon{
+            &:before{
+                position: absolute;
+                left: -2.5em;
+                top: 0;
+                margin: 0;
+            }
+
+            &.audio:before{ top: -.5em; }
+            
         }
     }
 }
