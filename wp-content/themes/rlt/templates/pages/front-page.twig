@@ -54,14 +54,14 @@
         {% if loop.index == 2 %}{% set class = "purple" %}{% endif %}
         {% if loop.index == 3 %}{% set class = "green" %}{% endif %}
 
-        <div class="four column frame {{ class }}" style="background-image:url({{ link.image.sizes.800 }});">
+        <a href="{{ link.link }}" class="four column frame {{ class }}" style="background-image:url({{ link.image.sizes.800 }});">
             <header>
                 <h3 class="title">{{ link.text }}</h3>
             </header>
-            <div class="buttons centered">
-                <a href="{{ link.link }}" class="inverse button">{{ link.button_text }}</a>
-            </div>
-        </div>
+            <span class="buttons centered">
+                <span href="{{ link.link }}" class="inverse button">{{ link.button_text }}</span>
+            </span>
+        </a>
 
         {% endfor %}
 
