@@ -30,7 +30,22 @@
                 {% endif %}
             {% endfor %}
 
+            {% for location in post.terms('locations') %}
+                {% if loop.first %}
+                <p><strong>Location:</strong> 
+                {% endif %}
+                {{ location }}
+            {% endfor %} 
             
+             {% for type in post.terms('types') %}
+                 {% if loop.first %}
+                 <p><strong>Class Type:</strong>
+                 {% endif %}
+                 {{ type }}
+                 {% if loop.last %}
+                  </p>
+                  {% endif %}
+             {% endfor %}
 
             {% if post.get_field('class_focus') %}
                 <p><strong>Class Focus:</strong> {{ post.get_field('class_focus') }}</p>
