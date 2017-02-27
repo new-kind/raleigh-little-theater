@@ -22,11 +22,11 @@ Requires variables:
          
             <span class="promo-hover">
         
-                {% if post.post_type == 'shows' %}
+                {#% if post.post_type == 'shows' %}
                     <p>{{ post.show_information|excerpt(60) }}</p>
                 {% elseif post.post_type == 'events'  %}
                     <p>{{ post.event_information|excerpt(60) }}</p>
-                {% endif %}
+                {% endif %#}
             </span>
         
              <div class="promo-bg" style="background-image: url({{ TimberImage(post.promo_image).src | resize(800) }});"></div>
