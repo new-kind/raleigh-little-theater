@@ -67,7 +67,7 @@
 
         > .primary, > .secondary{
             padding-right: 60%;
-            height: 50%;
+            flex-grow: 1;
         }
 
         > .feed{
