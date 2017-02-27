@@ -32,7 +32,8 @@
                             <p>{{ content.event_information | excerpt(40) }}</p>
                         {% endif %}
                 </span>
-                <div class="promo-bg" style="background-image: url({{ content.get_field('promo_image').sizes.1200 }});"></div>
+                {{ function( 'imageSizer', 'promo-'~loop.index, content.get_field('promo_image')) }}
+                <div class="promo-bg" id="promo-{{ loop.index }}"></div>
             </a>
 
             {% if loop.first %} <div class="secondary-container"> {% endif %}

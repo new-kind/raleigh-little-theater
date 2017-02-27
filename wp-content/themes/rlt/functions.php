@@ -212,7 +212,6 @@ class StarterSite extends TimberSite {
 		$context['site'] = $this;
 		return $context;
 	}
-
 	function myfoo( $text ) {
 		$text .= ' bar!';
 		return $text;
@@ -228,3 +227,34 @@ class StarterSite extends TimberSite {
 }
 
 new StarterSite();
+
+
+
+	function imageSizer( $id, $image ){
+		$small = $image['sizes']['400'];
+		$medium = $image['sizes']['800'];
+		$large = $image['sizes']['1200'];
+		$xlarge = $image['sizes']['1600'];
+
+		echo '<style>' .
+			'#' . $id . '{ ' .
+				'background-image:url(' . $small . ');' .
+			'}' .
+			'@media screen and (min-width: 400px){' .
+				'#' . $id . '{ ' .
+					'background-image:url(' . $medium . ');' . 
+				'}'. 
+			'}' . 
+			'@media screen and (min-width: 800px){' . 
+				'#' . $id . '{ ' .
+					'background-image:url(' . $large . ');' . 
+				'}'. 
+			'}' . 
+			'@media screen and (min-width: 1200px){' . 
+				'#' . $id . '{ ' .
+					'background-image:url(' . $xlarge . ');' . 
+				'}'. 
+			'}' . 
+		'</style>';
+	}
+

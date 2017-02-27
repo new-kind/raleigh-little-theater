@@ -3,7 +3,9 @@
 {% block content %}
 	<main id="show">
         <div class="show-header">
-            <div class="bg-image" style="background-image:url( {{ post.get_field('promo_image').sizes.1200 }} );"></div>
+
+            {{ function( 'imageSizer', 'promo-top', post.get_field('promo_image')) }}
+            <div class="bg-image" id="promo-top"></div>
             <!--<div class="show-navigation">
                 <a href="#" class="prev button inverse">Previous</a>
                 <a href="#" class="next button inverse">Next</a>
@@ -57,7 +59,8 @@
 
         {% if gallery %}
 
-        <a class="photo-gallery" href="#" style="background-image: url({{ gallery[0].sizes.1200 }});">
+        {{ function( 'imageSizer', 'gallery-image', gallery[0] ) }}
+        <a class="photo-gallery" href="#" id="gallery-image">
             <header class="bg-bloom-red">
                 <h3 class="color-white">
                 Photo Gallery

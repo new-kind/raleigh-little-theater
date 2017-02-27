@@ -20,16 +20,10 @@ Requires variables:
                  <h3 class="title">{{ post.title }}</h3>
              </header>
          
-            <span class="promo-hover">
-        
-                {#% if post.post_type == 'shows' %}
-                    <p>{{ post.show_information|excerpt(60) }}</p>
-                {% elseif post.post_type == 'events'  %}
-                    <p>{{ post.event_information|excerpt(60) }}</p>
-                {% endif %#}
-            </span>
-        
-             <div class="promo-bg" style="background-image: url({{ TimberImage(post.promo_image).src | resize(800) }});"></div>
+            <span class="promo-hover"></span>
+            
+            {{ function( 'imageSizer', 'promo-'~loop.index, post.get_field('promo_image')) }}
+             <div class="promo-bg" id="promo-{{loop.index}}"></div>
         </a>
 
     {% else %}
