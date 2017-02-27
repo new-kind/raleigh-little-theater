@@ -121,6 +121,10 @@
         &:nth-child(n+4){
             margin-top: 2em;
         }
+        
+        &:before{
+            padding-bottom: 0;
+        }
     }
 }
 
