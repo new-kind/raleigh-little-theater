@@ -271,8 +271,6 @@ define("main", ["require", "exports", 'jquery', "bulletin.module", "classFilter.
                 $(this).removeClass('is-visible');
             });
         });
-        function openFotorama() {
-        }
     });
 });
 

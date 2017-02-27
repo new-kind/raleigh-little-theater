@@ -30,8 +30,4 @@ $(document).ready(function(){
         });
     });
 
-    function openFotorama(){
-
-    }
-
 });

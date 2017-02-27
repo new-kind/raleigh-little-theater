@@ -10,7 +10,7 @@
                     
             <div class="content">
 
-                    <h5 class="color-rose-purple">{% for cat in post.categories %}{{ cat }}{% if loop.last == false %}, {% endif %}{% endfor %}</h5>
+                    <h5>{% for cat in post.categories %}<a href="{{ cat.link }}" class="color-rose-purple">{{ cat }}</a>{% if loop.last == false %}, {% endif %}{% endfor %}</h5>
                     <h2 class="color-bloom-red">{{ post.title }}</h2>
                     <p class="meta">{{ post.date }}</p>
                     <hr class="dash" />
