@@ -192,8 +192,17 @@ define("classFilter.module", ["require", "exports", 'chosen'], function (require
                 return false;
             }
             function checkAges(object, ages) {
-                if (object.attr('data-ages').includes(ages)) {
+                var dataArray = object.attr('data-ages').split(',');
+                console.log(dataArray);
+                console.log(ages);
+                console.log(dataArray.includes(ages));
+                if (ages == 'all') {
                     return true;
+                }
+                for (var i = 0; i < dataArray.length; i++) {
+                    if (dataArray[i] == ages) {
+                        return true;
+                    }
                 }
                 return false;
             }

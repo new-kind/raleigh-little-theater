@@ -186,9 +186,21 @@ export class ClassFilter {
         }
 
         function checkAges( object: JQuery, ages: string ){
-            if( object.attr('data-ages').includes( ages ) ){
-                return true;
-            }
+            let dataArray = object.attr('data-ages').split(',');
+
+                console.log( dataArray );
+                console.log( ages );
+                console.log( dataArray.includes( ages )  );
+
+                if( ages == 'all' ){ return true; }
+
+                for( let i = 0; i<dataArray.length; i++){
+                    if( dataArray[i] == ages ){ return true; }
+                }
+
+
+
+
             return false;
         }
     }
