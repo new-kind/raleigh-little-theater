@@ -3,7 +3,7 @@
 */
 
 .page-header{
-    padding: 4em;
+    padding: 2em;
     @extend .color-cool-grey;
     
     h1, h2, h3, h4{
@@ -18,7 +18,7 @@
 }
 
 .page-content{
-    padding: 4em;
+    padding: 1em;
     margin: 0 auto;
 }
 
@@ -45,7 +45,9 @@
 }
 
 @media screen and (min-width: 800px){
-    
+    .page-header{
+        padding: 4em;
+    }
     .sponsors{
         a{ width: 20%; }
     }

@@ -28,18 +28,21 @@ h1{
   font-size: em(60);
   font-family: "Roboto Condensed";
   font-weight: bold;
+  line-height: 1.2em;
 }
 
 h2{
   font-size: em(36);
   font-family: "Roboto Condensed";
   font-weight: bold;
+  line-height: 1.2em;
 }
 
 h3{
   font-size: em(26);
   font-family: "Roboto Condensed";
   font-weight: bold;
+  line-height: 1.2em;
 }
 
 h4{
@@ -47,6 +50,7 @@ h4{
   font-family: "Roboto Condensed";
   text-transform: uppercase;
   font-weight: bold;
+  line-height: 1.4em;
 }
 
 h5, dt{
@@ -55,12 +59,41 @@ h5, dt{
   text-transform: uppercase;
   font-weight: 100;
   letter-spacing: .5px;
+  line-height: 1.4em;
 }
 
 h6, dd{
   font-size: em(18);
   font-family: "Apercu Regular", "Lato Regular", Helvetica, sans-serif;
   margin-bottom: .5em;
+  line-height: 1.4em;
+}
+
+@media screen and (max-width: 600px){
+  h1{
+  font-size: em(40);
+}
+
+h2{
+  font-size: em(28);
+}
+
+h3{
+  font-size: em(22);
+}
+
+h4{
+  font-size: em(20);
+}
+
+h5, dt{
+  font-size: em(14);
+}
+
+h6, dd{
+  font-size: em(18);
+}
+
 }
 
 h1, h2, h3, h4, h5, h6{

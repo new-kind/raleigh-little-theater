@@ -36,6 +36,62 @@
 
 .pad-xs{ padding: .5em!important; }
 .pad-sm{ padding: 1em!important; }
+.pad-md{ padding: 1em!important; }
+.pad-lg{ padding: 2em!important; }
+.pad-xl{ padding: 2em!important; }
+
+.pad-l-xs{ padding-left: .5em!important; }
+.pad-l-sm{ padding-left: 1em!important; }
+.pad-l-md{ padding-left: 1em!important; }
+.pad-l-lg{ padding-left: 2em!important; }
+.pad-l-xl{ padding-left: 2em!important; }
+
+.pad-r-xs{ padding-right: .5em!important; }
+.pad-r-sm{ padding-right: 1em!important; }
+.pad-r-md{ padding-right: 1em!important; }
+.pad-r-lg{ padding-right: 2em!important; }
+.pad-r-xl{ padding-right: 2em!important; }
+
+.pad-t-xs{ padding-top: .5em!important; }
+.pad-t-sm{ padding-top: 1em!important; }
+.pad-t-md{ padding-top: 1em!important; }
+.pad-t-lg{ padding-top: 2em!important; }
+.pad-t-xl{ padding-top: 2em!important; }
+
+.pad-b-xs{ padding-bottom: .5em!important; }
+.pad-b-sm{ padding-bottom: 1em!important; }
+.pad-b-md{ padding-bottom: 1em!important; }
+.pad-b-lg{ padding-bottom: 2em!important; }
+.pad-b-xl{ padding-bottom: 2em!important; }
+
+.mar-l-xs{ margin-left: .5em!important; }
+.mar-l-sm{ margin-left: 1em!important; }
+.mar-l-md{ margin-left: 1em!important; }
+.mar-l-lg{ margin-left: 2em!important; }
+.mar-l-xl{ margin-left: 2em!important; }
+
+.mar-r-xs{ margin-right: .5em!important; }
+.mar-r-sm{ margin-right: 1em!important; }
+.mar-r-md{ margin-right: 1em!important; }
+.mar-r-lg{ margin-right: 2em!important; }
+.mar-r-xl{ margin-right: 2em!important; }
+
+.mar-t-xs{ margin-top: .5em!important; }
+.mar-t-sm{ margin-top: 1em!important; }
+.mar-t-md{ margin-top: 1em!important; }
+.mar-t-lg{ margin-top: 2em!important; }
+.mar-t-xl{ margin-top: 2em!important; }
+
+.mar-b-xs{ margin-bottom: .5em!important; }
+.mar-b-sm{ margin-bottom: 1em!important; }
+.mar-b-md{ margin-bottom: 1em!important; }
+.mar-b-lg{ margin-bottom: 2em!important; }
+.mar-b-xl{ margin-bottom: 2em!important; }
+
+@media screen and (min-width: 800px){
+
+  .pad-xs{ padding: .5em!important; }
+.pad-sm{ padding: 1em!important; }
 .pad-md{ padding: 1.5em!important; }
 .pad-lg{ padding: 2em!important; }
 .pad-xl{ padding: 4em!important; }
@@ -87,6 +143,9 @@
 .mar-b-md{ margin-bottom: 1.5em!important; }
 .mar-b-lg{ margin-bottom: 2em!important; }
 .mar-b-xl{ margin-bottom: 4em!important; }
+
+}
+
 
 .border-t{ border-top: 1px solid $rose_purple; }
 .border-b{ border-bottom: 1px solid $rose_purple; }

@@ -71,7 +71,7 @@
             }
 
             .content{
-                padding: 4em;
+                padding: 2em;
                 position: relative;
                 overflow-x: hidden;
 
@@ -102,12 +102,8 @@
 
     }
 
-    &.simple{
-        padding: 4em;
-    }
-
     &.grid{
-            padding: 4em;
+            padding: 1em;
 
             .list-item{
                 display: inline-block;
@@ -182,6 +178,7 @@
                 .content{
                     flex: 0 0 50%;
                     box-sizing: border-box;
+                    padding: 4em;
                 }
             }
         }
@@ -207,6 +204,7 @@
     .list{
 
             &.grid{
+                padding: 4em;
 
                 .list-item{
                     width: 23%;
@@ -229,6 +227,8 @@
             }
 
             &.simple{
+                padding: 4em; 
+                
                 .list-item{
                     width: 50%;
                     float: left;

@@ -25,7 +25,7 @@
     }
 
     .content{
-        padding: 4em 4em 0;
+        padding: 1em 2em 0;
         position: relative;
 
         
@@ -41,7 +41,7 @@
 }
 
 .show-content{
-    padding: 0 4em 4em;
+    padding: 0 2em 1em;
 
         h4 + p{
             margin-top: 1.5em;
@@ -133,6 +133,14 @@ ul li.icon{
             top: 3.25em;
             left: 1rem;
         }
+
+        .content{
+            padding: 4em 4em 0;
+        }
+    }
+
+    .show-content{
+        padding: 0 4em 4em;
     }
 
     .cast-list{
