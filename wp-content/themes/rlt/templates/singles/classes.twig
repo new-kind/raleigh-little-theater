@@ -51,10 +51,11 @@
                 <div class="five column">
                     <h4 class="mar-b-md">
                     {% for day in track.days %}
-                        {{ day | capitalize }}s
-                    {% endfor %}, 
+                        {{ day | capitalize }},  
+                    {% endfor %}
+                    {% if track.start_time %}, 
                 {{ track.start_time }} - 
-                {{ track.end_time }}</h4>
+                {{ track.end_time }}{% endif %}</h4>
                 {% for session in track.sessions %}
 
                     {% if (session.start_date | date('Y-m-d')) < ("now" | date('Y-m-d')) %}
