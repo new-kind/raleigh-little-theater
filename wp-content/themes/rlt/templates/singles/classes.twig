@@ -51,7 +51,7 @@
                 <div class="five column">
                     <h4 class="mar-b-md">
                     {% for day in track.days %}
-                        {{ day | capitalize }},  
+                        {{ day | capitalize }}{% if loop.last == false %},{% endif %}  
                     {% endfor %}
                     {% if track.start_time %}, 
                 {{ track.start_time }} - 
