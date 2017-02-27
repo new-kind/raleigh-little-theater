@@ -1,0 +1,17 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<div id="{{ post.title }}">
+	<div class="page-header bg-breeze-blue">
+		<h1>Page Not Found</h1>
+	</div>
+	<article class="dynamic-content page-content">
+        <div class="pad-t-xl pad-b-xl">
+		    <h3>This page has moved or no longer exists.</h3>
+            <p>Try using search to find what you're looking for, or go back to the <a href="{{ site.url }}">homepage</a>.</h3>
+        </div>
+	</article>
+</div>
+
+{% endblock %}
