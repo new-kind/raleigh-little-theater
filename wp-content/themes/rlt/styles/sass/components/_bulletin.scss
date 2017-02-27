@@ -13,6 +13,7 @@
         padding: 2em 3em;
         color: $white;
         box-sizing: border-box;
+        width: 100%;
     }
 
     > .primary{
@@ -24,6 +25,7 @@
     }
 
     > .feed{
+        width: 100%;
         padding: 2em 3em;
         background: $cool_grey;
 

@@ -81,3 +81,24 @@
     }
 
 }
+
+@media screen and (max-width: 600px){
+    .site-footer{
+
+        .column{
+            padding-top: 0!important;
+            padding-bottom: 0!important;
+        
+            .col-container{
+                margin: 0 0 2em;
+
+                li{
+                    display: block;
+                    a{
+                     display: inline;
+                    }
+                }
+            }
+        }
+    }
+}
