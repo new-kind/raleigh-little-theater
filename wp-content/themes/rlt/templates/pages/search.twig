@@ -18,7 +18,11 @@
 		<h2><a href="{{post.link}}">{{post.title}}</a></h2>
         <h5>{{ post.post_type }}</h5>
 		<p class="meta">{{ post.date }}</p>
-		<p class="excerpt">{{ post.get_preview }}</p>
+		{% if post.post_type == 'events' %}
+			<p class="excerpt">{{ post.event_information | excerpt(60) }}</p>
+		{% else %}
+			<p class="excerpt">{{ post.get_preview | excerpt(60) }}</p>
+		{% endif %}
 		</div>
 	{% endfor %}
 	</div>
