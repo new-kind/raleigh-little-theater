@@ -20,10 +20,7 @@ export class ClassFilter {
             ctrl.filterList( selected );
         });
 
-
-        
         $('select').chosen({disable_search_threshold: 10});
-
               
     }
 
@@ -81,8 +78,6 @@ export class ClassFilter {
             selected[parent].push($(this).val());
         });
 
-        console.log( selected );
-
         return selected;
     }
 
@@ -96,6 +91,7 @@ export class ClassFilter {
             let ageGroup = true;
             let types = true;
             let ages = true;
+            let typeFlag: Boolean = false;
 
 
             $.each( selected, function(key,val){
@@ -117,21 +113,34 @@ export class ClassFilter {
                 }
             
                 if( key == 'types' ){
-                    if( val != 'all' ){
-                        types = checkTypes( listing, val );
-                    }else{
-                        types = true;
+                    let type: boolean;
+                    types = false;
+
+                    for( let i = 0; i < val.length; i++ ){
+
+                        if( val[i] != '' ){
+                            type = checkTypes( listing, val[i] );
+                        }else{
+                            typeFlag = true;
+                        }
+
+                        if( type == true ){
+                            typeFlag = true;
+                        }
+
                     }
                 }
             
-                if( ( key == 'kids' ) ||( key == 'teens' ) ){
-                    if( val != '' ){
+                if( ( key == 'kids' ) || ( key == 'teens' ) ){
+                    if( val != 'all' ){
                         ages = checkAges( listing, val );
                     }else{
                         ages = true;
                     }
                 }
             });
+
+            if( typeFlag == true ){ types = true; }
 
             if( ( ageGroup && locations && ages && types ) != true ){
                 $(this).hide();
@@ -154,7 +163,7 @@ export class ClassFilter {
         }
 
         function checkTypes( object: JQuery, types: string ){
-            if( types == object.attr('data-types') ) {
+            if( object.attr('data-types').includes( types ) ) {
                 return true;
             }
             return false;
@@ -180,7 +189,7 @@ export class ClassFilter {
         let that = this;
         $('.conditional').each( function(){ 
             if( $(this).attr('name') == value ){
-                $(this).addClass('is-visible').next('.chosen-container').css('width', '14em');
+                $(this).addClass('is-visible').next('.chosen-container').css('width', '8em');
                 $(this).prev('label').addClass('is-visible');
             }else{
                 $(this).removeClass('is-visible');

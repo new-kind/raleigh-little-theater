@@ -17,7 +17,7 @@
             </select>
 
             <label for="age-group">Age Range</label>
-            <select name="age-group" data-ctrl="ages">
+            <select name="age-group" data-ctrl="ages" style="width: 10em;">
                 <option value="all">All</option>
                 {% for group in age_groups.choices %}
                     <option value="{{ group|lower }}">{{ group }}</option>
@@ -25,22 +25,23 @@
             </select>
 
             <label for="kids" data-listen="ages" data-show="kids">Kids Ages</label>
-            <select name="kids" class="conditional" data-listen="ages" data-show="kids" multiple>
+            <select name="kids" class="conditional" data-listen="ages" data-show="kids" style="width: 8em;">
+                <option value="all">All</option>
                 {% for age in kids_ages.choices %}
                     <option value="{{ age }}">{{ age }}</option>
                 {% endfor %}
             </select>
 
             <label for="teens" data-listen="ages" data-show="teens">Teens Ages</label>
-            <select name="teens" class="conditional" data-listen="ages" data-show="teens" multiple>
+            <select name="teens" class="conditional" data-listen="ages" data-show="teens" style="width: 8em;">
+                <option value="all">All</option>
                 {% for age in teens_ages.choices %}
                     <option value="{{ age }}">{{ age }}</option>
                 {% endfor %}
             </select>
 
             <label for="types">Class Type</label>
-            <select name="types">
-                <option value="all">All</option>
+            <select name="types" multiple style="width:20em;">
                 {% for type in types %}
                     <option value="{{ type.slug }}">{{ type.name }}</option>
                 {% endfor %}

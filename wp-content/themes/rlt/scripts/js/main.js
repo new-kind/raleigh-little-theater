@@ -102,7 +102,6 @@ define("classFilter.module", ["require", "exports", 'chosen'], function (require
                 }
                 selected[parent].push($(this).val());
             });
-            console.log(selected);
             return selected;
         };
         ClassFilter.prototype.filterList = function (selected) {
@@ -112,6 +111,7 @@ define("classFilter.module", ["require", "exports", 'chosen'], function (require
                 var ageGroup = true;
                 var types = true;
                 var ages = true;
+                var typeFlag = false;
                 $.each(selected, function (key, val) {
                     if (key == 'locations') {
                         if (val != 'all') {
@@ -130,15 +130,22 @@ define("classFilter.module", ["require", "exports", 'chosen'], function (require
                         }
                     }
                     if (key == 'types') {
-                        if (val != 'all') {
-                            types = checkTypes(listing, val);
-                        }
-                        else {
-                            types = true;
+                        var type = void 0;
+                        types = false;
+                        for (var i = 0; i < val.length; i++) {
+                            if (val[i] != '') {
+                                type = checkTypes(listing, val[i]);
+                            }
+                            else {
+                                typeFlag = true;
+                            }
+                            if (type == true) {
+                                typeFlag = true;
+                            }
                         }
                     }
                     if ((key == 'kids') || (key == 'teens')) {
-                        if (val != '') {
+                        if (val != 'all') {
                             ages = checkAges(listing, val);
                         }
                         else {
@@ -146,6 +153,9 @@ define("classFilter.module", ["require", "exports", 'chosen'], function (require
                         }
                     }
                 });
+                if (typeFlag == true) {
+                    types = true;
+                }
                 if ((ageGroup && locations && ages && types) != true) {
                     $(this).hide();
                 }
@@ -164,7 +174,7 @@ define("classFilter.module", ["require", "exports", 'chosen'], function (require
                 return false;
             }
             function checkTypes(object, types) {
-                if (types == object.attr('data-types')) {
+                if (object.attr('data-types').includes(types)) {
                     return true;
                 }
                 return false;
@@ -187,7 +197,7 @@ define("classFilter.module", ["require", "exports", 'chosen'], function (require
             var that = this;
             $('.conditional').each(function () {
                 if ($(this).attr('name') == value) {
-                    $(this).addClass('is-visible').next('.chosen-container').css('width', '14em');
+                    $(this).addClass('is-visible').next('.chosen-container').css('width', '8em');
                     $(this).prev('label').addClass('is-visible');
                 }
                 else {
