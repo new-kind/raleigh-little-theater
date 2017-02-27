@@ -211,6 +211,7 @@ define("header.module", ["require", "exports", 'jquery'], function (require, exp
         Header.prototype.toggleClass = function (elemClicked, elemToggled, className) {
             $(elemClicked).on('click', function () {
                 $(elemToggled).toggleClass(className);
+                $(this).toggleClass(className);
             });
         };
         Header.prototype.toggleSearch = function (elemClicked) {

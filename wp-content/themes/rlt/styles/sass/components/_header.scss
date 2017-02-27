@@ -51,8 +51,12 @@
         right: 1em;
         width: 30px;
         height: 30px;
-        background: $bloom_red;
+        background: url(../../assets/hamburger.svg) no-repeat center;
         text-indent: -9999em;
+
+        &.do-show{
+            background-image: url(../../assets/close.svg);
+        }
     }
 
     .utility-nav a{
