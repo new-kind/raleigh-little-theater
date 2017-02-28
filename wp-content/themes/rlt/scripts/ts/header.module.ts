@@ -9,7 +9,8 @@ export class Header{
     }
 
     toggleClass(elemClicked: string, elemToggled: string, className: string){
-        $(elemClicked).on('click', function(){
+        $(elemClicked).on('click', function(ev){
+            ev.preventDefault();
             $(elemToggled).toggleClass(className);
             $(this).toggleClass(className);
         });

@@ -234,7 +234,8 @@ define("header.module", ["require", "exports", 'jquery'], function (require, exp
             this.toggleSearch('.search-link');
         }
         Header.prototype.toggleClass = function (elemClicked, elemToggled, className) {
-            $(elemClicked).on('click', function () {
+            $(elemClicked).on('click', function (ev) {
+                ev.preventDefault();
                 $(elemToggled).toggleClass(className);
                 $(this).toggleClass(className);
             });
