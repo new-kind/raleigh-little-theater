@@ -2,14 +2,15 @@
 
 {% block content %}
 
-<div id="{{ post.title }}">
+<main id="{{ post.title }}">
+
+
 	<div class="page-header bg-breeze-blue">
 		<h1>{{ post.title }}</h1>
 	</div>
 	<article class="dynamic-content page-content">
 		{{ post.content }}
 	</article>
-</div>
     
 	{% set ctaColors = {
         'primary': 'rose-purple', 
@@ -18,5 +19,7 @@
     %}
 
     {% include 'partials/bulletin.twig' with ctaColors %}
+
+</main>
 
 {% endblock %}
