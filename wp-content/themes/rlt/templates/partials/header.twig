@@ -1,3 +1,15 @@
+{% if options.activate_alert_bar %}
+	{% if options.alert_bar_link %}
+	<a href="{{ options.alert_bar_link }}" class="alert-banner-link">
+	{% endif %}
+		<div class="alert-banner">
+			<h5>{{ options.alert_bar_text }} {% if options.alert_bar_link %}&rarr;{% endif %}</h5>
+		</div>
+	{% if options.alert_bar_link %}
+	</a>
+	{% endif %}
+{% endif %}
+
 <header class="site-header">
 		{#{% block header %}#}
 			<div>

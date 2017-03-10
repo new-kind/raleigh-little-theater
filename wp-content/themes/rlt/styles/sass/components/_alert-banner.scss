@@ -1,0 +1,14 @@
+.alert-banner{
+    background: $summer_yellow;
+    padding: .5em 2em;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.alert-banner-link{
+    color: $off_black;
+
+    &:hover{
+        color: $rose_purple;
+    }
+}
