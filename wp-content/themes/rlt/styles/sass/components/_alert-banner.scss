@@ -3,6 +3,8 @@
     padding: .5em 2em;
     text-align: center;
     box-sizing: border-box;
+    margin-top: 4em;
+    margin-bottom: -60px;
 }
 
 .alert-banner-link{
@@ -10,5 +12,12 @@
 
     &:hover{
         color: $rose_purple;
+    }
+}
+
+@media screen and (min-width: 800px){
+    .alert-banner{
+        margin-top: 0;
+        margin-bottom: 0;
     }
 }
