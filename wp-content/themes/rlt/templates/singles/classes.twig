@@ -80,7 +80,7 @@
                     {% endif %}
                     <div class="session mar-b-md">
                         <h5>{{ session.title }}</h5>
-                        {% if over == true %}<h5 class="color-bloom-red">Registration Closed</h5>{% endif %}
+                        {% if ( over == true ) or ( session.full == true ) %}<h5 class="color-bloom-red">Registration Closed</h5>{% endif %}
                         <p class="meta color-black">{{ session.start_date | date( "F j") }} - {{ session.end_date | date("F j") }}</p>
                         <p class="meta color-black">{{ session.description }}</p>
                         <p class="meta color-black">Instructor:
