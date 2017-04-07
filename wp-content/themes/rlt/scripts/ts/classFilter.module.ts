@@ -1,4 +1,5 @@
 import 'chosen';
+import * as $ from 'jquery';
 
 export class ClassFilter {
 
@@ -46,6 +47,7 @@ export class ClassFilter {
         let propObject = {};
 
         if( props ){
+
             for( let i = 0; i < props.length; i++ ){
                 let keyValProp = props[i].split('=');
                 let multiVal = keyValProp[1].split(',');
@@ -57,7 +59,10 @@ export class ClassFilter {
                 }
 
             }
-        return propObject;
+
+            return propObject;
+        }else{
+            return false;
         }
     }
 
@@ -197,9 +202,6 @@ export class ClassFilter {
                 for( let i = 0; i<dataArray.length; i++){
                     if( dataArray[i] == ages ){ return true; }
                 }
-
-
-
 
             return false;
         }

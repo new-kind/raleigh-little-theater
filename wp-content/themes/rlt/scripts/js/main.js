@@ -40,7 +40,7 @@ define("bulletin.module", ["require", "exports", 'jquery'], function (require, e
     }());
     exports.Bulletin = Bulletin;
 });
-define("classFilter.module", ["require", "exports", 'chosen'], function (require, exports) {
+define("classFilter.module", ["require", "exports", 'jquery', 'chosen'], function (require, exports, $) {
     "use strict";
     var ClassFilter = (function () {
         function ClassFilter() {
@@ -90,6 +90,9 @@ define("classFilter.module", ["require", "exports", 'chosen'], function (require
                     }
                 }
                 return propObject;
+            }
+            else {
+                return false;
             }
         };
         ClassFilter.prototype.updateOptions = function (propsObj) {
