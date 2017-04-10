@@ -10,9 +10,9 @@
         {% set content = promo.content %}
 
             {% if loop.first %}
-                <a class="promo primary" href="{{ content.permalink }}">
+                <a class="promo primary" href="{{ content.link }}">
             {% else %}
-                <a class="promo secondary" href="{{ content.permalink }}">
+                <a class="promo secondary" href="{{ content.link }}">
             {% endif %}
 
                 <header>

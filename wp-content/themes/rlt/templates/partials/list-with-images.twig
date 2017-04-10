@@ -29,9 +29,9 @@
      {% for item in items %}
         {% set item = item.page_or_post %}
         <div class="list-item">
-            <a href="{{ item.permalink }}" class="image" style="background-image: url({{ TimberImage(item.thumbnail).src | resize(800)}});"></a>
+            <a href="{{ item.link }}" class="image" style="background-image: url({{ TimberImage(item.thumbnail).src | resize(800)}});"></a>
             <div class="content">
-                <a href="{{ item.permalink }}"><h3>{{ item.post_title }}</h3></a>
+                <a href="{{ item.link }}"><h3>{{ item.post_title }}</h3></a>
                 <hr class="dash" />
                 <p>{{ item.get_preview(40, false, '', true) }}</p>
             </div>

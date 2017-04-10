@@ -86,7 +86,7 @@
                         <p class="meta color-black">Instructor:
                             {% for instructor in session.instructors %}
                                 {% for item in instructor %}
-                                <a href="{{ item.permalink }}">
+                                <a href="{{ item.link }}">
                                     {{ item.post_title }} 
                                 </a>
                                 {% endfor %}
