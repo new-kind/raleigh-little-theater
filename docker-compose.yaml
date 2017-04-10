@@ -12,7 +12,7 @@ services:
        MYSQL_USER: wordpress
        MYSQL_PASSWORD: wordpress
 
-   wordpress
+   wordpress:
      links:
        - db
      image: wordpress:latest
