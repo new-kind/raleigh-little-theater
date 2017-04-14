@@ -4,7 +4,7 @@ Requires variables:
     - direction: expects either "prev" or "next" depending on pagination direction
 #}
 <div class="grid promos">
-{% for post in [post.prev, post.next] %}
+{% for post in [prev, next] %}
 
     {% if post %}
 
