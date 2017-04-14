@@ -99,17 +99,17 @@
     
     }
 
-@media screen and (min-width: 600px){
-
+@media screen and (min-width: 650px){
     .frames{
         padding: 0;
-        margin: 4em 8em!important;
+        margin: 3em!important;
         width: inherit!important;
     }
 
     .frame{
         top: auto;
         left: auto;
+        font-size: .8em;
 
         + .frame{
             margin: auto;
@@ -137,8 +137,19 @@
     }
 }
 
-@media screen and (max-width: 600px){
+@media screen and (min-width: 1024px){ 
+    .frames{
+        margin: 4em 8em!important;
+    }
+
+    .frame{
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 650px){
     .grid > .column.frame{
         width: 100vw;
+        max-height: 350px;
     }
 }
