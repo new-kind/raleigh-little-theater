@@ -16,7 +16,7 @@
 
         {% for item in posts %} 
 
-            {% if item.end_date | date("Y-m-d") > "now" | date("Y-m-d" ) %}
+            {% if item.end_date | date("Y-m-d") >= "now" | date("Y-m-d" ) %}
         
         <div class="list-item">
 
@@ -30,10 +30,9 @@
                     <h5>{{ item.show_type }}</h5>
                 {% endif %}
                 <h3><a href="{{ item.link }}">{{ item.title }}</a></h3>
-                <p class="meta">{{ item.get_field('start_date') }}
-                    {% if item.end_date != item.start_date %}
-                         - {{ item.get_field('end_date') }}
-                    {% endif %}
+                <p class="meta">
+                    {% set post = item %}
+                    {% include 'partials/event-show-dates.twig' %}
                 </p>
                 <hr class="dash" />
                 {% if item.post_type == "events" %}
@@ -69,10 +68,9 @@
                     <h5>{{ item.show_type }}</h5>
                 {% endif %}
                 <h3><a href="{{ item.link }}">{{ item.title }}</a></h3>
-                <p class="meta">{{ item.get_field('start_date') }}
-                    {% if item.end_date != item.start_date %}
-                         - {{ item.get_field('end_date') }}
-                    {% endif %}
+                <p class="meta">
+                    {% set post = item %}
+                    {% include 'partials/event-show-dates.twig' %}
                 </p>
                 <hr class="dash" />
                 {% if item.post_type == "events" %}
