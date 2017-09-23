@@ -141,11 +141,18 @@ p, address{
     font-family: "Roboto Condensed";
   }
 }
-
+main ul {
+    padding-left:20px;
+}
 li{
   font-size: em(16);
   font-family: "Apercu Regular", "Lato Regular", Helvetica, sans-serif;
   line-height: 1.4em;
+}
+main li{
+  font-family: "Apercu Light", "Lato Regular", Helvetica, sans-serif;
+  list-style-type:disc;
+  list-style-position:outside;
 }
 
 a{
